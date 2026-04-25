@@ -1,0 +1,13 @@
+# macOS system files
+.DS_Store
+
+# Windows system files
+Desktop.ini
+Thumbs.db
+
+# IDE settings
+.vscode/
+
+# Python cache (common default)
+__pycache__/
+*.pyc
