@@ -1,7 +1,7 @@
 # #️⃣ SQLMap: The Basics 
 
-**Path:** Cyber Security 101 > Offensive Security Tooling > SQLMap: The Basics 
-**Date:** 21/05/2026
+**Path:** Cyber Security 101 > Offensive Security Tooling > SQLMap: The Basics   
+**Date:** 21/05/2026  
 **Difficulty:** Easy
 
 ## 📋 What this room covers

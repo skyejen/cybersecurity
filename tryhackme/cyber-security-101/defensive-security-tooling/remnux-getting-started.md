@@ -1,7 +1,7 @@
 # #️⃣ REMnux: Getting Started
 
-**Path:** Cyber Security 101 > Defensive Security Tooling > REMnux: Getting Started
-**Date:** 12/06/2026
+**Path:** Cyber Security 101 > Defensive Security Tooling > REMnux: Getting Started  
+**Date:** 12/06/2026  
 **Difficulty:** Easy
 
 ## 📋 What this room covers

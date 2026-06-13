@@ -1,7 +1,7 @@
 # #️⃣ IDS Fundamentals
 
-**Path:** Cyber Security 101 > Security Solutions > IDS Fundamentals
-**Date:** 08/06/2026
+**Path:** Cyber Security 101 > Security Solutions > IDS Fundamentals  
+**Date:** 08/06/2026  
 **Difficulty:** Easy
 
 ## 📋 What this room covers

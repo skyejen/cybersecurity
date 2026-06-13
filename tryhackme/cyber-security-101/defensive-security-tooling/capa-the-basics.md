@@ -1,7 +1,7 @@
 # #️⃣ CAPA: The Basics
 
-**Path:** Cyber Security 101 > Defensive Security Tooling > CAPA: The Basics
-**Date:** 10-12/06/2026
+**Path:** Cyber Security 101 > Defensive Security Tooling > CAPA: The Basics  
+**Date:** 10-12/06/2026  
 **Difficulty:** Easy
 
 ## 📋 What this room covers

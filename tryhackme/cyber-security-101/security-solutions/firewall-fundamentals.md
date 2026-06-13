@@ -1,7 +1,7 @@
 # #️⃣ Firewall Fundamentals
 
-**Path:** Cyber Security 101 > Security Solutions > Firewall Fundamentals
-**Date:** 07/06/2026
+**Path:** Cyber Security 101 > Security Solutions > Firewall Fundamentals  
+**Date:** 07/06/2026  
 **Difficulty:** Easy
 
 ## 📋 What this room covers

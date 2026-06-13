@@ -1,7 +1,7 @@
 # 🛡️ Defensive Security
 
-**Path:** Cyber Security 101 > Defensive Security
-**Date:** 03/06/2026
+**Path:** Cyber Security 101 > Defensive Security  
+**Date:** 03/06/2026  
 **Difficulty:** Easy
 
 ## 📋 What this module covers
