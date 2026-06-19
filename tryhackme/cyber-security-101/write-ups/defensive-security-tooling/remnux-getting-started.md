@@ -18,7 +18,7 @@ We were given an .xlsm file and when putting it through oledump.py we found a po
 
 The whole thing essentially means, if someone opens this original .xlsm file, a macro will run. This macro contains a VBA script which will trigger PowerShell discretely from the user and download the malicious file from that public IP, saves it into a temporary folder and starts running it. I don't know if it's the playlist I'm listening to while studying (specific song: Hexvoid - Broque), or what, but this gave me goosebumps.
 
-![Fangirling with Claude](../images/defensive-security-tooling-remnux-01.png)
+![Fangirling with Claude](../../images/defensive-security-tooling-remnux-01.png)
 
 After I caught my breath, I was curious to see inside the oledump.py. This is how I learned about "which" command (`which oledump.py`) and `find / -name oledump.py 2>/dev/null` to find the file, which was pretty cool.
 
@@ -32,7 +32,7 @@ In this task we used the REMnux VM to set up INetSim and then used the AttackBox
 
 How it started:
 
-![Fangirling with Claude again](../images/defensive-security-tooling-remnux-02.png)
+![Fangirling with Claude again](../../images/defensive-security-tooling-remnux-02.png)
 
 How it went:
 
