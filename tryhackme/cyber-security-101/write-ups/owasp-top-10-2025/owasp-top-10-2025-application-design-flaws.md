@@ -154,8 +154,6 @@ Insecure design cannot be patched, it's built into the workflow, logic, and trus
 
 The practical included a web page for a mobile-only messaging app instructing users to download a mobile app. The task brief hinted that the "mobile-only" assumption wasn't very secure. I tried lots of different things including following most common `/api` paths, inspecting the web page source code, sending GET and POST requests with adjusted `User-Agent` headers to simulate mobile access, even mobile device mode in DevTools. Nothing worked. Only to discover that I got discouraged with common paths too quickly - while `/api` and `/users` both returned 404... `/api/users` worked :skull:. No authentication required, full user list exposed. After that, `/api/messages/admin` handed me the flag.
 
----
-
 ## 🔍 What tripped me up
 
 - In the AS02 practical (User Management API), the landing page had `GET /api/user/123` hardcoded and I could access it without any authentication. But I was struggling to get the flag - the only hint was "It appears that the developers left too many traces in their User Management APIs". I looked through request/responses, tried accessing other users, tried the terminal. Then I realised I had blindly trusted the landing page saying "ID accepts numeric values"." Changing it to "admin" gave me debug info including the flag. Not sure how I missed it - my shift was starting in 15 minutes, brain already half in work mode. Live and learn... (...to take a pause).
