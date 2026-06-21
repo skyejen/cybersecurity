@@ -11,3 +11,6 @@ Thumbs.db
 # Python cache (common default)
 __pycache__/
 *.pyc
+
+# Template file
+write-up-template.md
