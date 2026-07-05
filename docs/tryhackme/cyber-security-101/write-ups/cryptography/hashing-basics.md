@@ -18,7 +18,7 @@ Task 4 kept returning "exhausted" every single time. I went through the
 auto-detected candidates methodically - 900, 0, 70, 2600, 3500, 4400, and more.
 Exhausted. Exhausted. Exhausted. I was convinced that this way TryHackMe's way to bring the learners back on Earth, as in, perhaps it was a lesson on persistence and patience. That it's not all "Mr Robot". But after trying numerous hashes, I started suspecting I was doing something wrong.
 
-Then I reread the task instructions~~, crossed out 10 years of experience in QA from my CV~~ and noticed something I'd missed: *"for the first three questions, using hashcat along with rockyou.txt is enough."*
+Then I reread the task instructions, ~~rossed out 10 years of experience in QA from my CV~~ and noticed something I'd missed: *"for the first three questions, using hashcat along with rockyou.txt is enough."*
 
 The first three. Not four...
 

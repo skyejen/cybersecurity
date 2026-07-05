@@ -21,7 +21,7 @@ I started with manually researching all commands to be able to answer all questi
 <details>
 <summary>💻 Script</summary>
 
-```
+```bash
 #!/bin/bash
 
 for file in 8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy; do
@@ -39,7 +39,7 @@ done > file_check.txt
 <details>
 <summary>👉 Output</summary>
 
-```
+```console
 [new-user@ip-10-129-128-198 ~]$ cat file_check.txt
 === 8V2L ===
 -rwxrwxr-x 1 new-user new-user 13545 Oct 23  2019 /etc/8V2L
@@ -103,7 +103,6 @@ acbbbce6c56feb7e351f866b806427403b7b103d  /etc/ssh/SRSq
 
 <details>
 <summary>🔍 Observations</summary>
-**Observations:**
 - This script doesn't show user IDs so I can't answer one of the questions
 - I'm missing information for one file
 - There is a lot of redundancy there
@@ -117,7 +116,7 @@ acbbbce6c56feb7e351f866b806427403b7b103d  /etc/ssh/SRSq
 <details>
 <summary>💻 Script</summary>
 
-```
+```bash
 #!/bin/bash
 
 for file in 8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy; do
@@ -223,7 +222,7 @@ acbbbce6c56feb7e351f866b806427403b7b103d  /etc/ssh/SRSq
 <details>
 <summary>💻 Script</summary>
 
-```
+```bash
 #!/bin/bash
 
 for file in 8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy; do
@@ -254,7 +253,7 @@ done > file_check.txt
 <details>
 <summary>💻 Script</summary>
 
-```
+```bash
 #!/bin/bash
 
 for file in 8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy; do
@@ -376,7 +375,7 @@ IP:
 <details>
 <summary>💻 Script</summary>
 
-```
+```bash
 #!/bin/bash
 
 for file in 8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy; do
@@ -517,7 +516,7 @@ IP: N/A
 <details>
 <summary>💻 Script</summary>
 
-```
+```bash
 #!/bin/bash
 
 {
@@ -581,7 +580,7 @@ IP: N/A
 <details>
 <summary>👉 Output</summary>
 
-```
+```console
 [new-user@ip-10-128-164-120 ~]$ cat file-check.txt
 
 ==================== OUTPUT: script.sh ====================

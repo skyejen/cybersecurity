@@ -8,36 +8,68 @@ repo_url: https://github.com/skyejen/cybersecurity
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: slate
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+      primary: custom
+      accent: custom
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
-    - navigation.tabs
     - navigation.sections
-    - navigation.expand
+    - navigation.indexes
     - navigation.top
     - search.highlight
     - search.suggest
     - content.code.copy
+    - toc.follow
+  logo: images/cybersecurity-v4-1.png
+  favicon: images/cybersecurity-v4-1.png
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: >-
+  <span class="md-copyright__highlight">© 2026 Jennifer Skye</span>
+  &nbsp;·&nbsp; stay curious. keep breaking.
+
+extra:
+  generator: false
 
 plugins:
   - search
 
+hooks:
+  - hooks/writeup_counts.py
+
 nav:
-  - Home: index.md
   - TryHackMe:
     - Cyber Security 101:
-      - SEC1 Exam: tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md
+      - tryhackme/cyber-security-101/index.md
+      - Exams:
+        - SEC1 Exam: tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md
       - Cryptography:
         - Hashing Basics: tryhackme/cyber-security-101/write-ups/cryptography/hashing-basics.md
       - Defensive Security:
@@ -63,8 +95,10 @@ nav:
       - Web Hacking:
         - Burp Suite The Basics: tryhackme/cyber-security-101/write-ups/web-hacking/burp-suite-the-basics.md
     - Jr Penetration Tester:
+      - tryhackme/penetration-tester/jr-penetration-tester/index.md
       - Penetration Testing Foundations:
         - Guided Pentest Web: tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md
         - Guided Pentest Infrastructure: tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md
     - Side Quests:
+      - tryhackme/side-quests/index.md
       - Ninja Skills: tryhackme/side-quests/ninja-skills/ninja-skills.md
