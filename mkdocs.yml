@@ -1,0 +1,70 @@
+site_name: skyejen / cybersecurity
+site_url: https://skyejen.github.io/cybersecurity
+site_description: Cybersecurity learning write-ups by Jen
+site_author: skyejen
+
+repo_name: skyejen/cybersecurity
+repo_url: https://github.com/skyejen/cybersecurity
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+plugins:
+  - search
+
+nav:
+  - Home: README.md
+  - TryHackMe:
+    - Cyber Security 101:
+      - SEC1 Exam: tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md
+      - Cryptography:
+        - Hashing Basics: tryhackme/cyber-security-101/write-ups/cryptography/hashing-basics.md
+      - Defensive Security:
+        - Defensive Security: tryhackme/cyber-security-101/write-ups/defensive-security/defensive-security.md
+      - Defensive Security Tooling:
+        - CAPA The Basics: tryhackme/cyber-security-101/write-ups/defensive-security-tooling/capa-the-basics.md
+        - CyberChef The Basics: tryhackme/cyber-security-101/write-ups/defensive-security-tooling/cyberchef-the-basics.md
+        - REMnux Getting Started: tryhackme/cyber-security-101/write-ups/defensive-security-tooling/remnux-getting-started.md
+      - Exploitation Basics:
+        - Blue: tryhackme/cyber-security-101/write-ups/exploitation-basics/blue.md
+        - Metasploit Exploitation: tryhackme/cyber-security-101/write-ups/exploitation-basics/metasploit-exploitation.md
+      - Offensive Security Tooling:
+        - Shells Overview: tryhackme/cyber-security-101/write-ups/offensive-security-tooling/shells-overview.md
+        - SQLMap The Basics: tryhackme/cyber-security-101/write-ups/offensive-security-tooling/sqlmap-the-basics.md
+      - OWASP Top 10 2025:
+        - Application Design Flaws: tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws.md
+        - IAAA Failures: tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures.md
+        - Insecure Data Handling: tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling.md
+      - Security Solutions:
+        - Firewall Fundamentals: tryhackme/cyber-security-101/write-ups/security-solutions/firewall-fundamentals.md
+        - IDS Fundamentals: tryhackme/cyber-security-101/write-ups/security-solutions/ids-fundamentals.md
+        - Vulnerability Scanner Overview: tryhackme/cyber-security-101/write-ups/security-solutions/vulnerability-scanner-overview.md
+      - Web Hacking:
+        - Burp Suite The Basics: tryhackme/cyber-security-101/write-ups/web-hacking/burp-suite-the-basics.md
+    - Jr Penetration Tester:
+      - Penetration Testing Foundations:
+        - Guided Pentest Web: tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md
+        - Guided Pentest Infrastructure: tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md
+    - Side Quests:
+      - Ninja Skills: tryhackme/side-quests/ninja-skills/ninja-skills.md
