@@ -16,7 +16,7 @@ This is the third of three rooms in the OWASP Top 10 (2025) module. It covers th
 
 ### A04: Cryptographic Failures (weak ciphers)
 
-A04 appeared in the previous room too (see [owasp-top-2025-application-design-flaws.md](owasp-top-2025-application-design-flaws.md) for the full breakdown). This time the focus was specifically on homegrown/weak cipher algorithms rather than hardcoded keys.
+A04 appeared in the previous room too (see [owasp-top-10-2025-application-design-flaws.md](owasp-top-10-2025-application-design-flaws.md) for the full breakdown). This time the focus was specifically on homegrown/weak cipher algorithms rather than hardcoded keys.
 
 The practical was a "note sharing" service using a weak XOR cipher with a 4-character key. XOR is reversible, so if you know (or can guess) the key, you can decrypt anything. The key was only 4 characters and the first 3 were given as a hint ("KEY_"). I tried KEY1 first and it worked. All three encrypted notes decrypted instantly, one of them containing the flag.
 
