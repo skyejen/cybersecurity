@@ -93,6 +93,16 @@ document.addEventListener("DOMContentLoaded", function () {
     var bar = document.createElement("div");
     bar.className = "sj-nav-bar";
     barSidebar.appendChild(bar);
+    /* True when the active row sits inside a collapsed section (hidden from view) */
+    var isRowCollapsed = function () {
+      var el = actRow.closest(".md-nav__item--nested");
+      while (el && barSidebar.contains(el)) {
+        var t = el.querySelector(":scope > input.md-nav__toggle");
+        if (t && !t.checked) return true;
+        el = el.parentElement ? el.parentElement.closest(".md-nav__item--nested") : null;
+      }
+      return false;
+    };
     var placeBar = function () {
       var r = actRow.getBoundingClientRect();
       var s = barSidebar.getBoundingClientRect();
@@ -101,7 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
       bar.style.height = r.height + "px";
       /* bridge the highlight from the gold bar to the row */
       bar.style.width = Math.max(2, r.left - bar.getBoundingClientRect().left + 1) + "px";
-      bar.style.opacity = (r.bottom < w.top + 8 || r.top > w.bottom - 8) ? "0" : "1";
+      var hidden = isRowCollapsed() || r.bottom < w.top + 8 || r.top > w.bottom - 8;
+      bar.style.opacity = hidden ? "0" : "1";
     };
     placeBar();
     /* Only the nav's own internal scroll moves the row relative to the sidebar.
@@ -110,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
     barWrap.addEventListener("scroll", placeBar, { passive: true });
     window.addEventListener("resize", placeBar);
     document.querySelectorAll(".md-sidebar--primary input.md-nav__toggle").forEach(function (t) {
-      t.addEventListener("change", function () { setTimeout(placeBar, 300); });
+      /* update immediately (hide on collapse) and again after the expand animation */
+      t.addEventListener("change", function () { placeBar(); setTimeout(placeBar, 300); });
     });
   }
 
