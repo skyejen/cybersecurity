@@ -6,6 +6,8 @@ site_author: skyejen
 repo_name: skyejen/cybersecurity
 repo_url: https://github.com/skyejen/cybersecurity
 
+docs_dir: .
+
 theme:
   name: material
   palette:
