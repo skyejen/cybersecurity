@@ -14,3 +14,6 @@ __pycache__/
 
 # Template file
 write-up-template.md
+
+# MkDocs build output (generated in CI)
+site/

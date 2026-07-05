@@ -12,6 +12,10 @@ This room gave file names for 12 files and asked me to find answers to 6 questio
 
 This room, I think, was meant to be done manually. But I've been doing some script-adjacent work (AI-assisted) at work and the second I saw the task, I thought - this would be a great opportunity to learn about `bash` scripting. I have an amazing colleague who agreed to mentor me for DevOps tasks, and he really wants me to learn, rather than to "help" fully relying on AI (he has a good heart!), so I thought this could be a part of my "homework" too
 
+I started with manually researching all commands to be able to answer all questions and then I reached to Claude for scripting support
+
+---
+
 ### Version 1
 
 <details>
@@ -97,11 +101,14 @@ acbbbce6c56feb7e351f866b806427403b7b103d  /etc/ssh/SRSq
 ```
 </details>
 
+<details>
+<summary>🔍 Observations</summary>
 **Observations:**
 - This script doesn't show user IDs so I can't answer one of the questions
 - I'm missing information for one file
 - There is a lot of redundancy there
 - Formatting could be improved
+</details>
 
 ---
 
@@ -202,10 +209,12 @@ acbbbce6c56feb7e351f866b806427403b7b103d  /etc/ssh/SRSq
 ```
 </details>
 
-**Observations:**
+<details>
+<summary>🔍 Observations</summary>
 - Doing it step-by-step, so got my user IDs for one of the questions
 - Spoke to Claude to scout info on optimisation and he said that the file path mentioned 3 times is not really a redundancy, as in, that's how commands work. We could strip it, but it's just cosmetic. Since I'm going to try and make it formatted better I'm going to disregard this one for now
 - He did point out that we are running `ls -la` twice and suggested an optimisation for that, that made total sense and was very cool
+</details>
 
 ---
 
@@ -232,9 +241,11 @@ done > file_check.txt
 ```
 </details>
 
-**Observations:**
+<details>
+<summary>🔍 Observations</summary>
 - Output is the same, but we are not running the same command for the same files twice, so happy times
 - Next stop - formatting!
+</details>
 
 ---
 
@@ -351,10 +362,12 @@ IP:
 ```
 </details>
 
-**Observations:**
+<details>
+<summary>🔍 Observations</summary>
 - Claude and I explored two ways to format this, add labels or a table. Labels seemed easier for a quick dopamine boost (and a tidy up session) - `echo "label: $(command)"`. This was pretty cool and looks great. I wanted to try a table too, but now thinking that I'd rather polish this output as I prefer it (?)
 - I'd like to chop the last two instances of the `path` (coming from the hash and word count commands) and put "N/A" for IP entry that don't have any value there
 - I also want to rename file_check to file-check, I don't know why I put an underscore there and it annoys me now
+</details>
 
 ---
 
@@ -490,10 +503,12 @@ IP: N/A
 ```
 </details>
 
-**Observations:**
+<details>
+<summary>🔍 Observations</summary>
 - This looks so much nicer! I can see how I could pass this "report" to someone else (rather than just a plain output)
 - I know it's probably going overboard, but I'd like to split "file info" into "permissions" and "path" (I'm somehow treating this now as a "polish the report for a stakeholder" task now haha)
 - I'd also like to put "Not found" for the file we are missing
+</details>
 
 ---
 
@@ -664,16 +679,21 @@ IP: N/A
 ```
 </details>
 
+<details>
+<summary>🔍 Observations</summary>
+- I think we are done. What a difference between V1 and V6!
+</details>
+
 ## 🔍 Power through struggle
 
 ### Bash Syntax and Its Possibilities
-- The main "struggle" was syntax and knowing bash's possibilities. I've never really used bash before and I don't have much scripting experience at all. I've started this room yesterday as I was a bit down that my THM score was still at 34 (for ages), and this room was recommended. I knew I needed to get more comfortable with terminal work and I was waiting for Claude Opus to work on my other stuff so in between him thinking I was doing this room
+- The main "struggle" was syntax and knowing bash's possibilities. I've never really used bash before and I don't have much scripting experience at all. I started this room yesterday as I was a bit down that my THM score was still at 34 (for ages), and this room was recommended. I knew I needed to get more comfortable with terminal work and I was waiting for Claude Opus to work on my other stuff so in between waiting for him to respond I was doing this room
 - I couldn't finish it last night as I ran out of time and my wonderful boyfriend already prepared dinner. So before bed time and this morning I spent some time on my phone doing a "Bash Scripting" room on THM, it was super basic but I think it helped a little bit
 - I was relieved to know logic wasn't the hardest part, it's more like "how do I actually do it in bash", but that was also interesting to learn
 
 ### Jen vs Claude
-- Had a few fights with Claude. Some were him pushing back to me asking him to help with scripting, I found it frustrating at first as he is only supposed to do this cybersecurity and python studies (we have a pact - no AI, I have to do everything myself), but I haven't done bash scripting before and I was basically starting from 0. I only really wanted to see the possibilities, but Claude was pushing back and making me do most of the work myself. TBH when I saw the outcome I was grateful. I won't be able to write it from scratch myself again, but maybe with Google!
-- I noticed some errors that were printing to the terminal when I was running `bash` command on my script, those were related to the file we couldn't find (bny0). When we added `{}` (or so I thought), those were gone. I kept asking Claude why it happened and he kept almost gaslighting me (lol) that there errors never happened. That was such a crazy experience as he was basically telling me "no you are wrong", I eventually reran the old version of the script and showed him, and that's when we had a chat and he talked me through it. Mental!
+- Had a few fights with Claude. Some were him pushing back to me asking him to help with scripting, I found it frustrating at first as he is supposed to "let me struggle" (and poke with direction if super stuck) only with cybersecurity and Python studies (we have a pact - no AI, I have to do everything myself), but I haven't done bash scripting before and I was basically starting from 0. I only really wanted to see the possibilities, but Claude was pushing back and making me do most of the work myself. TBH when I saw the outcome I was grateful. I won't be able to write it from scratch myself again, but maybe with Google!
+- I noticed some errors that were printing to the terminal when I was running `bash` command on my script, those were related to the file we couldn't find (bny0). When we added `{}` (or so I thought), those were gone. I kept asking Claude why it happened and he kept almost gaslighting me (lol) that these errors never happened. That was such a crazy experience as he was basically telling me "no you are wrong", I eventually reran the old version of the script and showed him, and that's when we had a chat and he talked me through it. Mental!
 
 ## 💡 Key takeaways
 
@@ -701,9 +721,11 @@ By default, both streams print to the terminal, which is why they look the same 
 `2>/dev/null` redirects stderr (stream 2) to `/dev/null`, which is a black hole — it discards everything sent to it. That's why `find / -iname "$file" 2>/dev/null` silently swallows "permission denied" errors from directories you can't access.
 
 If you wanted to capture both stdout and stderr into a file, you'd use `2>&1`:
+
 ```bash
 done > file-check.txt 2>&1
 ```
+
 This means "redirect stderr (2) to wherever stdout (&1) is going."
 
 **The if check**
@@ -718,6 +740,5 @@ fi
 
 `[ -z "$file_location" ]` checks whether the variable is empty (zero length). If `find` comes back with nothing — because the file doesn't exist or can't be found — `$file_location` is an empty string. The `-z` flag returns true when that's the case.
 
-`continue` skips the rest of the current loop iteration and jumps straight to the next file. Without it, all the commands below (`ls -la`, `sha1sum`, etc.) would run with an empty path and produce the "no such file" errors you were seeing before. The if check catches the problem early and exits cleanly instead.
-
+`continue` skips the rest of the current loop iteration and jumps straight to the next file. Without it, all the commands below (`ls -la`, `sha1sum`, etc.) would run with an empty path and produce the "no such file" errors you were seeing before. The `if` check catches the problem early and exits cleanly instead.
 </details>
