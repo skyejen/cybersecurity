@@ -1,10 +1,22 @@
-# #️⃣ OWASP Top 10 (2025): Application Design Flaws
+# :material-pound: OWASP Top 10 (2025): Application Design Flaws
 
-**Path:** Cyber Security 101 > OWASP Top 10 (2025) > Application Design Flaws  
-**Date:** 18-19/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > OWASP Top 10 (2025) > Application Design Flaws
+
+:material-calendar-month-outline: **Date:** 18-19/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/owasptopten2025one)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This is the second of three rooms in the OWASP Top 10 (2025) module. It covers four OWASP categories relating to failures in application architecture and design - where the vulnerability isn't always a bug in the code itself, but a flaw in how the system was conceived, configured, or built:
 
@@ -15,7 +27,7 @@ This is the second of three rooms in the OWASP Top 10 (2025) module. It covers f
 
 It was an absolutely fascinating room and I really enjoyed it, I loved how the conclusion tied it all up nicely at the end. You cannot add security at the end and expect it to work. Strong systems start with clear security requirements, realistic threat assumptions, controlled configurations, verified dependencies, and strong cryptographic choices. Treat everything with suspicion (#trustno1)
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 ### AS02: Security Misconfigurations
 
@@ -154,14 +166,14 @@ Insecure design cannot be patched, it's built into the workflow, logic, and trus
 
 The practical included a web page for a mobile-only messaging app instructing users to download a mobile app. The task brief hinted that the "mobile-only" assumption wasn't very secure. I tried lots of different things including following most common `/api` paths, inspecting the web page source code, sending GET and POST requests with adjusted `User-Agent` headers to simulate mobile access, even mobile device mode in DevTools. Nothing worked. Only to discover that I got discouraged with common paths too quickly - while `/api` and `/users` both returned 404... `/api/users` worked :skull:. No authentication required, full user list exposed. After that, `/api/messages/admin` handed me the flag.
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 - In the AS02 practical (User Management API), the landing page had `GET /api/user/123` hardcoded and I could access it without any authentication. But I was struggling to get the flag - the only hint was "It appears that the developers left too many traces in their User Management APIs". I looked through request/responses, tried accessing other users, tried the terminal. Then I realised I had blindly trusted the landing page saying "ID accepts numeric values"." Changing it to "admin" gave me debug info including the flag. Not sure how I missed it - my shift was starting in 15 minutes, brain already half in work mode. Live and learn... (...to take a pause).
 - Remember I just said I need to learn to take a pause? Well I didn't. I got so excited in the AS03 practical that I missed a huge "DOWNLOAD FILES" button and was looking for the script everywhere else. Got there eventually :D
 - In the AS04 practical I initially thought I'd need to run the JS script to decrypt the document. After looking through the code multiple times I realised the script wasn't there to be executed, it was planted so I'd find the hardcoded secret key. Once it clicked, the rest was a breeze!
 - The AS06 practical (insecure design) gave me a lot to scratch my head about, as described in the practical section above. Lesson: don't assume that if a parent root returns 404, child endpoints within that root won't work... especially when the whole point is design flaws.
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - Security misconfigurations aren't "bugs" - they're more of setup mistakes. But they're just as dangerous (or more?). Default credentials and exposed endpoints are gifts to attackers.
 - "ID accepts numeric values" is not a security control. Trusting the frontend to enforce input constraints is insecure design in itself (I'm honestly still surprised at myself). Always validate server-side. Always.

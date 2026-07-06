@@ -1,14 +1,26 @@
-# #️⃣ IDS Fundamentals
+# :material-pound: IDS Fundamentals
 
-**Path:** Cyber Security 101 > Security Solutions > IDS Fundamentals  
-**Date:** 08/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Security Solutions > IDS Fundamentals
+
+:material-calendar-month-outline: **Date:** 08/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/idsfundamentals)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room was devoted to IDS (Intrusion Detection Systems), its types, purpose and usage. After the general theory, we dived into Snort and also had two practical exercises.
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 ### General Theory
 
@@ -46,12 +58,12 @@ Don't start me on this task. Honestly. When the brief starts with "you are a thi
 
 I needed to run a command to dig into old logs (.pcap file), conduct a log analysis and answer questions.
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 - Again, my own brain tripped me up a little bit when I was reading about signature-based IDS, my first question to Claude was - is it like modus operandi? Give me an example :D
 - I got so excited running Snort that I tried to ping in the same terminal without switching first. When there was no output I assumed something was wrong, I checked the instructions where they mentioned that my loopback interface may be called somewhere else. I didn't know how to check it (or couldn't remember at the top of my head), so I googled and found the relevant command. I used `ifconfig -a` to verify my loopback interface was correctly named (it was), then I stopped to think and realised I just needed to swap terminals, same as when setting up a port listener (deh).
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - IDS is a crucial security solution that serves as the second line of defence for anything that sneaks past the firewall.
 - IDS can be of different types and serve different purposes, signature-based flags known threats and builds a database when encountering something new, anomaly-based knows the baseline and flags anything abnormal, while hybrid uses both. 

@@ -1,14 +1,26 @@
-# #️⃣ Burp Suite: The Basics
+# :material-pound: Burp Suite: The Basics
 
-**Path:** Cyber Security 101 > Web Hacking > Burp Suite: The Basics  
-**Date:** 19/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Web Hacking > Burp Suite: The Basics
+
+:material-calendar-month-outline: **Date:** 19/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/burpsuitebasics)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room was devoted to the basics of the Burp Suite. Burp Suite is a Java-based web application security testing framework. It's designed for conducting hands-on and manual web and mobile application penetration testing (including API support). There was a lot of theory in this room, software overview, comparison between different editions, and some practical follow-alongs using Burp Suite Community edition.
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 Burp Suite captures and enables manipulation of all the HTTP/HTTPS traffic between a browser and a web server. By intercepting requests, users are able to route them to various components within the Burp Suite framework, to view, modify web requests before they reach the server as well as manipulate responses before they are received by the browser.
 
@@ -115,7 +127,7 @@ Turns out Burp Suite has a built-in browser which doesn't require any configurat
 
 So, interesting thing. I was nearly ready to move... but honestly I can't move without testing things myself. I didn't want to follow the easy path (disabling sandbox), so I decided to create a user. I know it sounds funny as I've completed the full learning path, but I couldn't remember how to create a new user. Quick google fixed that, I set up a new user with lower privileges, switched to that in the terminal and then was looking how to launch Burp from there. Google search was giving me weird commands while Claude was like "eh, just `burpsuite` lol". So... I launched it and got this error:
 
-```
+```console
 synthmaev3@ip-10-128-83-93:/$ burpsuite
 Authorization required, but no authorization protocol specified
 Authorization required, but no authorization protocol specified
@@ -126,7 +138,7 @@ I didn't know what X11 was, although I think I've seen it at work at some point.
 
 The way to bypass it was to execute this command:
 
-```
+```bash
 xhost +local:
 ```
 
@@ -192,12 +204,12 @@ Finally, the practical. Like a proper one! The coolest thing, I needed to do an 
 
 ![Burp's built-in browser](../../images/web-hacking-burp-11.png)
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 - My curiosity again... As soon as I intercepted my first request... and then intercepted and modified my first request... it all kind of went downhill from there. After a very much needed walking (doggo time), my boyfriend came back from work, so I had to tell him, but he is from a different industry and not super technical, so I had to explain to him how web applications (browsers and servers, requests and responses) work so I could tell what Burp could do. He was so excited and started asking about random scenarios (it was funny and cute as we thought about the same sneaky scenarios). Then I showed him at my desk (I modified one of the strings to "HELLO {his name}") and he was blown away. Before that and especially after I had a long session with Claude with my million questions about related concepts. I meant to come back to this room to make sure I understood everything and ended up geeking about it for hours haha
 - I got a little bit stuck doing the practical (a.k.a. "Example Attack). I did everything according to the instructions (and now my own understanding): configured and enabled FoxyProxy, enabled interception on Burp, accessed /ticket webpage, let that GET request through as I didn't need it, submitted a form on Firefox, changed the email to the XSS injection code, encoded it, and the forwarded. No alert. Where is it? So I redid this several times trying to figure out if I missed a step. Still nothing. Then I noticed a GET request which I didn't expect, so I forwarded it. I got my alert. What is this GET request? I had suspected perhaps this was my browsers way to say "you submitted a form, I got a response from the server, and now I need to rerender the page for you, this is a cheeky GET you didn't technically initiatied". Claude confirmed, so happy days (and makes total sense).
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - Client-side validation is basically decorative - the moment you intercept the request after the browser sends it, you can put whatever you want in the fields. Server-side validation is the thing that does the heavy lifting.
 - Intercept = request frozen in time, you decide what happens. Passive log = already gone, but you can still grab it and replay it via Repeater. Different workflows, both useful, but for different purposes (e.g., form submission vs brute-force attack).
@@ -206,20 +218,18 @@ Finally, the practical. Like a proper one! The coolest thing, I needed to do an 
 - Burp's CA cert trick is why the HTTPS interception works on your own machine, but an attacker can't pull the same move on you without your browser warning you (thankfully).
 - Verdict: Burp is a kind of magic that allows you to squeeze in between browser and server, intercept and modify a request or a response, and it's honestly one of the most mindblowing things I've done in this Cyber Security 101 learning path (and I just finished the whole thing, came back to redo Burp).
 
-## 🌟 Bonus!
+## :material-star-outline: Bonus! { data-toc-label="Bonus!" }
 
-<details>
-<summary>Claude's Wisdom</summary>
+??? note "Claude's Wisdom"
 
-I got overexcited intercepting and modifying requests and responses so had a lot to ask Claude. I want to dump it here as I found it super useful:
+    I got overexcited intercepting and modifying requests and responses so had a lot to ask Claude. I want to dump it here as I found it super useful:
 
-As an attacker: What you did only works because YOU are the proxy - you're sitting between your own browser and the server. To do this to someone else, you'd need to actually be in the middle of their traffic. That's where things like ARP spoofing come in - you trick devices on the same network into routing their traffic through your machine. So yes, same network is the most common scenario. You become their proxy without them knowing.
+    As an attacker: What you did only works because YOU are the proxy - you're sitting between your own browser and the server. To do this to someone else, you'd need to actually be in the middle of their traffic. That's where things like ARP spoofing come in - you trick devices on the same network into routing their traffic through your machine. So yes, same network is the most common scenario. You become their proxy without them knowing.
 
-The big catch though: this worked because the site is HTTP. If it were HTTPS, the browser would verify the server's certificate. An attacker in the middle can't fake that certificate without the browser screaming at the user. Burp gets around this on YOUR machine because it installs its own CA certificate that your browser is told to trust.
+    The big catch though: this worked because the site is HTTP. If it were HTTPS, the browser would verify the server's certificate. An attacker in the middle can't fake that certificate without the browser screaming at the user. Burp gets around this on YOUR machine because it installs its own CA certificate that your browser is told to trust.
 
-As a pentester: You're not exploiting a vulnerability IN the app here - you're testing the transport layer. So findings would be things like: site not enforcing HTTPS, no HSTS header (which forces browsers to always use HTTPS and refuse downgrades), cookies missing the Secure flag. You'd report those.
+    As a pentester: You're not exploiting a vulnerability IN the app here - you're testing the transport layer. So findings would be things like: site not enforcing HTTPS, no HSTS header (which forces browsers to always use HTTPS and refuse downgrades), cookies missing the Secure flag. You'd report those.
 
-If protection is in place: HTTPS with proper cert validation means an attacker's MITM attempt causes the browser to throw a certificate warning. HSTS goes further - it prevents even attempting HTTP in the first place.
+    If protection is in place: HTTPS with proper cert validation means an attacker's MITM attempt causes the browser to throw a certificate warning. HSTS goes further - it prevents even attempting HTTP in the first place.
 
-The short version: what you just did is exactly why HTTP sites are considered insecure and why HTTPS exists.
-</details>
+    The short version: what you just did is exactly why HTTP sites are considered insecure and why HTTPS exists.

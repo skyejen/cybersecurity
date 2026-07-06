@@ -1,16 +1,28 @@
-# #️⃣ Hashing Basics
+# :material-pound: Hashing Basics
 
-**Path:** Cyber Security 101 > Cryptography > Hashing Basics  
-**Date:** 04/04/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Cryptography > Hashing Basics
+
+:material-calendar-month-outline: **Date:** 04/04/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/hashingbasics)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 The fundamentals of hashing - what hash functions are, how they're used in
 password verification and file integrity, and how to crack them using hashcat
 and rockyou.txt (mostly...).
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 Tasks 1-3 were straightforward - hashcat, rockyou.txt, correct hash mode, done.
 
@@ -26,7 +38,7 @@ Task 4 needed rules - adding `best64.rule` to the command cracked it
 immediately. The password was a variation, not a word that exists
 verbatim in rockyou.txt.
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 Missing one sentence in the instructions cost me a lot of time. The room
 explicitly signalled that task 4 was different - I just didn't clock it on the
@@ -41,7 +53,7 @@ a single new word to it.
 
 I felt it was very elegant when I saw it working its magic in practice.
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - Contain your excitement while reading the instructions.
 - Rules are not optional extra credit - they're what bridges the gap between
@@ -52,7 +64,7 @@ I felt it was very elegant when I saw it working its magic in practice.
 - "Exhausted" doesn't mean uncrackable. It means your current approach ran out
   of candidates. Change the approach.
 
-## 🗺️ Concepts worth exploring further
+## :material-map-outline: Concepts worth exploring further { data-toc-label="Concepts worth exploring further" }
 
 After cracking task 4, I had questions. I always have questions. Rather than
 move on immediately, I decided to spend some time on a few things that had come

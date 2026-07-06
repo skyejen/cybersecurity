@@ -1,14 +1,26 @@
-# #️⃣ REMnux: Getting Started
+# :material-pound: REMnux: Getting Started
 
-**Path:** Cyber Security 101 > Defensive Security Tooling > REMnux: Getting Started  
-**Date:** 12/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Defensive Security Tooling > REMnux: Getting Started
+
+:material-calendar-month-outline: **Date:** 12/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/remnuxgettingstarted)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room was devoted to the REMnux VM, a specialised Linux distribution, which includes tools like Volatility, YARA, Wireshark, oledump, and INetSim. It also provides a sandbox-like environment for analysing suspicious malware without affecting your main system.
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 ### Oledump
 
@@ -70,14 +82,14 @@ This was the end of the room. It was pretty cool, but I'm left feeling of wantin
 
 The split between preprocessing and analysis also started to make more sense after interogatting Claude a bit. In large incidents you might be imaging 10 machines at once - a first responder's job is speed and correct evidence acquisition, not deep analysis while the attacker is potentially still in the network. There's also a legal dimension: chain of custody requirements mean keeping the collector and the analyst separate reduces contamination risk in court. And in a proper IR team, a generalist first responder and a malware reverse engineer are both technical, just different specialisms. In smaller orgs one person does both. The split is about scale and legal rigour, not about one role being less technical than the other.
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 - I think this was the first time I felt like I crossed a line. Not in a way "I did something bad", but as in... maybe "crossed into a new territory". So far the learning journey was fine and safe and just exciting, but this... When I started learning cybersecurity I felt like I opened a door into another dimension, an excited and full of things to solve and learn. This felt like I opened a new door... but this dimension is dark, full of pain and misery. I felt similarly when I watched The Darkest Web, a documentary about INTERPOL officers catching pedophile rings in the dark web. You live your life, enjoy everything it gives you, get upset by meaningless things. While all of this darkness is out there and you don't see it, don't feel it. Don't do anything about it. How?
 - INetSim task confused me originally as I read about INetSim's ability to fake a network and was like "ohh woow, so cool, I can set up a fake network so when the attackers try to connect they would just see this curtain instead". This assumption alongside the "AttackBox" being used as a victim confused me as to what we are trying to simulate. Claude poked me to rethink my assumptions and I realised that in this context the fake network was the attacker's server and the "AttackBox" was acting as an infected machine of a victim. So the workflow was: the victim's machine got infected (this was assumed in the task and we didn't need to mimic it), then it would download malicious files from the attacker's network (which was just INetSim in our case). In our example I wget the files, but in a real scenario those would be automatic downloads (just like in the oledump room earlier!).
 - I was genuinely a little sad the Volatility section didn't walk through what was actually in those files. Malfind flagged csrss.exe and winlogon.exe as suspected of having injected code - that's huge, that's WannaCry doing process injection to hide itself - and we just... moved on. I understand the room's goal was preprocessing, not analysis, but it felt like being handed a set of X-rays and told "great, these are ready for the doctor" without finding out what they show. I used grep on my own initiative (`vol3 -f wcry.mem windows.dlllist.DllList | grep "WanaDecryptor"`) and started digging a little just to feel like I saw something real in there. Hopefully the blue team path will have more of this though...
 
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - A memory image is a snapshot of everything that was running at a single moment in time - processes, loaded DLLs, network connections, file handles, and things that never touched disk. Volatile evidence -> Volatility.
 - Preprocessing is a real workflow: you run all your plugins and string extractions upfront so the forensics analyst gets text files they can search instantly rather than waiting minutes per plugin.

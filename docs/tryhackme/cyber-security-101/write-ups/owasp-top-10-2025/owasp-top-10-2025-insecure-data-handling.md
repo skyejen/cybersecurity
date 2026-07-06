@@ -1,10 +1,22 @@
-# #️⃣ OWASP Top 10 (2025): Insecure Data Handling
+# :material-pound: OWASP Top 10 (2025): Insecure Data Handling
 
-**Path:** Cyber Security 101 > OWASP Top 10 (2025) > Insecure Data Handling  
-**Date:** 19/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > OWASP Top 10 (2025) > Insecure Data Handling
+
+:material-calendar-month-outline: **Date:** 19/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/owasptopten2025three)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This is the third of three rooms in the OWASP Top 10 (2025) module. It covers three OWASP categories relating to how applications handle data and dependencies at runtime:
 
@@ -12,7 +24,7 @@ This is the third of three rooms in the OWASP Top 10 (2025) module. It covers th
 - **A05: Injection**
 - **A08: Software or Data Integrity Failures**
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 ### A04: Cryptographic Failures (weak ciphers)
 
@@ -38,7 +50,7 @@ I figured out the first two steps myself:
 
 I tried figuring it out myself, but then realised perhaps more advanced Python knowledge is required which I don't have at the moment. So for step 3 I had a sneaky look at the solution: to read `flag.txt`, you chain through Flask's request object to reach Python's builtins and call `open()`:
 
-```
+```text
 {{ request.application.__globals__.__builtins__.open('flag.txt').read() }}
 ```
 
@@ -57,11 +69,11 @@ The exploit flow:
 
 I didn't manage to get my script working (Python gaps, more on that below...), so I used the solution.
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 - The A08 practical hit a Python wall I wasn't expecting. I found a script online and adapted it, but couldn't get it working easily - missing imports, wrong structure, and I wasn't fully clear on how `__reduce__` actually hooks into pickle's execution flow. I understand the concept, but my Python skills are lagging behind a bit. Not a big deal as I'm actually doing a very hands-on Python course right now (by Angela Yu) and loving every lesson. I attempted it years ago and it was scary and confusing, now it all makes sense. I guess I gained technical knowledge from CS50x, my work and also confidence that I can dive int and learn too. I didn't have that before.
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - Never deserialize untrusted data. Pickle especially - `__reduce__` turns deserialization into arbitrary code execution, and there is no safe way to unpickle (what a cool name!) data you didn't create yourself. Use JSON or YAML with safe_load instead.
 - Software integrity failures are broader than just deserialization: unverified updates, unsigned packages, untrusted scripts loaded from CDNs, and compromised CI/CD pipelines are all the same class of problem - us trusting something we shouldn't have.

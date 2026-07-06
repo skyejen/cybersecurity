@@ -1,10 +1,26 @@
-# 🛡️ Defensive Security
+# :material-shield-outline: Defensive Security
 
-**Path:** Cyber Security 101 > Defensive Security  
-**Date:** 03/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this module covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Defensive Security
+
+:material-calendar-month-outline: **Date:** 03/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: Intro to Defensive Security](https://tryhackme.com/room/defensivesecurityintro)
+    - [:simple-tryhackme: SOC Fundamentals](https://tryhackme.com/room/socfundamentals)
+    - [:simple-tryhackme: Digital Forensics Fundamentals](https://tryhackme.com/room/digitalforensicsfundamentals)
+    - [:simple-tryhackme: Incident Response Fundamentals](https://tryhackme.com/room/incidentresponsefundamentals)
+    - [:simple-tryhackme: Logs Fundamentals](https://tryhackme.com/room/logsfundamentals)
+
+## :material-clipboard-text-outline: What this module covers { data-toc-label="What this module covers" }
 
 Five rooms covering the defensive side of cybersecurity: Defensive Security Intro, SOC Fundamentals, Digital Forensics Fundamentals, Incident Response Fundamentals, and Logs Fundamentals. Mostly theoretical, but with a small hands-on practical task at the end of each room.
 
@@ -32,7 +48,7 @@ Some little awesome things I learned from the log-specific practice task:
 - Event ID 4624 is a successful logon event - and it fires *constantly* in the background from services and scheduled tasks, not just when a human logs in.
 - I somehow still didn't fully understand how piping works in `grep`, now I do! (the file has to go with the first command, not appended to the end of a pipe chain).
 
-## 💻 Practical Tasks
+## :material-laptop: Practical Tasks { data-toc-label="Practical Tasks" }
 
 Most of the practical tasks were simple concept demonstrations (apart from the last one for logs), but nevertheless it definitely was very exciting. I think it gave me a taste of what I could be doing for a living.
 
@@ -42,7 +58,7 @@ Most of the practical tasks were simple concept demonstrations (apart from the l
 - Incident Response Fundamentals: Investigating and responding to a phishing email attack in a corporate setting.
 - Logs Fundamentals: This room had two practical tasks, both focused on log analysis and finding out required information. The first one was devoted to Windows Event logs while the second one was for a Linux web server.
 
-## 🔍 What was new or surprising
+## :material-magnify: What was new or surprising { data-toc-label="What was new or surprising" }
 
 I expected Event ID 4624 to appear roughly once per user session. So... it does not. Services and scheduled tasks generate logon events constantly, so a real log is full of them (thank god for filtering!).
 
@@ -50,7 +66,7 @@ I also didn't expect SYSTEM to appear as a Security ID rather than a username. O
 
 The IP address field on a local SYSTEM logon is empty. That field is where remote access shows up. So an empty IP on a 4624 tells you it was local. A populated one should immediately raise questions... Scenarios like this get me proper excited haha
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - Defensive security is a fascinating complex discipline with multiple dimensions. I can't wait to start my SOC Level 1 learning path once I finish this Cybersecurity 101 path.
 - Log overlap allows capturing the same event from different angles which is exactly how we can build an airtight evidential picture.

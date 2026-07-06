@@ -1,14 +1,26 @@
-# #️⃣ SQLMap: The Basics 
+# :material-pound: SQLMap: The Basics 
 
-**Path:** Cyber Security 101 > Offensive Security Tooling > SQLMap: The Basics   
-**Date:** 21/05/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Offensive Security Tooling > SQLMap: The Basics
+
+:material-calendar-month-outline: **Date:** 21/05/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/sqlmapthebasics)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room covered SQL injection vulnerabilities, how they can be exploited and introduced me to SQLMap, an automation tool for detecting and exploiting SQL injection vulnerabilities.
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 I learned the following:
 - websites with databases can be vulnerable to SQL injections
@@ -19,7 +31,7 @@ I learned the following:
 - SQLMap also allows you to import files (for POST request exploitation)
 - solved a practice task!
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 I'm at my cybersecurity journey where everything is very exciting and I'm now gaining a little bit of confidence to try and solve things by myself instead of relying on instructions to guide me. I attempted to solve this practice task myself and the fact that I needed a GET URL for SQLMap to work and I only had the login form available made me scratch my head a little.
 
@@ -29,7 +41,7 @@ I then ran several commands, first enumerating the website and obtaining the num
 
 After I completed this task I went back to read the full instructions and saw they confirmed this was the way to go. That was quite encouraging!
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - I have tested API endpoints for validation in a work setting before, but it was my first experience to being on the offensive side. It was really great seeing the implications and damage that SQL injection can do from this angle
 - SQLMap seems to be a fantastic tool with beginner friendly wizard setup and automation support for time-consuming tasks

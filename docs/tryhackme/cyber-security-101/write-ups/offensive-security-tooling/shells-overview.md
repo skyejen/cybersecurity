@@ -1,14 +1,26 @@
-# #️⃣ Shells Overview
+# :material-pound: Shells Overview
 
-**Path:** Cyber Security 101 > Offensive Security Tooling > Shells Overview  
-**Date:** 26/05/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > Offensive Security Tooling > Shells Overview
+
+:material-calendar-month-outline: **Date:** 26/05/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/shellsoverview)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room covered different kinds of shells such as reverse, bind and web shells, and how they can be used to exploit vulnerable websites.
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 The practice task consisted of two subtasks, one was for either reverse or bind shell. The other was for a web shell.
 
@@ -18,7 +30,7 @@ In the second task I was presented with a web page where I could upload a file. 
 
 I then used the URL to execute commands on the web server to find my flag.
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 ### Task 1
 - A rookie mistake incoming!.. So... the website was hosted on 8081 so I somehow assumed I needed to listen on that same port. The logic made sense intuitively (?) but obviously the reverse shell needs its own separate listener port that has nothing to do with the web app port. The web app port (8081) was where the vulnerable site lived. And my listener port (4444 in the end) was where the target machine phoned home to. Two completely different things, yet my overexcited mind mashed them into one. Won't happen again though!
@@ -28,7 +40,7 @@ I then used the URL to execute commands on the web server to find my flag.
 - When I tried executing my commands using the URLs (GET + keyword format) at first it didn't work. I then realised that my file was missing .php extension so it would have never been picked up as a executable script by the vulnerable web server (rookie mistake!) so once I fixed that, it all worked like magic.
 - Another thing to mention is that I didn't realise the web shell doesn't maintain state between requests, so I couldn't get any result when I was using cat command on my flag after cd-ing into the required directory. Once I figured that out I used the full path and it all worked.
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - Vulnerable websites can be exploited in numerous ways using shell, including a command injection as well as an unrestricted file upload
 - Be mindful of extensions and file naming conventions when dealing with shell and scripts in general

@@ -1,14 +1,26 @@
-# #️⃣ OWASP Top 10 (2025): IAAA Failures
+# :material-pound: OWASP Top 10 (2025): IAAA Failures
 
-**Path:** Cyber Security 101 > OWASP Top 10 (2025) > IAAA Failures  
-**Date:** 18/06/2026  
-**Difficulty:** Easy
+<div class="sj-meta" markdown>
 
-## 📋 What this room covers
+:material-shield-star-outline: **Path:** Cyber Security 101 > OWASP Top 10 (2025) > IAAA Failures
+
+:material-calendar-month-outline: **Date:** 18/06/2026
+
+:material-signal-cellular-1: **Difficulty:** Easy
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/owasptopten2025two)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This is the first of three rooms in the OWASP Top 10 (2025) module. It covers IAAA (Identity, Authentication, Authorisation, and Accountability) - the four pillars of access security - and three OWASP Top 10 (2025) categories where IAAA fails in practice: Broken Access Control (A01), Authentication Failures (A07), and Logging & Alerting Failures (A09).
 
-## 💻 What I did
+## :material-laptop: What I did { data-toc-label="What I did" }
 
 IAAA stands for Identity, Authentication, Authorisation and Accountability. IAAA is a security principle used to protect systems and data - it ensures only authorised users can access a system and that their actions can be tracked.
 
@@ -34,11 +46,11 @@ Logging & Alerting Failures refers to an application not recording or alerting o
 
 Each section had a small practical task to illustrate its concept visually. They were very simple, but a lot of fun still!
 
-## 🔍 What tripped me up
+## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
 
 Nothing significant in this room - the concepts clicked and the practicals were straightforward. The real head-scratching happened in the rooms that followed...
 
-## 💡 Key takeaways
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
 
 - IAAA is sequential and the order is not arbitrary. You can't authorise someone you haven't authenticated, and you can't authenticate someone who hasn't identified themselves.
 - Broken Access Control (A01) is ranked #1 in OWASP consistently because it's everywhere - any time a server assumes "if you can see the page, you must be allowed to" rather than checking permissions on every single request.
