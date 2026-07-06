@@ -140,7 +140,7 @@ I started with manually researching all commands to be able to answer all questi
 
 ??? note "Output"
 
-    ```text
+    ```console
     === 8V2L ===
     -rwxrwxr-x 1 new-user new-user 13545 Oct 23  2019 /etc/8V2L
     501
@@ -270,7 +270,7 @@ I started with manually researching all commands to be able to answer all questi
 
 ??? note "Output"
 
-    ```text
+    ```console
     === 8V2L ===
     file info: -rwxrwxr-x 1 new-user new-user 13545 Oct 23  2019 /etc/8V2L
     owner ID: 501
@@ -406,7 +406,7 @@ I started with manually researching all commands to be able to answer all questi
 
 ??? note "Output"
 
-    ```text
+    ```console
     === 8V2L ===
     file info: -rwxrwxr-x 1 new-user new-user 13545 Oct 23  2019 /etc/8V2L
     owner ID: 501

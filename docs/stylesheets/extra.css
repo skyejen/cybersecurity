@@ -7,6 +7,138 @@
 
 /* Space Grotesk is loaded via <link> in overrides/main.html (faster, no flash) */
 
+/* ── Themed tooltips (native `title` moved to `data-sj-tip` by extra.js) ── */
+[data-sj-tip] {
+  position: relative;
+}
+[data-sj-tip]::after {
+  content: attr(data-sj-tip);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-3px);
+  background: var(--sj-surface);
+  color: #e6cf94;   /* pale gold */
+  border: 1px solid var(--sj-border);
+  border-radius: 6px;
+  padding: 0.22rem 0.5rem;
+  font-family: var(--md-text-font-family, "Inter"), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  line-height: 1.3;
+  white-space: nowrap;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  z-index: 100;
+}
+[data-sj-tip]::before {
+  content: "";
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-3px);
+  border: 5px solid transparent;
+  border-bottom-color: var(--sj-border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  z-index: 100;
+}
+[data-sj-tip]:hover::after,
+[data-sj-tip]:hover::before,
+[data-sj-tip]:focus-visible::after,
+[data-sj-tip]:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+/* upward variant for elements near the bottom of the viewport */
+[data-sj-tip].sj-tip--up::after {
+  top: auto;
+  bottom: calc(100% + 8px);
+}
+[data-sj-tip].sj-tip--up::before {
+  top: auto;
+  bottom: calc(100% + 3px);
+  border-bottom-color: transparent;
+  border-top-color: var(--sj-border);
+}
+/* right-edge elements: keep the tooltip on-screen */
+[data-sj-tip].sj-tip--left::after {
+  left: auto;
+  right: 0;
+  transform: translateY(-3px);
+}
+[data-sj-tip].sj-tip--left::before {
+  left: auto;
+  right: 0.6rem;
+  transform: translateY(-3px);
+}
+[data-sj-tip].sj-tip--left:hover::after,
+[data-sj-tip].sj-tip--left:hover::before {
+  transform: translateY(0);
+}
+/* force-show (copy button "Copied!" feedback) — visible without hover */
+[data-sj-tip].sj-tip--force::after,
+[data-sj-tip].sj-tip--force::before {
+  opacity: 1;
+}
+[data-sj-tip].sj-tip--force.sj-tip--left::after,
+[data-sj-tip].sj-tip--force.sj-tip--left::before {
+  transform: translateY(0);
+}
+/* wrapper that carries the tooltip for code buttons (keeps their icon intact) */
+.sj-tip-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+/* Unify header tooltips: Material sets .md-header__button:hover{opacity:.7},
+   which creates a stacking context on hover and traps the tooltip behind the
+   header line (the same bug .md-source had). Override so night toggle & LinkedIn
+   tooltips sit fully opaque over the line, matching GitHub. */
+.md-header__button:hover {
+  opacity: 1;
+}
+/* Material shows a "Copied to clipboard" snackbar (.md-dialog) at the bottom on
+   copy — we render our own themed feedback on the button, so hide the snackbar. */
+.md-dialog {
+  display: none !important;
+}
+/* Material's own rich tooltip (v9.7 uses .md-tooltip2) — this is what the code
+   copy button and its "Copied to clipboard!" feedback render through. Theme it
+   to match our custom bubbles. */
+.md-tooltip2 {
+  color: #e6cf94;
+}
+.md-tooltip2__inner,
+.md-tooltip2 .md-tooltip2__inner.md-typeset {
+  background: var(--sj-surface);
+  color: #e6cf94;
+  border: 1px solid var(--sj-border);
+  border-radius: 6px;
+  padding: 0.22rem 0.5rem;
+  font-family: var(--md-text-font-family, "Inter"), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  line-height: 1.3;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+/* the little tail/arrow Material draws on the tooltip */
+.md-tooltip2__inner::before {
+  background: var(--sj-surface) !important;
+  border: 1px solid var(--sj-border);
+}
+/* legacy v1 tooltip, themed too just in case */
+.md-tooltip__inner {
+  background: var(--sj-surface);
+  color: #e6cf94;
+  border: 1px solid var(--sj-border);
+  border-radius: 6px;
+}
+
 html {
   background-color: #080b13; /* prevents light flash before styles apply */
 }
@@ -119,6 +251,14 @@ body,
   font-size: 1.05rem;
   font-weight: 500;
   color: #d8bd7e;   /* pale gold — distinct from body text without competing with h2 */
+}
+.md-typeset h4 {
+  font-weight: 500;
+  color: #d8bd7e;   /* pale gold, same family as h3 */
+}
+.md-typeset h5 {
+  font-weight: 500;
+  color: #cbb277;   /* slightly muted so the h3 → h4 → h5 hierarchy still reads */
 }
 
 /* Heading anchor links */
@@ -307,9 +447,17 @@ body,
 /* Repo link (right side of header) → icon only, like the mockup */
 .md-source {
   color: var(--sj-text);
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  height: 2rem;   /* match the night-toggle button box (centered in the 3.2rem
+                     header) so the tooltip lines up with the other two */
 }
+.md-source__repository { overflow: visible; }
 .md-source:hover {
   color: var(--sj-gold);
+  opacity: 1;   /* Material sets opacity:.7 here, which creates a stacking context
+                   on hover and traps the tooltip behind the feathered content */
 }
 .md-header__source {
   width: auto;
@@ -605,6 +753,12 @@ body,
   display: flex;
   align-items: center;
   margin-left: 0.25rem !important;
+  overflow: visible;   /* let the tooltip escape (was clipped under the header) */
+}
+/* Header tooltips must render above the content that scrolls beneath the header */
+.md-header [data-sj-tip]::after,
+.md-header [data-sj-tip]::before {
+  z-index: 200;
 }
 .md-header__source::before {
   content: "";
@@ -851,7 +1005,7 @@ body,
 /* Floating back-to-top button */
 .sj-top {
   position: fixed;
-  right: 1.2rem;
+  right: 1.9rem;
   bottom: 1.2rem;
   z-index: 20;
   width: 2.1rem;
