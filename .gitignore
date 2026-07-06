@@ -15,5 +15,8 @@ __pycache__/
 # Template file
 write-up-template.md
 
+# Claude session handoff (manual transfer between machines)
+CLAUDE_HANDOFF.md
+
 # MkDocs build output (generated in CI)
 site/
