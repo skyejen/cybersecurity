@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/burpsuitebasics)
+    - [:simple-tryhackme: Burp Suite: The Basics](https://tryhackme.com/room/burpsuitebasics)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room was devoted to the basics of the Burp Suite. Burp Suite is a Java-based web application security testing framework. It's designed for conducting hands-on and manual web and mobile application penetration testing (including API support). There was a lot of theory in this room, software overview, comparison between different editions, and some practical follow-alongs using Burp Suite Community edition.
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 Burp Suite captures and enables manipulation of all the HTTP/HTTPS traffic between a browser and a web server. By intercepting requests, users are able to route them to various components within the Burp Suite framework, to view, modify web requests before they reach the server as well as manipulate responses before they are received by the browser.
 
@@ -204,7 +204,7 @@ Finally, the practical. Like a proper one! The coolest thing, I needed to do an 
 
 ![Burp's built-in browser](../../images/web-hacking-burp-11.png)
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 - My curiosity again... As soon as I intercepted my first request... and then intercepted and modified my first request... it all kind of went downhill from there. After a very much needed walking (doggo time), my boyfriend came back from work, so I had to tell him, but he is from a different industry and not super technical, so I had to explain to him how web applications (browsers and servers, requests and responses) work so I could tell what Burp could do. He was so excited and started asking about random scenarios (it was funny and cute as we thought about the same sneaky scenarios). Then I showed him at my desk (I modified one of the strings to "HELLO {his name}") and he was blown away. Before that and especially after I had a long session with Claude with my million questions about related concepts. I meant to come back to this room to make sure I understood everything and ended up geeking about it for hours haha
 - I got a little bit stuck doing the practical (a.k.a. "Example Attack). I did everything according to the instructions (and now my own understanding): configured and enabled FoxyProxy, enabled interception on Burp, accessed /ticket webpage, let that GET request through as I didn't need it, submitted a form on Firefox, changed the email to the XSS injection code, encoded it, and the forwarded. No alert. Where is it? So I redid this several times trying to figure out if I missed a step. Still nothing. Then I noticed a GET request which I didn't expect, so I forwarded it. I got my alert. What is this GET request? I had suspected perhaps this was my browsers way to say "you submitted a form, I got a response from the server, and now I need to rerender the page for you, this is a cheeky GET you didn't technically initiatied". Claude confirmed, so happy days (and makes total sense).

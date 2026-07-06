@@ -24,23 +24,23 @@
 
 Five rooms covering the defensive side of cybersecurity: Defensive Security Intro, SOC Fundamentals, Digital Forensics Fundamentals, Incident Response Fundamentals, and Logs Fundamentals. Mostly theoretical, but with a small hands-on practical task at the end of each room.
 
-## 🧠 What I learned
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 Most of this module was theory, which was fascinating to read about. Now some terms and job roles have a clearer meaning in my head when I bump into them online.
 
-**SOC**
+### SOC
 
 A SOC (Security Operations Centre) includes analysts of 3 levels. Level 1 is the first line of defence or triage, they monitor the systems and investigate alerts that come up during their shifts. If they evaluate that an alert needs deeper investigation, they will pass it onto Level 2 analysts. Level 3 in turn, are for escalation for complex investigations. There are other roles within the SOC team: Security Engineers build and maintain tools, Detection Engineers (if there are dedicated ones within a given team) write the detection rules, and, of course, a SOC Manager who runs the team. Reading about this hierarchy definitely improved my understanding of how a SOC team operates.
 
-**Playbooks vs runbooks**
+### Playbooks vs runbooks
 
 At first it wasn't 100% clear to me, so I had to read up on the distinction. Playbooks are high level generic plan of action, it's a step-by-step guide for each type of incident. While runbooks are the detailed and specific how-tos that provide guidance within the specific environment using the specific tools. The means that a playbook would tell you to isolate the infected machine, while a runbook would guide you which commands to run. Both exist for different stakeholders serving different purposes.
 
-**Digital forensics and write blockers**
+### Digital forensics and write blockers
 
 The thing that triggered my fascination while learning about digital forensics was write blockers - physical hardware devices that sit between a suspect's drive and the forensic workstation. They block any write commands while letting the workstation read from it. Without one, the moment the OS touches the drive may already be modifying timestamps, metadata, potentially creating files. That evidence is now compromised and potentially inadmissible in court. Such a simple yet elegant physical solution to what could otherwise be a massive problem.
 
-**Logs**
+### Logs
 
 As I'm a big fan of labels, it was absolutely fascinating reading about log types. They each capture a different layer of activity - System logs for OS-level events, Security logs for authentication and access, Application logs for software behaviour, Audit logs for policy and compliance, Network logs for traffic, Access logs for resource requests. The interesting thing is that these overlap deliberately - multiple log types can capture the same event from completely different angles. This overlap builds a fuller picture and is useful in court (and for spotting discrepancies between sources, of course!). Having been working in a very chaotic start-up for the last 2 years I really appreciated such diligence and accuracy.
 

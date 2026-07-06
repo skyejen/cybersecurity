@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/cyberchefbasics)
+    - [:simple-tryhackme: CyberChef: The Basics](https://tryhackme.com/room/cyberchefbasics)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room introduced CyberChef - a web-based data transformation tool built and open-sourced by GCHQ. It covers encoding, decoding, encryption, decryption, data format conversion, and how to chain operations together using "recipes".
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 CyberChef is described as a Swiss Army knife for cybersecurity professionals - a browser-based tool that lets you transform data in hundreds of ways without writing any code. You drag and drop "ingredients" (operations) into a "recipe", feed it input, and get output. The operations cover everything from Base64 encoding to AES decryption to extracting IPs from text.
 
@@ -28,7 +28,7 @@ The room walked through the interface (input, output, recipe panel, operations l
 
 The fact that GCHQ built this and just put it on GitHub for the entire world to use is still something I think about. British signals intelligence, just casually releasing one of the most useful tools in the security community for free.
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 How should I say this... My own excitement. I actually had to go for a 5k run just to get it out of my system. The room itself was straightforward - some sections explained things that were obvious from looking at the interface - but the tool itself is genuinely brilliant and I kept stopping to try things that weren't part of the tasks.
 

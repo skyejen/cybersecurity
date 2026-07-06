@@ -14,7 +14,7 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/owasptopten2025one)
+    - [:simple-tryhackme: OWASP Top 10 (2025): Application Design Flaws](https://tryhackme.com/room/owasptopten2025one)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
@@ -27,7 +27,7 @@ This is the second of three rooms in the OWASP Top 10 (2025) module. It covers f
 
 It was an absolutely fascinating room and I really enjoyed it, I loved how the conclusion tied it all up nicely at the end. You cannot add security at the end and expect it to work. Strong systems start with clear security requirements, realistic threat assumptions, controlled configurations, verified dependencies, and strong cryptographic choices. Treat everything with suspicion (#trustno1)
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 ### AS02: Security Misconfigurations
 
@@ -166,7 +166,7 @@ Insecure design cannot be patched, it's built into the workflow, logic, and trus
 
 The practical included a web page for a mobile-only messaging app instructing users to download a mobile app. The task brief hinted that the "mobile-only" assumption wasn't very secure. I tried lots of different things including following most common `/api` paths, inspecting the web page source code, sending GET and POST requests with adjusted `User-Agent` headers to simulate mobile access, even mobile device mode in DevTools. Nothing worked. Only to discover that I got discouraged with common paths too quickly - while `/api` and `/users` both returned 404... `/api/users` worked :skull:. No authentication required, full user list exposed. After that, `/api/messages/admin` handed me the flag.
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 - In the AS02 practical (User Management API), the landing page had `GET /api/user/123` hardcoded and I could access it without any authentication. But I was struggling to get the flag - the only hint was "It appears that the developers left too many traces in their User Management APIs". I looked through request/responses, tried accessing other users, tried the terminal. Then I realised I had blindly trusted the landing page saying "ID accepts numeric values"." Changing it to "admin" gave me debug info including the flag. Not sure how I missed it - my shift was starting in 15 minutes, brain already half in work mode. Live and learn... (...to take a pause).
 - Remember I just said I need to learn to take a pause? Well I didn't. I got so excited in the AS03 practical that I missed a huge "DOWNLOAD FILES" button and was looking for the script everywhere else. Got there eventually :D

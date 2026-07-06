@@ -14,7 +14,7 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/hashingbasics)
+    - [:simple-tryhackme: Hashing Basics](https://tryhackme.com/room/hashingbasics)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
@@ -22,7 +22,7 @@ The fundamentals of hashing - what hash functions are, how they're used in
 password verification and file integrity, and how to crack them using hashcat
 and rockyou.txt (mostly...).
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 Tasks 1-3 were straightforward - hashcat, rockyou.txt, correct hash mode, done.
 
@@ -30,7 +30,7 @@ Task 4 kept returning "exhausted" every single time. I went through the
 auto-detected candidates methodically - 900, 0, 70, 2600, 3500, 4400, and more.
 Exhausted. Exhausted. Exhausted. I was convinced that this way TryHackMe's way to bring the learners back on Earth, as in, perhaps it was a lesson on persistence and patience. That it's not all "Mr Robot". But after trying numerous hashes, I started suspecting I was doing something wrong.
 
-Then I reread the task instructions, ~~rossed out 10 years of experience in QA from my CV~~ and noticed something I'd missed: *"for the first three questions, using hashcat along with rockyou.txt is enough."*
+Then I reread the task instructions, ~~crossed out 10 years of experience in QA from my CV~~ and noticed something I'd missed: *"for the first three questions, using hashcat along with rockyou.txt is enough."*
 
 The first three. Not four...
 
@@ -38,7 +38,7 @@ Task 4 needed rules - adding `best64.rule` to the command cracked it
 immediately. The password was a variation, not a word that exists
 verbatim in rockyou.txt.
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 Missing one sentence in the instructions cost me a lot of time. The room
 explicitly signalled that task 4 was different - I just didn't clock it on the

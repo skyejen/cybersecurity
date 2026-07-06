@@ -14,7 +14,7 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/ninjaskills)
+    - [:simple-tryhackme: Ninja Skills](https://tryhackme.com/room/ninjaskills)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 

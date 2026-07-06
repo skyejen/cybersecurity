@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/owasptopten2025two)
+    - [:simple-tryhackme: OWASP Top 10 (2025): IAAA Failures](https://tryhackme.com/room/owasptopten2025two)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This is the first of three rooms in the OWASP Top 10 (2025) module. It covers IAAA (Identity, Authentication, Authorisation, and Accountability) - the four pillars of access security - and three OWASP Top 10 (2025) categories where IAAA fails in practice: Broken Access Control (A01), Authentication Failures (A07), and Logging & Alerting Failures (A09).
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 IAAA stands for Identity, Authentication, Authorisation and Accountability. IAAA is a security principle used to protect systems and data - it ensures only authorised users can access a system and that their actions can be tracked.
 
@@ -46,7 +46,7 @@ Logging & Alerting Failures refers to an application not recording or alerting o
 
 Each section had a small practical task to illustrate its concept visually. They were very simple, but a lot of fun still!
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 Nothing significant in this room - the concepts clicked and the practicals were straightforward. The real head-scratching happened in the rooms that followed...
 

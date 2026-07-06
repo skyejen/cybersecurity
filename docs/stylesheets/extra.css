@@ -117,8 +117,8 @@ body,
 
 .md-typeset h3 {
   font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--sj-heading);
+  font-weight: 500;
+  color: #d8bd7e;   /* pale gold — distinct from body text without competing with h2 */
 }
 
 /* Heading anchor links */

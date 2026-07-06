@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/firewallfundamentals)
+    - [:simple-tryhackme: Firewall Fundamentals](https://tryhackme.com/room/firewallfundamentals)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room covers the fundamentals of Firewalls, the common types, the components and the concept of directionality, a good chunk of theory on Linux and a practice task on Windows.
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 It was absolutely fascinating to learn about firewalls. I know I say this in all my write-ups, but honestly this is just so awesome. I remember being confused about different built-in security tools many moons ago and the more I learn on THM, the clearer it gets. Everything fits in so nicely together and just makes sense. OK, enough with the puppy excitement, so what is it that I learned?
 
@@ -49,7 +49,7 @@ Finally some more Linux stuff, this was very interesting as I know very little a
 
 Windows Defender Firewall: I was given access to a Windows VM with predefined Firewall rules. The task was to navigate Windows Defender Firewall and answer questions about these rules. 
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 - My own relentless curiosity tripped me up, mostly for time. Learning about stateful, proxy and NG firewalls specifically brought multiple questions across different scenarios (made up by my brain), I needed to know the answers or I just wouldn't sleep. Anything from "what if an employee initiates a connection to a host with stateful firewall, then gets up and another malicious person uses their PC" and "would proxy/NG firewall decrypt and check all data of low ranking police officers but not someone like high ups in GCQH for a risk of more sensitive and classified data being intercepted".
 - The "Rules in Firewalls" section talked about different types of actions with the last one being "forward". I was wondering why I had to set up my game server's forwarder in my internet provider's dashboard instead of using my firewall's rule of this action type. After a little "why" session with Claude I realised that THM was giving an example of, let's say, a commercial office setup, while my home obviously has a consumer router which gets encountered first. So if I had set up the forwarder in my firewall software on my game PC, it would have never reached my PC as my router wouldn't have let it in. Typing this now makes me feel a little silly, but nevertheless it's a good light bulb moment (and maybe a cringe moment a year down the line haha).

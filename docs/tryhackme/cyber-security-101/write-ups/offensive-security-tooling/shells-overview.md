@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/shellsoverview)
+    - [:simple-tryhackme: Shells Overview](https://tryhackme.com/room/shellsoverview)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room covered different kinds of shells such as reverse, bind and web shells, and how they can be used to exploit vulnerable websites.
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 The practice task consisted of two subtasks, one was for either reverse or bind shell. The other was for a web shell.
 
@@ -30,7 +30,7 @@ In the second task I was presented with a web page where I could upload a file. 
 
 I then used the URL to execute commands on the web server to find my flag.
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 ### Task 1
 - A rookie mistake incoming!.. So... the website was hosted on 8081 so I somehow assumed I needed to listen on that same port. The logic made sense intuitively (?) but obviously the reverse shell needs its own separate listener port that has nothing to do with the web app port. The web app port (8081) was where the vulnerable site lived. And my listener port (4444 in the end) was where the target machine phoned home to. Two completely different things, yet my overexcited mind mashed them into one. Won't happen again though!

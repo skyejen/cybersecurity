@@ -14,8 +14,8 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/path/outline/cybersecurity101)
-    - [:material-file-certificate-outline: Exam Details](https://tryhackme.com/certifications)
+    - [:material-file-certificate-outline: Exam Details](https://tryhackme.com/certification/cyber-security-101/details)
+    - [:material-certificate-outline: Certificate](https://tryhackme.com/certification/certificate/bbbf0dc7-4b9b-4e03-8e12-30cb1a4c29de)
 
 ## :material-shield-outline: Overview { data-toc-label="Overview" }
 

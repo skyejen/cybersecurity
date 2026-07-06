@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/sqlmapthebasics)
+    - [:simple-tryhackme: SQLMap: The Basics](https://tryhackme.com/room/sqlmapthebasics)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room covered SQL injection vulnerabilities, how they can be exploited and introduced me to SQLMap, an automation tool for detecting and exploiting SQL injection vulnerabilities.
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 I learned the following:
 - websites with databases can be vulnerable to SQL injections
@@ -31,7 +31,7 @@ I learned the following:
 - SQLMap also allows you to import files (for POST request exploitation)
 - solved a practice task!
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 I'm at my cybersecurity journey where everything is very exciting and I'm now gaining a little bit of confidence to try and solve things by myself instead of relying on instructions to guide me. I attempted to solve this practice task myself and the fact that I needed a GET URL for SQLMap to work and I only had the login form available made me scratch my head a little.
 

@@ -14,13 +14,13 @@
 
 !!! quicklinks "Quick Links"
 
-    - [:simple-tryhackme: TryHackMe Room](https://tryhackme.com/room/capabasics)
+    - [:simple-tryhackme: CAPA: The Basics](https://tryhackme.com/room/capabasics)
 
 ## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
 
 This room focused on a tool called CAPA (Common Analysis Platform for Artifacts). This tool is used to identify capabilities present in an executable file during dynamic and static analysis. The room covered the static analysis specifically.
 
-## :material-laptop: What I did { data-toc-label="What I did" }
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 CAPA can be used to perform an analysis to identify whether a suspicious file is capable of doing something malicious, such as network communications, file manipulation, process injection and other.
 
@@ -95,7 +95,7 @@ Pretty much covered above in Namespaces, I guess worth mentioning that capabilit
 
 The practical was a quick overview of CAPA Web Explorer which included uploading a -vv version of CAPA output and going through rules for each triggered namespace. 
 
-## :material-magnify: What tripped me up { data-toc-label="What tripped me up" }
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
 
 - THM's VM performance was genuinely painful on this one, slow enough to affect the flow of learning.
 - The MBC terminology was a lot to take in all at once (objectives, micro-objectives, behaviours, micro-behaviours, methods). It only clicked once THM brought it all together in a summary table at the end (which was a validating experience at the end!).
