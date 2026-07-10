@@ -54,6 +54,59 @@ document.addEventListener("DOMContentLoaded", function () {
     el.classList.add("sj-tip--left");
   });
 
+  /* Full-text tooltip for cards whose title/description is clipped by its line-clamp.
+     A single bubble follows the cursor (feels native) and is themed. We also strip any
+     native `title` on the card text so it doesn't double up with the bubble. Re-checked
+     on load + resize so font/layout timing doesn't fool it. */
+  function sjTagClippedCards() {
+    document.querySelectorAll(".sj-card").forEach(function (card) {
+      var clippedEl = null;
+      [".sj-card-desc", ".sj-card-title"].forEach(function (sel) {
+        var el = card.querySelector(sel);
+        if (!el) return;
+        el.removeAttribute("title");   /* native tooltip → replaced by the cursor bubble */
+        if (!clippedEl && (el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1)) {
+          clippedEl = el;
+        }
+      });
+      if (clippedEl) {
+        var full = clippedEl.textContent.trim();
+        card.setAttribute("data-sj-cardtip", full);
+        if (!card.getAttribute("aria-label")) card.setAttribute("aria-label", full);
+      } else {
+        card.removeAttribute("data-sj-cardtip");
+      }
+    });
+  }
+  sjTagClippedCards();
+  window.addEventListener("load", sjTagClippedCards);
+  window.addEventListener("resize", sjTagClippedCards);
+
+  /* One floating bubble that follows the cursor while hovering a clipped card —
+     feels like a native tooltip but themed. pointer-events:none so it never blocks. */
+  var cardTip = document.createElement("div");
+  cardTip.className = "sj-cursor-tip";
+  document.body.appendChild(cardTip);
+  var cardTipOn = false;
+  var hideCardTip = function () {
+    if (cardTipOn) { cardTip.style.opacity = "0"; cardTipOn = false; }
+  };
+  document.addEventListener("mousemove", function (e) {
+    var card = e.target && e.target.closest ? e.target.closest(".sj-card[data-sj-cardtip]") : null;
+    if (!card) { hideCardTip(); return; }
+    cardTip.textContent = card.getAttribute("data-sj-cardtip");
+    if (!cardTipOn) { cardTip.style.opacity = "1"; cardTipOn = true; }
+    var pad = 14;
+    var w = cardTip.offsetWidth, h = cardTip.offsetHeight;
+    var x = e.clientX + pad, y = e.clientY + pad;
+    if (x + w > window.innerWidth - 8) x = e.clientX - pad - w;
+    if (y + h > window.innerHeight - 8) y = e.clientY - pad - h;
+    cardTip.style.left = Math.max(8, x) + "px";
+    cardTip.style.top = Math.max(8, y) + "px";
+  }, { passive: true });
+  document.addEventListener("mouseleave", hideCardTip);
+  window.addEventListener("scroll", hideCardTip, { passive: true, capture: true });
+
   /* Copy-to-clipboard buttons are injected by Material AFTER load, so we style
      each one as it appears (MutationObserver) rather than once up front.
      We mirror Material's dynamic "Copied!" title into data-sj-tip and also
