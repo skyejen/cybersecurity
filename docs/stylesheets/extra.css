@@ -101,6 +101,15 @@
   line-height: 1.4;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
+
+/* subtle back link (matches the one on the Detective Buggy page) */
+.md-typeset .sj-back {
+  font-size: 0.8rem;
+  color: var(--sj-text-dim);
+}
+.md-typeset .sj-back:hover {
+  color: var(--sj-gold);
+}
 /* force-show (copy button "Copied!" feedback) — visible without hover */
 [data-sj-tip].sj-tip--force::after,
 [data-sj-tip].sj-tip--force::before {
@@ -952,11 +961,13 @@ body,
   font-size: 0.85rem;
   line-height: 1.25;
   margin-bottom: 0.4rem;
-  /* natural height (1–2 lines); chips stay bottom-aligned via margin-top:auto */
+  /* always reserve two lines so 1-line and 2-line titles give the same card
+     height (clamped with an ellipsis beyond two) */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 2.5em;   /* 2 lines x 1.25 line-height */
 }
 .sj-card:hover .sj-card-title {
   color: var(--sj-gold);
@@ -970,7 +981,7 @@ body,
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 2.04em;
+  min-height: 3em;   /* 2 lines x 1.5 line-height — always reserve two lines */
   margin-bottom: 0.7rem;
 }
 .sj-card .sj-card-meta {

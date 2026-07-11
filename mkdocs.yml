@@ -6,6 +6,9 @@ site_author: skyejen
 repo_name: skyejen/cybersecurity
 repo_url: https://github.com/skyejen/cybersecurity
 
+# Local dev server address (so all three sites can run side by side)
+dev_addr: 127.0.0.1:8001
+
 theme:
   name: material
   custom_dir: overrides
