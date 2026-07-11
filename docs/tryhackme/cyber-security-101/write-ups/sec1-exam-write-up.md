@@ -87,3 +87,5 @@ I think this was a fantastic assessment, I had so much fun doing it. The fact th
 What's next? I'm not sure. The exam definitely gave a taster of specific roles, but I had hoped I'd come out feeling a lot more decisive on what I like and what I don't like, and would be able to choose the next learning path based on that (from here the learning splits into blue team, red team, security engineering, and AI security)... obviously there is also Hack The Box and other things including Over The Wire challenge platform I wanted to go back to. But for now I think I need to give some loving to my Python studies, just for my own career advancement, but also I noticed that now I'm hitting the ceiling of my current Python abilities when I study cybersecurity, and I'd like for this not to happen. Currently, I think when I start a new learning path (which will probably be in the coming days if not today lol), I will choose blue team path... or red?
 
 Overall, I did feel like an _operator_ and it was the best thing. I totally don't want a "4D 5A" tattoo now, btw.
+
+EDIT: Been working with Linux both in my personal time and at work recently... now I want `7F 45 4C 46` instead!
