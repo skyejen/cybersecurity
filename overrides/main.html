@@ -92,7 +92,7 @@
         Home
       </a>
       {% for ancestor in page.ancestors | reverse %}
-        {% set is_dupe = loop.last and page.title == ancestor.title %}
+        {% set is_dupe = loop.last and (page.title == ancestor.title or page.is_index) %}
         <span class="sj-crumbs-sep">›</span>
         {#- Link the crumb to the section's index page (navigation.indexes), or to
             the ancestor's own URL if it is a page. Plain text when there's no
@@ -111,7 +111,7 @@
           <span class="sj-crumb{% if is_dupe %} sj-crumb--current{% endif %}">{{ ancestor.title }}</span>
         {% endif %}
       {% endfor %}
-      {% if page.title != parent_title %}
+      {% if page.title != parent_title and not page.is_index %}
         <span class="sj-crumbs-sep">›</span>
         <span class="sj-crumb sj-crumb--current">{{ page.title }}</span>
       {% endif %}

@@ -23,3 +23,5 @@ site/
 
 # Wazuh raw notes
 /docs/portfolio/home-labs/wazuh/wazuh-raw-notes.md
+# Unused lab screenshots (kept locally, never published)
+_unused-screenshots/

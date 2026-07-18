@@ -96,7 +96,6 @@ plugins:
 # by URL (stray URLs hit the 404 page). They're just kept OUT of the nav menu.
 not_in_nav: |
   learning/tryhackme/write-up-template.md
-  portfolio/home-labs/wazuh/wazuh-learning.md
   portfolio/home-labs/wazuh/wazuh-raw-notes.md
 
 hooks:
@@ -148,3 +147,7 @@ nav:
       - Side Quests:
         - learning/tryhackme/side-quests/index.md
         - Ninja Skills: learning/tryhackme/side-quests/ninja-skills/ninja-skills.md
+    - Off the Beat:
+      - Home Labs:
+        - learning/off-the-beat/home-labs/index.md
+        - Wazuh: learning/off-the-beat/home-labs/wazuh.md
