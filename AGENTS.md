@@ -156,6 +156,11 @@ The theme is `docs/stylesheets/extra.css` (~1300+ lines, authoritative) and
 Fonts: **Inter** (text), **JetBrains Mono** (code), **Space Grotesk** (accents/titles).
 Headings h3/h4 `#d8bd7e`, h5 `#cbb277` (pale gold); tooltip text `#e6cf94`.
 
+**Header:** one uniform full-width bottom line (`.md-header::before`) plus a faint faded
+brand separator (`.sj-brand::after`), identical on home and docs. The landing (`.sj-home`)
+only additionally hides the big nav-column divider (`.md-sidebar--primary::after`), since it
+has no nav tree.
+
 **Custom JS systems (`extra.js`):** themed tooltips (native `title` → `data-sj-tip`, styled via
 `::after/::before`; variants `sj-tip--up`, `sj-tip--left`); night-mode toggle (warm sepia
 `feColorMatrix` filter, saved to `localStorage`); a contained scroller (on desktop the page
