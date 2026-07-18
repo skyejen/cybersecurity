@@ -94,7 +94,22 @@
       {% for ancestor in page.ancestors | reverse %}
         {% set is_dupe = loop.last and page.title == ancestor.title %}
         <span class="sj-crumbs-sep">›</span>
-        <span class="sj-crumb{% if is_dupe %} sj-crumb--current{% endif %}">{{ ancestor.title }}</span>
+        {#- Link the crumb to the section's index page (navigation.indexes), or to
+            the ancestor's own URL if it is a page. Plain text when there's no
+            landing page to point at (e.g. the "TryHackMe" grouping). -#}
+        {% set _crumb = namespace(url = none) %}
+        {% if ancestor.is_page %}
+          {% set _crumb.url = ancestor.url %}
+        {% elif ancestor.children %}
+          {% for _child in ancestor.children %}
+            {% if _child.is_index and _crumb.url is none %}{% set _crumb.url = _child.url %}{% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if _crumb.url and not is_dupe %}
+          <a class="sj-crumb" href="{{ _crumb.url | url }}">{{ ancestor.title }}</a>
+        {% else %}
+          <span class="sj-crumb{% if is_dupe %} sj-crumb--current{% endif %}">{{ ancestor.title }}</span>
+        {% endif %}
       {% endfor %}
       {% if page.title != parent_title %}
         <span class="sj-crumbs-sep">›</span>

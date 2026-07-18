@@ -24,7 +24,7 @@ jobs:
         # overrides with no migration path.
         # pymdown-extensions pinned to 10.x: keeps CI reproducible and matching
         # the local dev install; avoids an untested major landing on the live site.
-        run: pip install "mkdocs-material>=9.7,<10" "pymdown-extensions>=10,<11"
+        run: pip install "mkdocs-material>=9.7,<10" "pymdown-extensions>=10,<11" "mkdocs-redirects>=1.2,<2"
 
       - name: Deploy
         run: mkdocs gh-deploy --force

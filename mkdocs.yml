@@ -64,45 +64,87 @@ extra:
 
 plugins:
   - search
+  # Keep old learning URLs alive after the portfolio/learning restructure
+  # (everything under tryhackme/ moved to learning/tryhackme/).
+  - redirects:
+      redirect_maps:
+        'tryhackme/cyber-security-101/index.md': 'learning/tryhackme/cyber-security-101/index.md'
+        'tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md': 'learning/tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md'
+        'tryhackme/cyber-security-101/write-ups/cryptography/hashing-basics.md': 'learning/tryhackme/cyber-security-101/write-ups/cryptography/hashing-basics.md'
+        'tryhackme/cyber-security-101/write-ups/defensive-security/defensive-security.md': 'learning/tryhackme/cyber-security-101/write-ups/defensive-security/defensive-security.md'
+        'tryhackme/cyber-security-101/write-ups/defensive-security-tooling/capa-the-basics.md': 'learning/tryhackme/cyber-security-101/write-ups/defensive-security-tooling/capa-the-basics.md'
+        'tryhackme/cyber-security-101/write-ups/defensive-security-tooling/cyberchef-the-basics.md': 'learning/tryhackme/cyber-security-101/write-ups/defensive-security-tooling/cyberchef-the-basics.md'
+        'tryhackme/cyber-security-101/write-ups/defensive-security-tooling/remnux-getting-started.md': 'learning/tryhackme/cyber-security-101/write-ups/defensive-security-tooling/remnux-getting-started.md'
+        'tryhackme/cyber-security-101/write-ups/exploitation-basics/blue.md': 'learning/tryhackme/cyber-security-101/write-ups/exploitation-basics/blue.md'
+        'tryhackme/cyber-security-101/write-ups/exploitation-basics/metasploit-exploitation.md': 'learning/tryhackme/cyber-security-101/write-ups/exploitation-basics/metasploit-exploitation.md'
+        'tryhackme/cyber-security-101/write-ups/offensive-security-tooling/shells-overview.md': 'learning/tryhackme/cyber-security-101/write-ups/offensive-security-tooling/shells-overview.md'
+        'tryhackme/cyber-security-101/write-ups/offensive-security-tooling/sqlmap-the-basics.md': 'learning/tryhackme/cyber-security-101/write-ups/offensive-security-tooling/sqlmap-the-basics.md'
+        'tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws.md': 'learning/tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws.md'
+        'tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures.md': 'learning/tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures.md'
+        'tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling.md': 'learning/tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling.md'
+        'tryhackme/cyber-security-101/write-ups/security-solutions/firewall-fundamentals.md': 'learning/tryhackme/cyber-security-101/write-ups/security-solutions/firewall-fundamentals.md'
+        'tryhackme/cyber-security-101/write-ups/security-solutions/ids-fundamentals.md': 'learning/tryhackme/cyber-security-101/write-ups/security-solutions/ids-fundamentals.md'
+        'tryhackme/cyber-security-101/write-ups/security-solutions/vulnerability-scanner-overview.md': 'learning/tryhackme/cyber-security-101/write-ups/security-solutions/vulnerability-scanner-overview.md'
+        'tryhackme/cyber-security-101/write-ups/web-hacking/burp-suite-the-basics.md': 'learning/tryhackme/cyber-security-101/write-ups/web-hacking/burp-suite-the-basics.md'
+        'tryhackme/penetration-tester/jr-penetration-tester/index.md': 'learning/tryhackme/penetration-tester/jr-penetration-tester/index.md'
+        'tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md': 'learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md'
+        'tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md': 'learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md'
+        'tryhackme/side-quests/index.md': 'learning/tryhackme/side-quests/index.md'
+        'tryhackme/side-quests/ninja-skills/ninja-skills.md': 'learning/tryhackme/side-quests/ninja-skills/ninja-skills.md'
+
+# Nothing is hidden from the build — these files still render and are reachable
+# by URL (stray URLs hit the 404 page). They're just kept OUT of the nav menu.
+not_in_nav: |
+  learning/tryhackme/write-up-template.md
+  portfolio/home-labs/wazuh/wazuh-learning.md
+  portfolio/home-labs/wazuh/wazuh-raw-notes.md
 
 hooks:
   - hooks/writeup_counts.py
 
 nav:
-  - TryHackMe:
-    - Cyber Security 101:
-      - tryhackme/cyber-security-101/index.md
-      - Exams:
-        - SEC1 Exam: tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md
-      - Cryptography:
-        - Hashing Basics: tryhackme/cyber-security-101/write-ups/cryptography/hashing-basics.md
-      - Defensive Security:
-        - Defensive Security: tryhackme/cyber-security-101/write-ups/defensive-security/defensive-security.md
-      - Defensive Security Tooling:
-        - CAPA The Basics: tryhackme/cyber-security-101/write-ups/defensive-security-tooling/capa-the-basics.md
-        - CyberChef The Basics: tryhackme/cyber-security-101/write-ups/defensive-security-tooling/cyberchef-the-basics.md
-        - REMnux Getting Started: tryhackme/cyber-security-101/write-ups/defensive-security-tooling/remnux-getting-started.md
-      - Exploitation Basics:
-        - Blue: tryhackme/cyber-security-101/write-ups/exploitation-basics/blue.md
-        - Metasploit Exploitation: tryhackme/cyber-security-101/write-ups/exploitation-basics/metasploit-exploitation.md
-      - Offensive Security Tooling:
-        - Shells Overview: tryhackme/cyber-security-101/write-ups/offensive-security-tooling/shells-overview.md
-        - SQLMap The Basics: tryhackme/cyber-security-101/write-ups/offensive-security-tooling/sqlmap-the-basics.md
-      - OWASP Top 10 2025:
-        - Application Design Flaws: tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws.md
-        - IAAA Failures: tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures.md
-        - Insecure Data Handling: tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling.md
-      - Security Solutions:
-        - Firewall Fundamentals: tryhackme/cyber-security-101/write-ups/security-solutions/firewall-fundamentals.md
-        - IDS Fundamentals: tryhackme/cyber-security-101/write-ups/security-solutions/ids-fundamentals.md
-        - Vulnerability Scanner Overview: tryhackme/cyber-security-101/write-ups/security-solutions/vulnerability-scanner-overview.md
-      - Web Hacking:
-        - Burp Suite The Basics: tryhackme/cyber-security-101/write-ups/web-hacking/burp-suite-the-basics.md
-    - Jr Penetration Tester:
-      - tryhackme/penetration-tester/jr-penetration-tester/index.md
-      - Penetration Testing Foundations:
-        - Guided Pentest Web: tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md
-        - Guided Pentest Infrastructure: tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md
-    - Side Quests:
-      - tryhackme/side-quests/index.md
-      - Ninja Skills: tryhackme/side-quests/ninja-skills/ninja-skills.md
+  - Home: index.md
+  - Portfolio:
+    - portfolio/index.md
+    - Home Labs:
+      - portfolio/home-labs/index.md
+      - Wazuh SIEM Home Lab: portfolio/home-labs/wazuh/index.md
+  - Learning:
+    - learning/index.md
+    - TryHackMe:
+      - Cyber Security 101:
+        - learning/tryhackme/cyber-security-101/index.md
+        - Exams:
+          - SEC1 Exam: learning/tryhackme/cyber-security-101/write-ups/sec1-exam-write-up.md
+        - Cryptography:
+          - Hashing Basics: learning/tryhackme/cyber-security-101/write-ups/cryptography/hashing-basics.md
+        - Defensive Security:
+          - Defensive Security: learning/tryhackme/cyber-security-101/write-ups/defensive-security/defensive-security.md
+        - Defensive Security Tooling:
+          - CAPA The Basics: learning/tryhackme/cyber-security-101/write-ups/defensive-security-tooling/capa-the-basics.md
+          - CyberChef The Basics: learning/tryhackme/cyber-security-101/write-ups/defensive-security-tooling/cyberchef-the-basics.md
+          - REMnux Getting Started: learning/tryhackme/cyber-security-101/write-ups/defensive-security-tooling/remnux-getting-started.md
+        - Exploitation Basics:
+          - Blue: learning/tryhackme/cyber-security-101/write-ups/exploitation-basics/blue.md
+          - Metasploit Exploitation: learning/tryhackme/cyber-security-101/write-ups/exploitation-basics/metasploit-exploitation.md
+        - Offensive Security Tooling:
+          - Shells Overview: learning/tryhackme/cyber-security-101/write-ups/offensive-security-tooling/shells-overview.md
+          - SQLMap The Basics: learning/tryhackme/cyber-security-101/write-ups/offensive-security-tooling/sqlmap-the-basics.md
+        - OWASP Top 10 2025:
+          - Application Design Flaws: learning/tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws.md
+          - IAAA Failures: learning/tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures.md
+          - Insecure Data Handling: learning/tryhackme/cyber-security-101/write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling.md
+        - Security Solutions:
+          - Firewall Fundamentals: learning/tryhackme/cyber-security-101/write-ups/security-solutions/firewall-fundamentals.md
+          - IDS Fundamentals: learning/tryhackme/cyber-security-101/write-ups/security-solutions/ids-fundamentals.md
+          - Vulnerability Scanner Overview: learning/tryhackme/cyber-security-101/write-ups/security-solutions/vulnerability-scanner-overview.md
+        - Web Hacking:
+          - Burp Suite The Basics: learning/tryhackme/cyber-security-101/write-ups/web-hacking/burp-suite-the-basics.md
+      - Jr Penetration Tester:
+        - learning/tryhackme/penetration-tester/jr-penetration-tester/index.md
+        - Penetration Testing Foundations:
+          - Guided Pentest Web: learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md
+          - Guided Pentest Infrastructure: learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md
+      - Side Quests:
+        - learning/tryhackme/side-quests/index.md
+        - Ninja Skills: learning/tryhackme/side-quests/ninja-skills/ninja-skills.md

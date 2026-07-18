@@ -18,12 +18,14 @@ def _count(docs: Path, rel: str) -> int:
 
 
 def on_page_markdown(markdown, page, config, files):
-    if page.file.src_uri != "index.md":
+    # The learning home now lives at learning/index.md (was index.md before the
+    # portfolio/learning split).
+    if page.file.src_uri != "learning/index.md":
         return markdown
     docs = Path(config["docs_dir"])
     return (
         markdown
-        .replace("{{ count_cs101 }}", str(_count(docs, "tryhackme/cyber-security-101/write-ups")))
-        .replace("{{ count_jrpt }}", str(_count(docs, "tryhackme/penetration-tester")))
-        .replace("{{ count_side }}", str(_count(docs, "tryhackme/side-quests")))
+        .replace("{{ count_cs101 }}", str(_count(docs, "learning/tryhackme/cyber-security-101/write-ups")))
+        .replace("{{ count_jrpt }}", str(_count(docs, "learning/tryhackme/penetration-tester")))
+        .replace("{{ count_side }}", str(_count(docs, "learning/tryhackme/side-quests")))
     )

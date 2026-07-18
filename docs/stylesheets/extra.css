@@ -707,7 +707,9 @@ body,
   .md-sidebar--primary {
     width: 13.6rem;
   }
-  /* feathered vertical line (fades out toward the bottom), reaching up to the header */
+  /* NAV COLUMN DIVIDER — the big, full-height feathered vertical line at the
+     sidebar's right edge that marks the nav column. Wanted on docs pages;
+     hidden on the landing (see `.sj-home .md-sidebar--primary::after` below). */
   .md-sidebar--primary::after {
     content: "";
     position: absolute;
@@ -745,6 +747,9 @@ body,
 @media screen and (min-width: 76.25em) {
   .sj-brand {
     width: 13.6rem;
+    /* BRAND SEPARATOR — the small vertical line just right of the logo/repo
+       name. Solid here (docs pages); replaced by a small faint line on the
+       landing (see `.sj-home .sj-brand::after` below). */
     border-right: 1px solid var(--sj-border);
     justify-content: center;
     padding-left: 0;
@@ -986,6 +991,7 @@ body,
 }
 .sj-card .sj-card-meta {
   align-self: flex-start;            /* forced onto its own line */
+  white-space: nowrap;               /* keep the pill on ONE line (no mid-word breaks) */
   margin-top: auto;                  /* keeps chips bottom-aligned if content ever varies */
   display: inline-flex;
   align-items: center;
@@ -1324,4 +1330,43 @@ html.sj-night .sj-night-toggle {
 /* Sidebar scrollbars: keep Material's, just make hover gold */
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
   background: var(--sj-gold);
+}
+
+/* ── Respect per-page `hide: [navigation, toc]` (landing doors page) ──
+   The desktop `.md-sidebar--primary { display: flex }` rules above otherwise
+   override the [hidden] attribute the theme sets from page meta. */
+.md-sidebar--primary[hidden],
+.md-sidebar--secondary[hidden] {
+  display: none !important;
+}
+
+/* ── Landing (design #1) header/sidebar overrides — scoped to .sj-home so docs
+   pages are completely untouched. Two named vertical lines:
+     • BRAND SEPARATOR    → KEEP (small faint line by the logo)
+     • NAV COLUMN DIVIDER → REMOVE (big full-height line; no nav tree here)
+   plus one uniform header bottom line. */
+@media screen and (min-width: 76.25em) {
+  /* BRAND SEPARATOR — small faint line by the logo (like skyejen): KEEP */
+  .sj-home .sj-brand {
+    border-right: none !important;
+    position: relative;
+  }
+  .sj-home .sj-brand::after {
+    content: "" !important;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.3rem;
+    background: linear-gradient(to bottom, transparent, var(--sj-border) 30%, var(--sj-border) 70%, transparent);
+  }
+  /* one uniform bottom line across the whole top bar */
+  .sj-home .md-header::before {
+    background: var(--sj-border) !important;
+  }
+  /* NAV COLUMN DIVIDER — big full-height line: REMOVE on the landing */
+  .sj-home .md-sidebar--primary::after {
+    display: none !important;
+  }
 }
