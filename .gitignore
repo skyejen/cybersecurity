@@ -12,8 +12,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 
-# Template file
-write-up-template.md
 
 # Claude session handoff (manual transfer between machines)
 CLAUDE_HANDOFF.md

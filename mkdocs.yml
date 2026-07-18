@@ -95,7 +95,6 @@ plugins:
 # Nothing is hidden from the build — these files still render and are reachable
 # by URL (stray URLs hit the 404 page). They're just kept OUT of the nav menu.
 not_in_nav: |
-  learning/tryhackme/write-up-template.md
   portfolio/home-labs/wazuh/wazuh-raw-notes.md
 
 hooks:

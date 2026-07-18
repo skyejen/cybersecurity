@@ -1,0 +1,56 @@
+<!--
+  ── formatting cheat-sheet (this comment doesn't render) ──
+  blue lead-in ....... _What this section tested:_{ .sj-lead }
+  strikethrough ...... ~~struck text~~
+  inline code ........ `code`
+  code block ......... ```bash  (or console / text / php / python)
+  collapsible ........ ??? note "Title"   (indent body 4 spaces; open by default: ???+)
+  callout box ........ !!! quicklinks "Quick Links"   (or note / warning / tip)
+  image .............. ![alt text](images/name.png)
+  heading + ToC label  ## :material-icon: Title { data-toc-label="Title" }
+  section icons ...... covers = :material-clipboard-text-outline:  did/learned = :material-laptop:
+                       struggle = :material-magnify:  takeaways = :material-lightbulb-on-outline:
+                       bonus = :material-star-outline:
+  multi-room quicklinks:
+      - [:simple-tryhackme: First Room](https://tryhackme.com/room/slug-one)
+      - [:simple-tryhackme: Second Room](https://tryhackme.com/room/slug-two)
+-->
+# :material-pound: Room Name
+
+<div class="sj-meta" markdown>
+
+:material-shield-star-outline: **Path:** Path Name > Module Name > Room Name
+
+:material-calendar-month-outline: **Date:** dd/mm/yyyy
+
+:material-signal-cellular-1: **Difficulty:** NEEDS_UPDATED (THM) / NEEDS_UPDATED (me)
+
+</div>
+
+---
+
+!!! quicklinks "Quick Links"
+
+    - [:simple-tryhackme: Room Name](https://tryhackme.com/room/ROOM-SLUG)
+
+## :material-clipboard-text-outline: What this room covers { data-toc-label="What this room covers" }
+
+_x:_{ .sj-lead }
+
+## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
+
+x
+
+## :material-magnify: Power through struggle { data-toc-label="Power through struggle" }
+
+x
+
+## :material-lightbulb-on-outline: Key takeaways { data-toc-label="Key takeaways" }
+
+x
+
+## :material-star-outline: Bonus! { data-toc-label="Bonus!" }
+
+??? note "Reveal me"
+
+    x
