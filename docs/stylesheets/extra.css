@@ -320,7 +320,7 @@ body,
   box-shadow: none;
   color: var(--sj-heading);
 }
-/* Left column continuity: the header's horizontal line only spans the content area */
+/* Header bottom line: one uniform full-width line (home + docs) */
 @media screen and (min-width: 76.25em) {
   .md-header {
     border-bottom: none;
@@ -332,8 +332,8 @@ body,
     left: 0;
     right: 0;
     height: 1px;
-    /* faint over the brand panel, full-strength over the content area */
-    background: linear-gradient(to right, rgba(35, 45, 64, 0.45) 0, rgba(35, 45, 64, 0.45) 13.6rem, var(--sj-border) calc(13.6rem + 1px), var(--sj-border) 100%);
+    /* one uniform line across the whole top bar (home + docs) */
+    background: var(--sj-border);
   }
   /* Scroll container below the header (LinkedIn-style): the page scrollbar
      spans content + footer only, never the top bar */
@@ -352,13 +352,13 @@ body,
     top: 0 !important;
   }
 }
-/* Feather content passing under the header's horizontal line (content area only) */
+/* Feather content passing under the header's horizontal line (full width) */
 @media screen and (min-width: 76.25em) {
   .md-header::after {
     content: "";
     position: absolute;
     top: 100%;
-    left: calc(13.6rem + 1px);
+    left: 0;
     right: 0;
     height: 1rem;
     background: linear-gradient(to bottom, var(--sj-bg) 5%, transparent);
@@ -747,12 +747,22 @@ body,
 @media screen and (min-width: 76.25em) {
   .sj-brand {
     width: 13.6rem;
-    /* BRAND SEPARATOR — the small vertical line just right of the logo/repo
-       name. Solid here (docs pages); replaced by a small faint line on the
-       landing (see `.sj-home .sj-brand::after` below). */
-    border-right: 1px solid var(--sj-border);
+    /* BRAND SEPARATOR — a small faint faded line just right of the logo/repo name,
+       the same on every page (home and docs). */
+    border-right: none;
+    position: relative;
     justify-content: center;
     padding-left: 0;
+  }
+  .sj-brand::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.3rem;
+    background: linear-gradient(to bottom, transparent, var(--sj-border) 30%, var(--sj-border) 70%, transparent);
   }
 }
 /* Taller header with breathing room, like the mockup */
@@ -1340,32 +1350,11 @@ html.sj-night .sj-night-toggle {
   display: none !important;
 }
 
-/* ── Landing (design #1) header/sidebar overrides — scoped to .sj-home so docs
-   pages are completely untouched. Two named vertical lines:
-     • BRAND SEPARATOR    → KEEP (small faint line by the logo)
-     • NAV COLUMN DIVIDER → REMOVE (big full-height line; no nav tree here)
-   plus one uniform header bottom line. */
+/* ── Landing (design #1): the header bottom-line and brand separator are now
+   unified in the base rules above (same on home and docs). The only header rule
+   still specific to the landing is hiding the big nav-column divider, since the
+   landing has no nav tree. */
 @media screen and (min-width: 76.25em) {
-  /* BRAND SEPARATOR — small faint line by the logo (like skyejen): KEEP */
-  .sj-home .sj-brand {
-    border-right: none !important;
-    position: relative;
-  }
-  .sj-home .sj-brand::after {
-    content: "" !important;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 1.3rem;
-    background: linear-gradient(to bottom, transparent, var(--sj-border) 30%, var(--sj-border) 70%, transparent);
-  }
-  /* one uniform bottom line across the whole top bar */
-  .sj-home .md-header::before {
-    background: var(--sj-border) !important;
-  }
-  /* NAV COLUMN DIVIDER — big full-height line: REMOVE on the landing */
   .sj-home .md-sidebar--primary::after {
     display: none !important;
   }
