@@ -105,6 +105,14 @@ Full cheat-sheet: `templates/write-up-template.md`. Key points:
   nav tree and no TOC. Normal section landings are plain pages and keep the left nav.
 - A nav section with an `index.md` as its **first child** renders as a grey clickable landing
   (Material `navigation.indexes`); a pure grouping with no index stays a white label.
+- **The left nav is custom** (`overrides/partials/nav.html`). It renders only the top-level
+  section containing the current page (so Portfolio and Learning never stack), and it renders
+  that section's **children at level 1** rather than the section itself. Material tags any
+  level-1 item that has children with `md-nav__item--section`, which is what colours it blue,
+  so this is what makes TryHackMe and Off the Beat blue category headers instead of one blue
+  "Learning" wrapper. The section's own `index.md` is skipped in the sidebar; the breadcrumb
+  links it. This override is cyber-only: the sibling repos have flat top-level sections and
+  don't need it.
 - The Learning landing's section headers are pulled from the nav by `hooks/writeup_counts.py`
   (placeholders like `{{ cat_tryhackme }}`, plus the `{{ count_* }}` write-up counts). **Hook
   changes need a `mkdocs serve` restart**, they don't hot-reload, so the page shows raw

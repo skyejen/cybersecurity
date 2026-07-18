@@ -24,7 +24,17 @@
     {% for nav_item in nav.items %}
       {% if nav_item.active %}
         {% set path = "__nav_" ~ loop.index %}
-        {{ item.render(nav_item, path, 1) }}
+        {#- Render the active section's CHILDREN at level 1, not the section
+            itself. Material tags any level-1 item that has children with
+            `md-nav__item--section` (see partials/nav-item.html), which is what
+            gives us the blue category headers, so this makes TryHackMe and
+            Off the Beat blue instead of the single "Learning" wrapper.
+            The section's own index page is skipped: the breadcrumb links it. -#}
+        {% for child in nav_item.children %}
+          {% if not child.is_index %}
+            {{ item.render(child, path ~ "_" ~ loop.index, 1) }}
+          {% endif %}
+        {% endfor %}
       {% endif %}
     {% endfor %}
   </ul>
