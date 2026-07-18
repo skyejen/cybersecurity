@@ -6,6 +6,8 @@ All of these are hands-on security projects, built on real hardware and document
 
 They're written in the formal language you'd expect from professional reports. If you find them a little dry and want to see whether I'd be a good cultural fit, take a look at my [learning write-ups](../learning/index.md) as that's where I write like myself... informal and highly excitable.
 
+---
+
 <div class="sj-cards" markdown>
 
 <a class="sj-card" href="home-labs/" markdown="span">

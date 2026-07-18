@@ -2,6 +2,8 @@
 
 Self-built labs on real hardware - each one built, attacked, detected, and documented end to end.
 
+---
+
 <div class="sj-cards" markdown>
 
 <a class="sj-card" href="wazuh/" markdown="span">
