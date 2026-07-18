@@ -8,7 +8,7 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 
 ---
 
-## Field Notes
+## {{ cat_tryhackme }}
 
 <div class="sj-cards" markdown>
 
@@ -38,6 +38,20 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <span class="sj-card-title">Side Quests</span>
 <span class="sj-card-desc" title="Detours and challenge rooms taken along the way.">Detours and challenge rooms taken along the way.</span>
 <span class="sj-card-meta">ongoing</span>
+</a>
+
+</div>
+
+
+## {{ cat_off_the_beat }}
+
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="off-the-beat/home-labs/wazuh/" markdown="span">
+<span class="sj-card-icon">:material-radar:</span>
+<span class="sj-card-title">Wazuh SIEM Home Lab</span>
+<span class="sj-card-desc" title="How I stood up Wazuh across three machines, triggered every alert by hand, and gave detection engineering a go.">How I stood up Wazuh across three machines, triggered every alert by hand, and gave detection engineering a go.</span>
+<span class="sj-card-meta">SIEM <span class="sj-dot">·</span> home lab</span>
 </a>
 
 </div>
