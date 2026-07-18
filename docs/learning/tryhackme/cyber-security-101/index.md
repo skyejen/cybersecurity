@@ -4,46 +4,143 @@ The TryHackMe **Cyber Security 101** path - a broad tour across the core cyberse
 
 Below are my write-ups from this path, grouped by module.
 
+---
+
 ## :material-certificate-outline: Exams
 
-- [SEC1 Exam](write-ups/sec1-exam-write-up.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/sec1-exam-write-up/" markdown="span">
+<span class="sj-card-icon">:material-certificate-outline:</span>
+<span class="sj-card-title">SEC1 Exam</span>
+</a>
+
+</div>
 
 ## :material-key-outline: Cryptography
 
-- [Hashing Basics](write-ups/cryptography/hashing-basics.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/cryptography/hashing-basics/" markdown="span">
+<span class="sj-card-icon">:material-key-outline:</span>
+<span class="sj-card-title">Hashing Basics</span>
+</a>
+
+</div>
 
 ## :material-shield-outline: Defensive Security
 
-- [Defensive Security](write-ups/defensive-security/defensive-security.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/defensive-security/defensive-security/" markdown="span">
+<span class="sj-card-icon">:material-shield-outline:</span>
+<span class="sj-card-title">Defensive Security</span>
+</a>
+
+</div>
 
 ## :material-tools: Defensive Security Tooling
 
-- [CAPA: The Basics](write-ups/defensive-security-tooling/capa-the-basics.md)
-- [CyberChef: The Basics](write-ups/defensive-security-tooling/cyberchef-the-basics.md)
-- [REMnux: Getting Started](write-ups/defensive-security-tooling/remnux-getting-started.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/defensive-security-tooling/capa-the-basics/" markdown="span">
+<span class="sj-card-icon">:material-tools:</span>
+<span class="sj-card-title">CAPA: The Basics</span>
+</a>
+
+<a class="sj-card" href="write-ups/defensive-security-tooling/cyberchef-the-basics/" markdown="span">
+<span class="sj-card-icon">:material-tools:</span>
+<span class="sj-card-title">CyberChef: The Basics</span>
+</a>
+
+<a class="sj-card" href="write-ups/defensive-security-tooling/remnux-getting-started/" markdown="span">
+<span class="sj-card-icon">:material-tools:</span>
+<span class="sj-card-title">REMnux: Getting Started</span>
+</a>
+
+</div>
 
 ## :material-bug-outline: Exploitation Basics
 
-- [Blue](write-ups/exploitation-basics/blue.md)
-- [Metasploit: Exploitation](write-ups/exploitation-basics/metasploit-exploitation.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/exploitation-basics/blue/" markdown="span">
+<span class="sj-card-icon">:material-bug-outline:</span>
+<span class="sj-card-title">Blue</span>
+</a>
+
+<a class="sj-card" href="write-ups/exploitation-basics/metasploit-exploitation/" markdown="span">
+<span class="sj-card-icon">:material-bug-outline:</span>
+<span class="sj-card-title">Metasploit: Exploitation</span>
+</a>
+
+</div>
 
 ## :material-sword: Offensive Security Tooling
 
-- [Shells Overview](write-ups/offensive-security-tooling/shells-overview.md)
-- [SQLMap: The Basics](write-ups/offensive-security-tooling/sqlmap-the-basics.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/offensive-security-tooling/shells-overview/" markdown="span">
+<span class="sj-card-icon">:material-sword:</span>
+<span class="sj-card-title">Shells Overview</span>
+</a>
+
+<a class="sj-card" href="write-ups/offensive-security-tooling/sqlmap-the-basics/" markdown="span">
+<span class="sj-card-icon">:material-sword:</span>
+<span class="sj-card-title">SQLMap: The Basics</span>
+</a>
+
+</div>
 
 ## :material-format-list-numbered: OWASP Top 10 2025
 
-- [Application Design Flaws](write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws.md)
-- [IAAA Failures](write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures.md)
-- [Insecure Data Handling](write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws/" markdown="span">
+<span class="sj-card-icon">:material-format-list-numbered:</span>
+<span class="sj-card-title">Application Design Flaws</span>
+</a>
+
+<a class="sj-card" href="write-ups/owasp-top-10-2025/owasp-top-10-2025-iaaa-failures/" markdown="span">
+<span class="sj-card-icon">:material-format-list-numbered:</span>
+<span class="sj-card-title">IAAA Failures</span>
+</a>
+
+<a class="sj-card" href="write-ups/owasp-top-10-2025/owasp-top-10-2025-insecure-data-handling/" markdown="span">
+<span class="sj-card-icon">:material-format-list-numbered:</span>
+<span class="sj-card-title">Insecure Data Handling</span>
+</a>
+
+</div>
 
 ## :material-security: Security Solutions
 
-- [Firewall Fundamentals](write-ups/security-solutions/firewall-fundamentals.md)
-- [IDS Fundamentals](write-ups/security-solutions/ids-fundamentals.md)
-- [Vulnerability Scanner Overview](write-ups/security-solutions/vulnerability-scanner-overview.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/security-solutions/firewall-fundamentals/" markdown="span">
+<span class="sj-card-icon">:material-security:</span>
+<span class="sj-card-title">Firewall Fundamentals</span>
+</a>
+
+<a class="sj-card" href="write-ups/security-solutions/ids-fundamentals/" markdown="span">
+<span class="sj-card-icon">:material-security:</span>
+<span class="sj-card-title">IDS Fundamentals</span>
+</a>
+
+<a class="sj-card" href="write-ups/security-solutions/vulnerability-scanner-overview/" markdown="span">
+<span class="sj-card-icon">:material-security:</span>
+<span class="sj-card-title">Vulnerability Scanner Overview</span>
+</a>
+
+</div>
 
 ## :material-spider: Web Hacking
 
-- [Burp Suite: The Basics](write-ups/web-hacking/burp-suite-the-basics.md)
+<div class="sj-cards" markdown>
+
+<a class="sj-card" href="write-ups/web-hacking/burp-suite-the-basics/" markdown="span">
+<span class="sj-card-icon">:material-spider:</span>
+<span class="sj-card-title">Burp Suite: The Basics</span>
+</a>
+
+</div>
