@@ -22,6 +22,8 @@ rules apply there.
 ## Writing in Jen's voice (drafts she will "jenify")
 
 When drafting prose in Jen's voice (write-ups, page copy), write a plain first draft she edits.
+These rules cover anything public-facing written as Jen: write-ups, page copy, tile
+descriptions. They don't apply to agent docs like this one.
 
 - **No em dashes. Ever.** Use commas, brackets, or full stops.
 - **No AI-speak / LLM tics.** Avoid: "Honestly?", "at the intersection of", "spearheaded", the
@@ -178,6 +180,10 @@ clipped tile's full text on hover.
 - `opacity < 1` on hover creates a stacking context that trapped header tooltips behind the
   header line. Material's `.md-source:hover{opacity:.7}` and `.md-header__button:hover{opacity:.7}`
   are overridden to `opacity:1`.
+- `.md-source` (the GitHub link) is given `height: 2rem; display: flex` so its tooltip lines up
+  with the other header icons.
+- Material's `.md-dialog` (the bottom "Copied to clipboard" snackbar) is hidden. We show our own
+  themed feedback on the copy button instead.
 - `content.tooltips` is intentionally NOT enabled, so plain `title` attrs are converted in JS
-  (otherwise the ugly native tooltip shows). The search input's `required` attr is stripped in
-  JS to kill the browser "please fill in this fi
+  (otherwise the ugly native browser tooltip shows). The search input's `required` attr is
+  stripped in JS to kill the browser "please fill in this field" popup.
