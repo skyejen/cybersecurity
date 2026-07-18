@@ -8,7 +8,7 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-certificate-outline: Exams
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/sec1-exam-write-up/" markdown="span">
 <span class="sj-card-icon">:material-certificate-outline:</span>
@@ -19,7 +19,7 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-key-outline: Cryptography
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/cryptography/hashing-basics/" markdown="span">
 <span class="sj-card-icon">:material-key-outline:</span>
@@ -30,7 +30,7 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-shield-outline: Defensive Security
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/defensive-security/defensive-security/" markdown="span">
 <span class="sj-card-icon">:material-shield-outline:</span>
@@ -41,16 +41,16 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-tools: Defensive Security Tooling
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/defensive-security-tooling/capa-the-basics/" markdown="span">
 <span class="sj-card-icon">:material-tools:</span>
-<span class="sj-card-title">CAPA: The Basics</span>
+<span class="sj-card-title">CAPA: The&nbsp;Basics</span>
 </a>
 
 <a class="sj-card" href="write-ups/defensive-security-tooling/cyberchef-the-basics/" markdown="span">
 <span class="sj-card-icon">:material-tools:</span>
-<span class="sj-card-title">CyberChef: The Basics</span>
+<span class="sj-card-title">CyberChef: The&nbsp;Basics</span>
 </a>
 
 <a class="sj-card" href="write-ups/defensive-security-tooling/remnux-getting-started/" markdown="span">
@@ -62,7 +62,7 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-bug-outline: Exploitation Basics
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/exploitation-basics/blue/" markdown="span">
 <span class="sj-card-icon">:material-bug-outline:</span>
@@ -78,7 +78,7 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-sword: Offensive Security Tooling
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/offensive-security-tooling/shells-overview/" markdown="span">
 <span class="sj-card-icon">:material-sword:</span>
@@ -87,14 +87,14 @@ Below are my write-ups from this path, grouped by module.
 
 <a class="sj-card" href="write-ups/offensive-security-tooling/sqlmap-the-basics/" markdown="span">
 <span class="sj-card-icon">:material-sword:</span>
-<span class="sj-card-title">SQLMap: The Basics</span>
+<span class="sj-card-title">SQLMap: The&nbsp;Basics</span>
 </a>
 
 </div>
 
 ## :material-format-list-numbered: OWASP Top 10 2025
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/owasp-top-10-2025/owasp-top-10-2025-application-design-flaws/" markdown="span">
 <span class="sj-card-icon">:material-format-list-numbered:</span>
@@ -115,7 +115,7 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-security: Security Solutions
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/security-solutions/firewall-fundamentals/" markdown="span">
 <span class="sj-card-icon">:material-security:</span>
@@ -136,11 +136,11 @@ Below are my write-ups from this path, grouped by module.
 
 ## :material-spider: Web Hacking
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="write-ups/web-hacking/burp-suite-the-basics/" markdown="span">
 <span class="sj-card-icon">:material-spider:</span>
-<span class="sj-card-title">Burp Suite: The Basics</span>
+<span class="sj-card-title">Burp Suite: The&nbsp;Basics</span>
 </a>
 
 </div>

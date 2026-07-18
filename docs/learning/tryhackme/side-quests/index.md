@@ -6,7 +6,7 @@ Detours and challenge rooms taken along the way - the rooms that don't belong to
 
 ## :material-ninja: Challenges
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="ninja-skills/ninja-skills/" markdown="span">
 <span class="sj-card-icon">:material-ninja:</span>

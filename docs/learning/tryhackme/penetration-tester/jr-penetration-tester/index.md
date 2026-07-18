@@ -8,7 +8,7 @@ Write-ups so far, grouped by module.
 
 ## :material-target: Penetration Testing Foundations
 
-<div class="sj-cards" markdown>
+<div class="sj-cards sj-cards--compact" markdown>
 
 <a class="sj-card" href="penetration-testing-foundations/guided-pentest-web/guided-pentest-web/" markdown="span">
 <span class="sj-card-icon">:material-target:</span>

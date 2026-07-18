@@ -1370,3 +1370,12 @@ html.sj-night .sj-night-toggle {
     display: none !important;
   }
 }
+
+/* ── Compact "index" tiles: the SAME card as everywhere else, just a NARROWER
+   grid so the title-only learning-path tiles pack more per row. Inner spacing and
+   height stay default — so every tile is the SAME size and titles always get their
+   two reserved lines. Scoped to .sj-cards--compact; feature tiles are untouched. */
+.sj-cards--compact {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
