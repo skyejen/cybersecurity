@@ -13,4 +13,9 @@ Detours and challenge rooms taken along the way - the rooms that don't belong to
 <span class="sj-card-title">Ninja Skills</span>
 </a>
 
+<a class="sj-card" href="hacker-holidays/" markdown="span">
+<span class="sj-card-icon">:material-palm-tree:</span>
+<span class="sj-card-title">Hacker Holidays 2026</span>
+</a>
+
 </div>

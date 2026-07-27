@@ -26,6 +26,7 @@ The room started with a recon page:
 <br>
 
 Initial thoughts:
+
 - There will be something helpful on their social media account, potentially related to the hotel's concierge ("look it up", "look harder than the brochure intends, and the Byte Lotus Hotel is already telling you more than it means to".)
 
 ---

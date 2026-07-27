@@ -146,6 +146,10 @@ nav:
       - Side Quests:
         - learning/tryhackme/side-quests/index.md
         - Ninja Skills: learning/tryhackme/side-quests/ninja-skills/ninja-skills.md
+        - Hacker Holidays:
+          - learning/tryhackme/side-quests/hacker-holidays/index.md
+          - The Brochure: learning/tryhackme/side-quests/hacker-holidays/00-the-brochure.md
+          - The Concierge Knows Too Much: learning/tryhackme/side-quests/hacker-holidays/01-the-concierge-knows-too-much.md
     - Off the Beat:
       - Home Labs:
         - learning/off-the-beat/home-labs/index.md

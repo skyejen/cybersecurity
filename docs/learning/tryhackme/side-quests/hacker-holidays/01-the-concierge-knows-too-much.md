@@ -26,6 +26,7 @@ The room started with the storyline
 <br>
 
 Initial thoughts:
+
 - OK, we got it, the AI has all the answers :D
 - "Nothing here is alarming" - eh? Everything here is alarming... everything has been alarming since Black Mirror :eyes:
 
@@ -39,11 +40,13 @@ The next section brought these instructions:
 <br>
 
 Updated thoughts:
+
 - Ha, so it treats special guests... in a special way. OK!
 
 ## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 The way I approached it was:
+
 - make the AI feel like they know me
 - flatter a lot
 - obtain information about the special guests
