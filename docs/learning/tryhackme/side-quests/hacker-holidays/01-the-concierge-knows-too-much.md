@@ -16,7 +16,7 @@
 
     - [:simple-tryhackme: The Concierge Knows Too Much](https://tryhackme.com/room/hh-theconciergeknows-2d7eb4d9)
 
-## :material-clipboard-text-outline: The Brief { data-toc-label="The Brief" }
+## :material-clipboard-text-outline: The brief { data-toc-label="The brief" }
 
 The room started with the storyline:
 

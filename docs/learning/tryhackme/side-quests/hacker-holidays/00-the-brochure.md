@@ -16,7 +16,7 @@
 
     - [:simple-tryhackme: The Brochure](https://tryhackme.com/room/hh-thebrochure-081f3e36)
 
-## :material-clipboard-text-outline: The Brief { data-toc-label="The Brief" }
+## :material-clipboard-text-outline: The brief { data-toc-label="The brief" }
 
 The room started with a recon page:
 
