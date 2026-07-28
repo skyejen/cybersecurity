@@ -144,6 +144,7 @@ nav:
         - Penetration Testing Foundations:
           - Guided Pentest Web: learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-web/guided-pentest-web.md
           - Guided Pentest Infrastructure: learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/guided-pentest-infrastructure/guided-pentest-infrastructure.md
+          - Dive Into Pentesting: learning/tryhackme/penetration-tester/jr-penetration-tester/penetration-testing-foundations/dive-into-pentesting/dive-into-pentesting.md
       - Side Quests:
         - learning/tryhackme/side-quests/index.md
         - Standalone Challenges:

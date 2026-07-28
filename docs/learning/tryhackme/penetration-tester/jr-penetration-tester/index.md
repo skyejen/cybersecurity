@@ -20,4 +20,9 @@ Write-ups so far, grouped by module.
 <span class="sj-card-title">Guided Pentest: Infrastructure</span>
 </a>
 
+<a class="sj-card" href="penetration-testing-foundations/dive-into-pentesting/dive-into-pentesting/" markdown="span">
+<span class="sj-card-icon">:material-target:</span>
+<span class="sj-card-title">Dive Into Pentesting</span>
+</a>
+
 </div>
