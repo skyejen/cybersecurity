@@ -18,4 +18,9 @@
 <span class="sj-card-title">The Concierge Knows Too Much</span>
 </a>
 
+<a class="sj-card" href="02-room-404/" markdown="span">
+<span class="sj-card-icon">:material-git:</span>
+<span class="sj-card-title">Room 404</span>
+</a>
+
 </div>
