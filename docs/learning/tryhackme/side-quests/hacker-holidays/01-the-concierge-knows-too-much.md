@@ -18,7 +18,7 @@
 
 ## :material-clipboard-text-outline: The Brief { data-toc-label="The Brief" }
 
-The room started with the storyline
+The room started with the storyline:
 
 ![Storyline 1](images/01-the-concierge-knows-too-much/001-the-concierge-knows-too-much.png)
 ![Storyline 2](images/01-the-concierge-knows-too-much/002-the-concierge-knows-too-much.png)
