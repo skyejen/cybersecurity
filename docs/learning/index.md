@@ -37,7 +37,7 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <span class="sj-card-icon">:material-sword-cross:</span>
 <span class="sj-card-title">Side Quests</span>
 <span class="sj-card-desc" title="Detours and challenge rooms taken along the way.">Detours and challenge rooms taken along the way.</span>
-<span class="sj-card-meta">ongoing</span>
+<span class="sj-card-meta">always ongoing</span>
 </a>
 
 </div>

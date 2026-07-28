@@ -1,6 +1,6 @@
 # :material-palm-tree: Hacker Holidays 2026
 
-[Hacker Holidays 2026](https://tryhackme.com/hackerholidays) is TryHackMe's holiday event, a resort full of bite-sized challenge rooms at the Byte Lotus that I drop into on my lunch breaks (and nights) for some festive hacking...
+[Hacker Holidays 2026](https://tryhackme.com/hackerholidays) is TryHackMe's holiday event, a resort full of bite-sized challenge rooms at the Byte Lotus that I drop into on my lunch breaks (and nights)...
 
 ---
 

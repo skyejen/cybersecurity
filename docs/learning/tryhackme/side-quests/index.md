@@ -8,9 +8,9 @@ Detours and challenge rooms taken along the way - the rooms that don't belong to
 
 <div class="sj-cards sj-cards--compact" markdown>
 
-<a class="sj-card" href="ninja-skills/ninja-skills/" markdown="span">
-<span class="sj-card-icon">:material-ninja:</span>
-<span class="sj-card-title">Ninja Skills</span>
+<a class="sj-card" href="standalone-challenges/" markdown="span">
+<span class="sj-card-icon">:material-flag-checkered:</span>
+<span class="sj-card-title">Standalone Challenges</span>
 </a>
 
 <a class="sj-card" href="hacker-holidays/" markdown="span">
