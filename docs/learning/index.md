@@ -33,6 +33,13 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <span class="sj-card-meta">in progress <span class="sj-dot">·</span> {{ count_jrpt }}</span>
 </a>
 
+<a class="sj-card" href="tryhackme/devsecops/" markdown="span">
+<span class="sj-card-icon">:material-infinity:</span>
+<span class="sj-card-title">DevSecOps</span>
+<span class="sj-card-desc" title="Current learning path - securing pipelines, IaC, and containerisation.">Current learning path - securing pipelines, IaC, and containerisation.</span>
+<span class="sj-card-meta">in progress <span class="sj-dot">·</span> {{ count_devsecops }}</span>
+</a>
+
 <a class="sj-card" href="tryhackme/side-quests/" markdown="span">
 <span class="sj-card-icon">:material-sword-cross:</span>
 <span class="sj-card-title">Side Quests</span>

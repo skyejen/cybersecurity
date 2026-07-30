@@ -1,6 +1,6 @@
 """Build-time hook: fills placeholders on the Learning landing page.
 
-  {{ count_cs101 }} / {{ count_jrpt }} / {{ count_side }}  -> write-up counts
+  {{ count_cs101 }} / {{ count_jrpt }} / {{ count_devsecops }} / {{ count_side }}  -> write-up counts
   {{ cat_tryhackme }} / {{ cat_off_the_beat }}             -> nav category names
     (section headers auto-follow any nav rename — one source of truth)
 
@@ -66,4 +66,5 @@ def on_page_markdown(markdown, page, config, files):
             .replace("{{ cat_off_the_beat }}", cats.get("off-the-beat", "Off the Beat"))
             .replace("{{ count_cs101 }}", str(_count(docs, "learning/tryhackme/cyber-security-101/write-ups")))
             .replace("{{ count_jrpt }}", str(_count(docs, "learning/tryhackme/penetration-tester")))
+            .replace("{{ count_devsecops }}", str(_count(docs, "learning/tryhackme/devsecops")))
             .replace("{{ count_side }}", str(_count(docs, "learning/tryhackme/side-quests"))))
