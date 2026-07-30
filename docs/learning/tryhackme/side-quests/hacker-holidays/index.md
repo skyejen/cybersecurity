@@ -23,4 +23,9 @@
 <span class="sj-card-title">Room 404</span>
 </a>
 
+<a class="sj-card" href="03-complimentary/" markdown="span">
+<span class="sj-card-icon">:material-aws:</span>
+<span class="sj-card-title">Complimentary</span>
+</a>
+
 </div>
