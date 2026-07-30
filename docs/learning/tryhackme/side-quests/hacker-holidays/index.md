@@ -28,4 +28,9 @@
 <span class="sj-card-title">Complimentary</span>
 </a>
 
+<a class="sj-card" href="04-packed-light/" markdown="span">
+<span class="sj-card-icon">:material-package-variant-closed:</span>
+<span class="sj-card-title">Packed Light</span>
+</a>
+
 </div>
