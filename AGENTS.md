@@ -4,6 +4,11 @@ How AI agents (Claude, Codex, etc.) should work in this repo. **Read this before
 The sibling repos `skyejen.github.io` and `100-days-of-python` share this theme, so the same
 rules apply there.
 
+> **Theme JS is shared — don't edit it here.** `extra.js` is not in this repo; it comes
+> from the **sj-theme** submodule at `docs/sj-theme/`. Edit the theme in the sj-theme repo,
+> never inside `docs/sj-theme/` (edits there are detached and get lost). Pull updates with
+> `git submodule update --remote docs/sj-theme`. See sj-theme's README.
+
 ## Golden rules
 
 1. **Reuse before building.** Grep for the existing pattern first (`sj-card`, a template, an
