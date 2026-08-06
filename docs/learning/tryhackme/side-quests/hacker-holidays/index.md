@@ -33,4 +33,9 @@
 <span class="sj-card-title">Packed Light</span>
 </a>
 
+<a class="sj-card" href="09-cryptocabana/" markdown="span">
+<span class="sj-card-icon">:material-microsoft-azure:</span>
+<span class="sj-card-title">CryptoCabana</span>
+</a>
+
 </div>
