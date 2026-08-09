@@ -62,3 +62,15 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 </a>
 
 </div>
+
+---
+
+## :material-heart-outline: Why Cybersecurity
+
+I've always been obsessed with technology, how systems talk to each other and the endless whys. Early in 2026 I decided to give cybersecurity a go, and it overconsumed me.
+
+A couple of months in, I'd already touched so many concepts it felt like a door into a new dimension opened up. I feel like I lived in a small box and didn't realise it, and now the door is open and the outside is so big it feels like I'm in space. Every learning session brings something painfully exciting, mindblowing, and at times very challenging.
+
+What really adds fuel to it is that I hope to use these skills to protect people and keep them out of harm's way. I've been drawn to the idea of "serve and protect" ever since I was a child, and cybersecurity might just give me the platform to do exactly that. The dream come true?
+
+I lean on AI as a learning partner too, configured to be a mentor rather than an answer key: to poke me with questions and make me see things from other angles. Having that kind of 24/7 support is a genuine privilege. What a time to be alive.
