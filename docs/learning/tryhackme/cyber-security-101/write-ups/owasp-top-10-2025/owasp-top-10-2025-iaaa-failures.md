@@ -25,6 +25,7 @@ This is the first of three rooms in the OWASP Top 10 (2025) module. It covers IA
 IAAA stands for Identity, Authentication, Authorisation and Accountability. IAAA is a security principle used to protect systems and data - it ensures only authorised users can access a system and that their actions can be tracked.
 
 The four components must be achieved in order, meaning if the previous component was not completed, we cannot proceed to the next one:
+
 - Identity - a unique account representing a person or a service
 - Authentication - proving the identity (passwords, OTP, passkeys)
 - Authorisation - permissions for what that identity is allowed to do

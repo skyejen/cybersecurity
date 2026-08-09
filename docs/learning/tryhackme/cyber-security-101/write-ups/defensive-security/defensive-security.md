@@ -45,6 +45,7 @@ The thing that triggered my fascination while learning about digital forensics w
 As I'm a big fan of labels, it was absolutely fascinating reading about log types. They each capture a different layer of activity - System logs for OS-level events, Security logs for authentication and access, Application logs for software behaviour, Audit logs for policy and compliance, Network logs for traffic, Access logs for resource requests. The interesting thing is that these overlap deliberately - multiple log types can capture the same event from completely different angles. This overlap builds a fuller picture and is useful in court (and for spotting discrepancies between sources, of course!). Having been working in a very chaotic start-up for the last 2 years I really appreciated such diligence and accuracy.
 
 Some little awesome things I learned from the log-specific practice task:
+
 - Event ID 4624 is a successful logon event - and it fires *constantly* in the background from services and scheduled tasks, not just when a human logs in.
 - I somehow still didn't fully understand how piping works in `grep`, now I do! (the file has to go with the first command, not appended to the end of a pipe chain).
 

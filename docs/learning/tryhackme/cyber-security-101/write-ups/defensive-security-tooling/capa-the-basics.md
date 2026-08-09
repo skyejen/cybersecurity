@@ -27,6 +27,7 @@ CAPA can be used to perform an analysis to identify whether a suspicious file is
 In the first task we've gone through helpful commands, learned how to run the tool and initiate a scan in PowerShell. Since the scan takes a long time we were also given an output file to analyse separately which was very thoughtful of the THM team.
 
 After we've done the basics, we covered four sections on analysing the scan results:
+
 - General information, MITRE and MAEC
 - Malware behaviour catalogue
 - Namespaces
@@ -35,6 +36,7 @@ After we've done the basics, we covered four sections on analysing the scan resu
 ### General information, MITRE and MAEC
 
 This section dived into the following:
+
 - cryptographic algorithms, type of analysis, OS, etc
 - ATT&CK Tactic and ATT&CK Technique information
 - MAEC (Malware Attribute Enumeration and Characterization) - specialised language for encoding and communicating malware concerns and details.
@@ -51,6 +53,7 @@ Objective is an objective of the given malware, some of the covered ones were an
 Micro-objectives are associated with micro-behaviours which may be flagged by CAPA, but may not necessarily be malicious grouped by process, memory, communication and data, with the following examples: creating processes, allocating memory, communicating over network, decoding/encoding data and other.
 
 MBC behaviours and micro-behaviours are associated with objectives and micro-objectives correspondingly. Such behaviours are an explanation to an objective and how it can be achieved. For example:
+
 - Micro-objective: PROCESS
 - Micro-behaviour: Create Process
 - Identifier: C0017

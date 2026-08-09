@@ -23,6 +23,7 @@ This room covered SQL injection vulnerabilities, how they can be exploited and i
 ## :material-laptop: What I did / learned { data-toc-label="What I did / learned" }
 
 I learned the following:
+
 - websites with databases can be vulnerable to SQL injections
 - this occurs when there is no user input validation and sanitisation or when there is only validation on client side (easy to work around it), an example of this can be injecting "' OR 1=1;-- -" in a database query
 - SQL injections can be done via GET and POST requests (although POST method was out of scope for this room, sadly!)

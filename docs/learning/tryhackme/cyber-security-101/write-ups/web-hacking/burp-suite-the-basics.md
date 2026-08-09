@@ -25,6 +25,7 @@ This room was devoted to the basics of the Burp Suite. Burp Suite is a Java-base
 Burp Suite captures and enables manipulation of all the HTTP/HTTPS traffic between a browser and a web server. By intercepting requests, users are able to route them to various components within the Burp Suite framework, to view, modify web requests before they reach the server as well as manipulate responses before they are received by the browser.
 
 There are different editions of Burp Suite:
+
 - **Burp Suite Professional** - unrestricted version of Burp Suite Community as well as an automated vulnerability scanner, a fuzzer/brute-forcer without rate limits, saving projects for later use and reporting, a built-in API for integration with other tools, unrestricted access to add new extensions to expand functionality and access to the Burp Suite Collaborator to be able to self-host a unique request catcher or run it on a Portswigger-owned server)
 - **Burp Suite Enterprise** - primarily used for continuous scanning as it features an automated scanner that periodically scans web applications for vulnerabilities (like Nessus does for infrastructure). Also, unlike the other editions that allow manual attacks on a local machine, Burp Suite Enterprise resides on a server and constantly scans the target web applications for potential vulnerabilities.
 - **Burp Suite Community** - a free edition that is, while limited in features, provides a great set of tools valuable for web application Testing. Since this is the edition that we used in this room, I will cover it separately below.
@@ -34,6 +35,7 @@ There are different editions of Burp Suite:
 #### Feature Overview
 
 This edition contains the following tools:
+
 - **Proxy** - enables interception and modification of requests and responses while interacting with web applications
 - **Repeater** - allows capturing, modifying, and resending the same request multiple times (useful when crafting payloads through trial and error, for example, via SQLi, or testing the functionality of an endpoint for vulnerabilities)
 - **Intruder** - despite limitations imposed by the community edition, Intruder allows spraying endpoints with requests (useful for brute-force attacks or fuzzing endpoints)
@@ -48,6 +50,7 @@ Apart from the native features, the Java codebase of the Burp Suite allows devel
 #### The Dashboard
 
 The dashboard is divided into four quadrants:
+
 - **Tasks** - allows to define background tasks (with "Live Passive Crawl" on by default, a feature that automatically logs the pages visited)
 - **Event Log** - provides information about the actions performed by Burp Suite (starting proxy, details on connections made via Burp)
 - **Issue Activity** - displays vulnerabilities identified by the automated scanner, ranked by severity and filterable based on the certainty of said vulnerability (available only on Burp Suite Professional)
@@ -113,6 +116,7 @@ OK, I took another detour to explore the possibilities of Burp and related conce
 #### Site Map and Issue Definitions
 
 The next thing to go over is the Target tab. It provides control over the scope of our testing as well as other wonderful features. The tab consists of the following three subtabs:
+
 - **Site map** - this allows mapping out a target web application and its API endpoints in a tree structure while visiting its web pages. In professional edition this can be done automatically.
 - **Issue definition** - an extensive list of web vulnerabilities (although not the full one that the professional edition has), complete with descriptions and references, that Burp would be scanning for.
 - **Scope testing** - controls the target scope, enables the user to include or exclude specific domains/IPs to help them focus on the web applications they are targeting and avoid unnecessary noise (unrelated traffic).
@@ -165,6 +169,7 @@ This section went over an issue that may occur when intercepting HTTPS traffic, 
 #### Example Attack
 
 Finally, the practical. Like a proper one! The coolest thing, I needed to do an XSS injection (Cross-Site Scripting)! This is what I did:
+
 - launched AttackBox and the website VM
 - configured and enabled FoxyProxy on Firefox
 - enabled Burp to intercept requests (but also set up scope to avoid extra noise)
