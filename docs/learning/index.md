@@ -33,6 +33,13 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <span class="sj-card-meta">in progress <span class="sj-dot">·</span> {{ count_jrpt }}</span>
 </a>
 
+<a class="sj-card" href="tryhackme/ai-security/" markdown="span">
+<span class="sj-card-icon">:material-robot-outline:</span>
+<span class="sj-card-title">AI Security</span>
+<span class="sj-card-desc" title="Current learning path - how AI works, how it gets attacked, and how to secure it.">Current learning path - how AI works, how it gets attacked, and how to secure it.</span>
+<span class="sj-card-meta">in progress <span class="sj-dot">·</span> {{ count_aisec }}</span>
+</a>
+
 <a class="sj-card" href="tryhackme/devsecops/" markdown="span">
 <span class="sj-card-icon">:material-infinity:</span>
 <span class="sj-card-title">DevSecOps</span>
