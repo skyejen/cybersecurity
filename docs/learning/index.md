@@ -29,8 +29,8 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <a class="sj-card" href="tryhackme/penetration-tester/jr-penetration-tester/" markdown="span">
 <span class="sj-card-icon">:material-incognito:</span>
 <span class="sj-card-title">Jr Penetration Tester</span>
-<span class="sj-card-desc" title="Latest learning path - write-ups and challenges.">Latest learning path - write&#8209;ups and challenges.</span>
-<span class="sj-card-meta">in progress <span class="sj-dot">·</span> {{ count_jrpt }}</span>
+<span class="sj-card-desc" title="Offensive security path - write-ups and challenges.">Offensive security path - write&#8209;ups and challenges.</span>
+<span class="sj-card-meta">on hold <span class="sj-dot">·</span> {{ count_jrpt }}</span>
 </a>
 
 <a class="sj-card" href="tryhackme/ai-security/" markdown="span">
@@ -43,8 +43,8 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <a class="sj-card" href="tryhackme/devsecops/" markdown="span">
 <span class="sj-card-icon">:material-infinity:</span>
 <span class="sj-card-title">DevSecOps</span>
-<span class="sj-card-desc" title="Current learning path - securing pipelines, IaC, and containerisation.">Current learning path - securing pipelines, IaC, and containerisation.</span>
-<span class="sj-card-meta">in progress <span class="sj-dot">·</span> {{ count_devsecops }}</span>
+<span class="sj-card-desc" title="Securing pipelines, IaC, and containerisation.">Securing pipelines, IaC, and containerisation.</span>
+<span class="sj-card-meta">on hold <span class="sj-dot">·</span> {{ count_devsecops }}</span>
 </a>
 
 <a class="sj-card" href="tryhackme/side-quests/" markdown="span">

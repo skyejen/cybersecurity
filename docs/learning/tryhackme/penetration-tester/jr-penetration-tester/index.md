@@ -1,6 +1,6 @@
 # :material-incognito: Jr Penetration Tester
 
-The TryHackMe **Jr Penetration Tester** path - my current focus, digging deeper into hands-on offensive security against web and infrastructure targets.
+The TryHackMe **Jr Penetration Tester** path - digging deeper into hands-on offensive security against web and infrastructure targets. As of August 2026, this path is on hold in favour of the [AI Security learning path](../../ai-security/index.md).
 
 Write-ups so far, grouped by module.
 
