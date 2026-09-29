@@ -23,3 +23,10 @@ site/
 /docs/portfolio/home-labs/wazuh/wazuh-raw-notes.md
 # Unused lab screenshots (kept locally, never published)
 _unused-screenshots/
+
+# Backlog: Hacker Holidays rooms 05-14, drafts not ready yet.
+# Delete these lines when picking the backlog back up.
+/docs/learning/tryhackme/side-quests/hacker-holidays/0[5-9]-*.md
+/docs/learning/tryhackme/side-quests/hacker-holidays/1[0-4]-*.md
+/docs/learning/tryhackme/side-quests/hacker-holidays/images/0[5-9]-*/
+/docs/learning/tryhackme/side-quests/hacker-holidays/images/1[0-4]-*/
