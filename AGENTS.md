@@ -33,6 +33,13 @@ These rules cover anything public-facing written as Jen: write-ups, page copy, t
 descriptions. They don't apply to agent docs like this one.
 
 - **No em dashes. Ever.** Use commas, brackets, or full stops.
+- **-ed past tenses** (learned, spelled, burned), never -t (learnt, spelt, burnt).
+- **"We", not "you".** Jen narrates as herself ("I") or as all of us ("we", "our"). She doesn't
+  lecture the reader ("you'll inherit..."). Neutral phrasing works too ("there's no fix").- **Natural sentences.** No short label colons ("Catch:", "Real example:", "Security angle:",
+  "The job:"). A colon is fine after a longer sentence that it then elaborates on.
+  No "=" as shorthand in prose ("X means Y" instead).
+- **Written register.** Avoid spoken fillers like "say," for examples; use "e.g.". Avoid idioms
+  with gross or off connotations (e.g. "warts and all").
 - **No AI-speak / LLM tics.** Avoid: "Honestly?", "at the intersection of", "spearheaded", the
   "it's not X, it's Y" / "it's THIS, not THAT" antithesis, "delve", "leverage", "seamless",
   "testament to", "it's worth noting", "in today's world", rhetorical "But here's the thing",
@@ -53,8 +60,8 @@ Write-ups are Jen's study notes, not portfolio pieces. **The reference example i
 - **Room vs module:** no fixed rule. Read the rooms first, then recommend a split that keeps
   each write-up short without losing the good stuff. Merged rooms each get a quick link.
 - **"Double-checked" boxes:** fact-check the room. Where THM is dated or oversimplified, add a
-  `!!! note "Double-checked"` saying what you found and where, friendly and never knocking THM
-  (it's for other learners who read something different elsewhere).
+  `!!! note "Double-checked"` saying what the room says and what you found, friendly and never
+  knocking THM. No sentence justifying why it was checked: checking claims is just what we do.
 - **Practicals:** list each hands-on bit with a one-liner. If Jen shares what she did (e.g. an
   agent chat), capture what worked. Never include a flag.
 - **Struggle / Bonus:** keep them when there's something to say, drop them when there isn't.
