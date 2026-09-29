@@ -148,6 +148,7 @@ nav:
         - learning/tryhackme/ai-security/index.md
         - AI Fundamentals:
           - AI 101: learning/tryhackme/ai-security/ai-fundamentals/ai-101.md
+          - AI Models & Data: learning/tryhackme/ai-security/ai-fundamentals/ai-models-and-data.md
       - DevSecOps:
         - learning/tryhackme/devsecops/index.md
         - Secure Software Development:
