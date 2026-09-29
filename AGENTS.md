@@ -18,7 +18,9 @@ rules apply there.
    `.sj-home .sj-brand::after`). Editing `.sj-card` / `.md-header` / etc. directly breaks every
    other instance across the site.
 3. **Build before you're done:** `mkdocs build --strict` must pass with no warnings.
-4. **Jen commits.** Don't run git commits or pushes. Leave staging and commit messages to Jen.
+4. **Commit only after Jen approves.** Once she's approved a change, you can commit and push.
+   One commit per meaningful change (e.g. nav fix, hub wording, new write-up), never one big
+   lump. Conventional prefixes (`feat:`, `fix:`, `docs:`, `chore:`). Tell her what went in.
 5. **Keep this doc current.** If you introduce a new element, pattern, or system (a new
    component, a structural change, a new convention like the nbsp/`sj-cards--compact` rules),
    document it here in the same pass — and flag whether it should be ported to the sibling
@@ -40,6 +42,27 @@ descriptions. They don't apply to agent docs like this one.
   `docs/learning/tryhackme/`, plus the informal Wazuh one under `docs/learning/off-the-beat/`)
   to catch her wording, rhythm and humour.
 - **Draft, don't finalise.** Assume she rewrites every line. Keep it plain and short.
+
+## Write-up style (study notes)
+
+Write-ups are Jen's study notes, not portfolio pieces. **The reference example is
+`docs/learning/tryhackme/ai-security/ai-fundamentals/ai-101.md`** (approved Sept 2026). Match it:
+
+- **Length and shape:** short sections, bullets and small tables, plain explanations of every
+  term (if a term needs a definition, give it inline, don't assume).
+- **Room vs module:** no fixed rule. Read the rooms first, then recommend a split that keeps
+  each write-up short without losing the good stuff. Merged rooms each get a quick link.
+- **"Double-checked" boxes:** fact-check the room. Where THM is dated or oversimplified, add a
+  `!!! note "Double-checked"` saying what you found and where, friendly and never knocking THM
+  (it's for other learners who read something different elsewhere).
+- **Practicals:** list each hands-on bit with a one-liner. If Jen shares what she did (e.g. an
+  agent chat), capture what worked. Never include a flag.
+- **Struggle / Bonus:** keep them when there's something to say, drop them when there isn't.
+- **Dates:** if Jen doesn't remember, estimate from git history and ask her to confirm.
+- **Wiring:** new write-ups need a nav entry in `mkdocs.yml`, a tile on the path's hub, and
+  (for a new path) a tile on `learning/index.md` plus a `{{ count_* }}` in the hook.
+- **Vet before publishing:** check for employer exposure, personal privacy and reputational
+  risk before anything goes public.
 
 ## Page skeleton (every content page)
 
@@ -214,4 +237,4 @@ Run this whenever Jen asks you to check / review a write-up (so she doesn't have
 - Suggest additions if she is missing something (suggest, don't silently add; cite the line).
 - Integrate the page into the mkdocs nav and add its tile to the right index / landing.
 - Rendering and build checks are Jen's (`mkdocs serve`, `mkdocs build --strict`); you can't build from your side, so never claim it renders, but no need to say so every time, she knows.
-- Leave it uncommitted; Jen reviews and commits.
+- Leave it uncommitted until Jen approves; then commit and push (see golden rule 4).
