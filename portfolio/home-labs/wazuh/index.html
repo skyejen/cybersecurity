@@ -1,0 +1,1589 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cybersecurity learning write-ups by Jen">
+      
+      
+        <meta name="author" content="skyejen">
+      
+      
+        <link rel="canonical" href="https://skyejen.github.io/cybersecurity/portfolio/home-labs/wazuh/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../../learning/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/cybersecurity-v4-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Wazuh SIEM Home Lab - skyejen / cybersecurity</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../sj-theme/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <script>
+    /* apply saved night mode before first paint */
+    if (localStorage.getItem("sj-night") === "1") {
+      document.documentElement.classList.add("sj-night");
+    }
+  </script><meta property="og:type" content="website">
+  <meta property="og:site_name" content="skyejen / cybersecurity">
+  <meta property="og:title" content="Wazuh SIEM Home Lab — skyejen / cybersecurity">
+  <meta property="og:description" content="Cybersecurity learning write-ups by Jen">
+  <meta property="og:image" content="https://skyejen.github.io/cybersecurity/images/cybersecurity-v4-1.png">
+  <meta property="og:url" content="https://skyejen.github.io/cybersecurity/portfolio/home-labs/wazuh/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Wazuh SIEM Home Lab — skyejen / cybersecurity">
+  <meta name="twitter:description" content="Cybersecurity learning write-ups by Jen">
+  <meta name="twitter:image" content="https://skyejen.github.io/cybersecurity/images/cybersecurity-v4-1.png">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wazuh-siem-home-lab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="sj-brand">
+      <a href="../../.." title="skyejen / cybersecurity" class="md-header__button md-logo" aria-label="skyejen / cybersecurity" data-md-component="logo">
+        
+  <img src="../../../images/cybersecurity-v4-1.png" alt="logo">
+
+      </a>
+      <div class="md-header__title sj-header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              <a class="sj-user" href="https://skyejen.github.io" title="skyejen">skyejen</a>
+              <span class="sj-slash">/</span>
+              <a class="sj-repo" href="../../.." title="Home">cybersecurity</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    <button class="md-header__button md-icon sj-night-toggle" title="Toggle night mode" aria-label="Toggle night mode" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+    </button>
+    
+      <div class="md-header__source">
+        <a href="https://github.com/skyejen/cybersecurity" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    skyejen/cybersecurity
+  </div>
+</a>
+      </div>
+    
+    <a class="md-header__button md-icon sj-linkedin" href="https://www.linkedin.com/in/skyejen/" title="LinkedIn" rel="noopener" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+  
+    
+    <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="skyejen / cybersecurity" class="md-nav__button md-logo" aria-label="skyejen / cybersecurity" data-md-component="logo">
+      
+  <img src="../../../images/cybersecurity-v4-1.png" alt="logo">
+
+    </a>
+    <span class="sj-slash">/</span><a class="sj-repo" href="../../.." title="Home">cybersecurity</a>
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/skyejen/cybersecurity" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    skyejen/cybersecurity
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+    
+      
+        
+          
+        
+          
+            
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wazuh SIEM Home Lab
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wazuh SIEM Home Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formal-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formal report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Formal report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-estate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The estate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detections-fired" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detections fired
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#four-security-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four security findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-incident-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed incident report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed incident report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unwanted-software-eicar-win11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unwanted software (EICAR) - Win11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-admin-account-backdoor-pattern-win11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New admin account, backdoor pattern - Win11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeated-logon-failures-win10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeated logon failures - Win10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possible-reverse-shell-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Possible reverse shell - macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-created-then-logs-cleared-win10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service created, then logs cleared - Win10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siem-setup-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIEM setup and configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+          
+        
+      
+    
+      
+    
+  </ul>
+</nav>
+        </div>
+      </div>
+      <a class="sj-side-card" href="mailto:jennifer.skye@outlook.com" title="Email me">
+        <span class="sj-side-card-logo">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </span>
+        <span><strong>Contact me</strong><em>jennifer.skye@outlook.com</em></span>
+      </a>
+    </div>
+    <script>
+      (function () {
+        /* expand learning paths before first paint (no flash) */
+        document.querySelectorAll(".md-sidebar--primary .md-nav__item--section > nav > ul > li.md-nav__item--nested > input.md-nav__toggle")
+          .forEach(function (t) { t.checked = true; });
+        /* remember which sections the user opened (survives navigation) */
+        var KEY = "sj-nav-open";
+        var toggles = document.querySelectorAll(".md-sidebar--primary input.md-nav__toggle");
+        try {
+          JSON.parse(sessionStorage.getItem(KEY) || "[]").forEach(function (id) {
+            var t = document.getElementById(id);
+            if (t) t.checked = true;
+          });
+        } catch (e) {}
+        var persist = function () {
+          var open = [];
+          toggles.forEach(function (t) { if (t.checked && t.id) open.push(t.id); });
+          sessionStorage.setItem(KEY, JSON.stringify(open));
+        };
+        toggles.forEach(function (t) { t.addEventListener("change", persist); });
+        persist();
+      })();
+    </script>
+  
+  
+    
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formal-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formal report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Formal report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-estate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The estate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detections-fired" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detections fired
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#four-security-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four security findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-incident-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed incident report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed incident report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unwanted-software-eicar-win11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unwanted software (EICAR) - Win11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-admin-account-backdoor-pattern-win11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New admin account, backdoor pattern - Win11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeated-logon-failures-win10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeated logon failures - Win10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possible-reverse-shell-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Possible reverse shell - macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-created-then-logs-cleared-win10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service created, then logs cleared - Win10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siem-setup-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIEM setup and configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+        </div>
+      </div>
+    </div>
+  
+
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    
+    <nav class="sj-crumbs" aria-label="breadcrumb">
+      <a href="../../..">
+        <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81zM12 3 2 12h3v8h6v-6h2v6h6v-8h3"/></svg></span>
+        Home
+      </a>
+      
+        
+        <span class="sj-crumbs-sep">›</span>
+        
+          
+            
+          
+            
+          
+        
+        
+          <a class="sj-crumb" href="../../">Portfolio</a>
+        
+      
+        
+        <span class="sj-crumbs-sep">›</span>
+        
+          
+            
+          
+            
+          
+        
+        
+          <span class="sj-crumb sj-crumb--current">Home Labs</span>
+        
+      
+      
+    </nav>
+  
+  
+                  
+
+
+  
+  
+
+
+<h1 id="wazuh-siem-home-lab">Wazuh SIEM home lab<a class="headerlink" href="#wazuh-siem-home-lab" title="Permanent link">&para;</a></h1>
+<p>This page is dedicated to the Wazuh home lab: the formal report of findings and analysis first, followed by an optional configuration section. There is also a separate informal <a href="../../../learning/off-the-beat/home-labs/wazuh/">learning write-up</a>.</p>
+<p>The aim of the task was to replicate the environment of a SOC Analyst: a working SIEM (Wazuh) with suspicious alerts getting triggered. To achieve this, I had to stand up and configure Wazuh from scratch (docs + AI-assisted). All alerts discussed in this write-up were triggered by me for learning purposes.</p>
+<hr />
+<h2 id="formal-report">Formal report<a class="headerlink" href="#formal-report" title="Permanent link">&para;</a></h2>
+<h3 id="the-estate">The estate<a class="headerlink" href="#the-estate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>Role</th>
+<th>OS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Win11 desktop</td>
+<td>Wazuh server (Docker/WSL2) + agent 001</td>
+<td>Windows 11 Home</td>
+</tr>
+<tr>
+<td>Win10 desktop</td>
+<td>agent 002</td>
+<td>Windows 10 Home</td>
+</tr>
+<tr>
+<td>MacBook Air</td>
+<td>agent 003</td>
+<td>macOS 15.6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h3>
+<p>Wazuh SIEM running on a Win11 host (Docker/WSL2), with three real endpoints enrolled (Win11, Win10, MacBook Air), alerts firing from deliberately generated behaviour (including with the help of Atomic Red Team), two custom detection rules I designed and debugged (AI&#8209;assisted), and the NIST 800-53 and PCI DSS compliance dashboards captured as evidence (ISO 27001 mapped manually).</p>
+<h3 id="detections-fired">Detections fired<a class="headerlink" href="#detections-fired" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Attack</th>
+<th>MITRE</th>
+<th>Rule (level)</th>
+<th>Host</th>
+<th>Detection type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>EICAR malware (via Defender event channel)</td>
+<td>Malware</td>
+<td>62123 (12)</td>
+<td>Win11</td>
+<td>Built-in + config (wired the Defender channel)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Create-then-elevate backdoor account</td>
+<td>T1136.001 / T1098 / T1078.003</td>
+<td>100100 (8) + 100102 (14)</td>
+<td>Win11</td>
+<td>Custom correlation rule (mine)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Brute-force logon failures</td>
+<td>T1110</td>
+<td>60122 (5)</td>
+<td>Win10</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reverse shell (live C2, cross-machine)</td>
+<td>T1059 / T1071</td>
+<td>100200 (13)</td>
+<td>macOS</td>
+<td>Custom command-monitoring rule (mine)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Service-installation persistence (ART atomic)</td>
+<td>T1543.003</td>
+<td>61138 (5)</td>
+<td>Win10</td>
+<td>Built-in, ATT&amp;CK-validated</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Clear event logs (anti-forensics)</td>
+<td>T1070</td>
+<td>63103 (5)</td>
+<td>Win10</td>
+<td>Built-in, ATT&amp;CK-validated</td>
+</tr>
+</tbody>
+</table>
+<h3 id="four-security-findings">Four security findings<a class="headerlink" href="#four-security-findings" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Docker silently bypasses the Windows Firewall</strong> - it writes an inbound allow rule scoped to both private and public, exposing every published port (indexer API, dashboard) without asking. Verified with <code>Get-NetFirewallRule</code>.</li>
+<li><strong>AV/FIM blind spot</strong> - Defender blocked the Wazuh agent from opening the EICAR file to hash it, so FIM saw nothing at first. I fixed it by having the SIEM ingest the Defender event channel, after which the alert appeared.</li>
+<li><strong>Default SIEM credentials</strong> (<code>admin</code>/<code>SecretPassword</code>) - a critical misconfig (ISO 27001 A.5.17), documented as a scoped, accepted risk (LAN-only learning lab). This was not flagged by the SIEM itself.</li>
+<li><strong>Defender caught the attacker's toolkit</strong> - it flagged the Atomic Red Team <code>master.zip</code> three separate times during download and stripped out the log-clearing atomics. Defence-in-depth caught red-team tooling before it could run.</li>
+</ol>
+<h3 id="detailed-incident-report">Detailed incident report<a class="headerlink" href="#detailed-incident-report" title="Permanent link">&para;</a></h3>
+<p>The following details each alert as it would be triaged in a production SOC: what fired, what the evidence shows, the assessment, the frameworks it touches, and the recommended response. Each alert was generated in a controlled test (the offensive steps are covered in the separate learning write-up); here they are treated as genuine.</p>
+<h4 id="unwanted-software-eicar-win11">Unwanted software (EICAR) - Win11<a class="headerlink" href="#unwanted-software-eicar-win11" title="Permanent link">&para;</a></h4>
+<p>On July 11, at 21:01:30.302, a rule of level 12 (id 62123) triggered, flagging potentially unwanted software:</p>
+<p><img alt="win11 - unwanted software" src="images/017-wazuh-eicar-round2-level12-alert.png" /></p>
+<p>The investigation showed that an "EICAR" file was found on the machine:</p>
+<p><img alt="win11 - unwanted software" src="images/018-wazuh-eicar-round2-expanded-alert.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Severity</strong></td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Observation</strong></td>
+<td>Microsoft Defender detected the EICAR test file on the host and quarantined it. The alert reached Wazuh through the Windows Defender event channel.</td>
+</tr>
+<tr>
+<td><strong>Assessment</strong></td>
+<td>A confirmed malware signature on an endpoint. In production this could be the first sign of a broader compromise and warrants immediate triage.</td>
+</tr>
+<tr>
+<td><strong>MITRE ATT&amp;CK</strong></td>
+<td>T1204 (User Execution) or T1105 (Ingress Tool Transfer), depending on how it was delivered.</td>
+</tr>
+<tr>
+<td><strong>Violates</strong></td>
+<td>ISO 27001 A.8.7 (protection against malware); NIST 800-53 SI-3 (malicious code protection).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended response</strong></p>
+<ul>
+<li>Confirm the file was quarantined</li>
+<li>Isolate the host if the detection is genuine</li>
+<li>Run a full AV/EDR scan</li>
+<li>Establish how the file arrived (download, email, USB, lateral movement)</li>
+<li>Hash the file and check threat intelligence</li>
+<li>Sweep other hosts for the same indicator</li>
+<li>Reimage if compromise is confirmed</li>
+</ul>
+<p><strong>Preventive:</strong> maintain EDR/AV, email and web filtering, application allowlisting, and user-awareness training.</p>
+<details class="note">
+<summary>Compliance Dashboard</summary>
+<p>Estate-wide NIST 800-53 view for the period; the EICAR detection appears as the level-12 alert and under SI.3 (malicious code protection).</p>
+<p><img alt="win11 - unwanted software - nist 800 53" src="images/024-wazuh-compliance-dashboard-nist-800-53-night.png" /></p>
+</details>
+<hr />
+<h4 id="new-admin-account-backdoor-pattern-win11">New admin account, backdoor pattern - Win11<a class="headerlink" href="#new-admin-account-backdoor-pattern-win11" title="Permanent link">&para;</a></h4>
+<p>On 12 July at 00:01:49.222 a new local account (<code>bdtest3</code>) was created (rule 100100). About 17 seconds later, at 00:02:06.925, the account was added to the local Administrators group, and my custom correlation rule fired at that same moment (rule 100102, level 14), flagging that a newly-created account had just been made an administrator. The elevation and the backdoor flag are the same event, so the sequence produces two alerts in total: the account creation, then the backdoor flag on the elevation. The events at 00:01:49.2xx ("Users Group Changed" and "Domain Users Group Changed") are part of the account creation (not the elevation).</p>
+<p><img alt="win11 - custom rule for backdoor pattern" src="images/023-wazuh-custom-backdoor-rule-firing.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Severity</strong></td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><strong>Observation</strong></td>
+<td>A local account was created, then added to the local Administrators group by the same logon session within minutes: the create-then-elevate pattern. A custom correlation rule links the two events, whereas the built-in rules alert on each separately but do not connect them.</td>
+</tr>
+<tr>
+<td><strong>Assessment</strong></td>
+<td>A classic persistence and privilege-escalation sequence. Legitimate administration can look identical, so the priority is confirming whether it was authorised. If not, this is a live backdoor account.</td>
+</tr>
+<tr>
+<td><strong>MITRE ATT&amp;CK</strong></td>
+<td>T1136.001 (Create Account: Local), T1098 (Account Manipulation), T1078.003 (Valid Accounts: Local Accounts). Tactics: Persistence, Privilege Escalation.</td>
+</tr>
+<tr>
+<td><strong>Violates</strong></td>
+<td>ISO 27001 A.5.16 (identity management), A.5.18 (access rights), A.8.2 (privileged access rights); NIST 800-53 AC-2 (account management), AC-6 (least privilege).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended response</strong></p>
+<ul>
+<li>Verify whether the creation and elevation were authorised (change ticket or known task)</li>
+<li>If not, disable and remove the account immediately</li>
+<li>Investigate the account that performed the action for compromise, and rotate its credentials</li>
+<li>Audit for other unauthorised privileged-group changes</li>
+<li>Hunt for persistence and lateral movement</li>
+</ul>
+<p><strong>Preventive:</strong> least privilege, privileged-access management (PAM), an approval workflow for admin grants, and alerting on privileged-group changes (which this rule provides).</p>
+<details class="note">
+<summary>Compliance Dashboards</summary>
+<p>Compliance views for the period, showing the access-control and account-management activity from this incident (NIST 800-53 and PCI DSS).</p>
+<p><img alt="win11 - backdoor pattern - nist 800 53 access-control focused" src="images/027-wazuh-compliance-dashboard-nist-800-53-ac-focused.png" /></p>
+<p><br></p>
+<p><img alt="win11 - backdoor pattern - nist 800 53 controls" src="images/028-wazuh-compliance-controls-nist-800-53.png" /></p>
+<p><br></p>
+<p><img alt="win11 - backdoor pattern - pci dss account and group activity" src="images/029-wazuh-compliance-dashboard-pci-dss-night.png" /></p>
+</details>
+<hr />
+<h4 id="repeated-logon-failures-win10">Repeated logon failures - Win10<a class="headerlink" href="#repeated-logon-failures-win10" title="Permanent link">&para;</a></h4>
+<p>On July 12, between 10:55:21.553 and 10:55:47.888, six alerts were triggered for a repeated incorrect password being entered.</p>
+<p><img alt="win10 - repeated logon failure" src="images/032-wazuh-win10-agent-authentication-failure-nist-800-53.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Severity</strong></td>
+<td>Low to Medium (would escalate if a login succeeded)</td>
+</tr>
+<tr>
+<td><strong>Observation</strong></td>
+<td>Six failed logon attempts against one account in about 26 seconds. No successful logon followed.</td>
+</tr>
+<tr>
+<td><strong>Assessment</strong></td>
+<td>On its own this is low risk, but it would escalate sharply if a successful logon followed the failures (a possible successful brute force). The Windows login screen locked (rate-limited) during the attempts, which is a control working as intended.</td>
+</tr>
+<tr>
+<td><strong>MITRE ATT&amp;CK</strong></td>
+<td>T1110 (Brute Force).</td>
+</tr>
+<tr>
+<td><strong>Violates</strong></td>
+<td>ISO 27001 A.8.5 (secure authentication); NIST 800-53 AC-7 (unsuccessful logon attempts).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended response</strong></p>
+<ul>
+<li>Confirm the source (local console vs network/RDP)</li>
+<li>Check whether any attempt succeeded</li>
+<li>Verify the account is not compromised</li>
+<li>Confirm account-lockout and rate-limiting are enforced</li>
+<li>Consider MFA</li>
+</ul>
+<p><strong>Preventive:</strong> account-lockout policy, MFA, and monitoring for password spraying (a few attempts spread across many accounts).</p>
+<hr />
+<h4 id="possible-reverse-shell-macos">Possible reverse shell - macOS<a class="headerlink" href="#possible-reverse-shell-macos" title="Permanent link">&para;</a></h4>
+<p>On July 12, at 17:16:41.708 an alert came through about a change of listened-ports status (a generic built-in netstat rule). Following this, at 17:34:46.069, a level 13 alert was triggered by my custom rule for a shell/tool holding an established outbound TCP connection.</p>
+<p><img alt="macbook - possible reverse shell" src="images/037-wazuh-mac-reverse-shell-alert-threat-hunting-events.png" /></p>
+<p><img alt="macbook - possible reverse shell - details" src="images/038-wazuh-mac-reverse-shell-alert-table.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Severity</strong></td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><strong>Observation</strong></td>
+<td>The process <code>nc</code> (netcat) on the Mac was holding an established outbound TCP connection to 192.168.0.150:4444, the classic relay used by a reverse shell. A shell or a tool like netcat holding an outbound connection is a strong indicator, though not proof on its own (some tools hold connections legitimately), so it needs investigating. A custom command-monitoring rule caught it (macOS has no built-in for this); a generic netstat alert had noticed the connection first, but without identifying the process.</td>
+</tr>
+<tr>
+<td><strong>Assessment</strong></td>
+<td>If confirmed, this is active remote control of the host (a live reverse shell). Contain first, investigate second.</td>
+</tr>
+<tr>
+<td><strong>MITRE ATT&amp;CK</strong></td>
+<td>T1059 (Command and Scripting Interpreter), T1071 (Application Layer Protocol / C2), T1571 (non-standard port).</td>
+</tr>
+<tr>
+<td><strong>Violates</strong></td>
+<td>ISO 27001 A.8.20 / A.8.21 (network security), A.8.16 (monitoring activities); NIST 800-53 SC-7 (boundary protection), SI-4 (system monitoring).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended response</strong></p>
+<ul>
+<li>Isolate the host from the network immediately to cut the C2</li>
+<li>Capture volatile evidence (process tree, <code>lsof</code>/netstat, memory) before killing the process if feasible</li>
+<li>Terminate the shell process and its parent</li>
+<li>Identify and block the C2 endpoint</li>
+<li>Determine the initial access, and hunt for persistence and lateral movement</li>
+<li>Reimage</li>
+</ul>
+<p><strong>Preventive:</strong> egress/outbound filtering, EDR, application allowlisting, network segmentation.</p>
+<details class="note">
+<summary>Alert JSON (rule 100200)</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"003"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"macbook-air"</span><span class="p">,</span><span class="w"> </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.231"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100200"</span><span class="p">,</span><span class="w"> </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Possible reverse shell (macOS): a shell/interpreter is holding an established outbound TCP connection"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"mitre"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"T1059"</span><span class="p">,</span><span class="s2">"T1071"</span><span class="p">],</span><span class="w"> </span><span class="nt">"tactic"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Execution"</span><span class="p">,</span><span class="s2">"Command and Control"</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"nist_800_53"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SI.4"</span><span class="p">,</span><span class="s2">"AU.6"</span><span class="p">],</span><span class="w"> </span><span class="nt">"pci_dss"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.6.1"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"decoder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ossec"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reverse_shell_watch"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"full_log"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ossec: output: 'reverse_shell_watch':\nnc  79339  safe  3u  IPv4 0xac95cb153497bf3a  0t0  TCP 192.168.0.231:54399-&gt;192.168.0.150:4444 (ESTABLISHED)"</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<h4 id="service-created-then-logs-cleared-win10">Service created, then logs cleared - Win10<a class="headerlink" href="#service-created-then-logs-cleared-win10" title="Permanent link">&para;</a></h4>
+<p>On July 12, at 21:05:46.059 a new Windows service was created. At 21:12:21.638, the audit log was cleared.</p>
+<p><img alt="win10 - new service was created and log was cleared" src="images/039-wazuh-atomic-red-team-events.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Severity</strong></td>
+<td>High (as a pair)</td>
+</tr>
+<tr>
+<td><strong>Observation</strong></td>
+<td>A new auto-start Windows service was created, and about 7 minutes later the Security audit log was cleared: a persist-then-cover-tracks sequence. Log clearing is rarely legitimate and is a strong anti-forensic indicator.</td>
+</tr>
+<tr>
+<td><strong>Assessment</strong></td>
+<td>Each rule is only level 5 on its own, but the combination (establishing persistence, then destroying evidence) is what an analyst would escalate on. Because logs were forwarded to the SIEM, the log-clearing destroyed nothing: the off-host copy kept the full record.</td>
+</tr>
+<tr>
+<td><strong>MITRE ATT&amp;CK</strong></td>
+<td>T1543.003 (Create/Modify System Process: Windows Service), T1070.001 (Indicator Removal: Clear Windows Event Logs). Tactics: Persistence, Privilege Escalation, Defense Evasion.</td>
+</tr>
+<tr>
+<td><strong>Violates</strong></td>
+<td>Service: ISO 27001 A.8.9 (configuration management), NIST 800-53 CM-7 (least functionality). Log clearing: ISO 27001 A.8.15 (logging), NIST 800-53 AU-9 (protection of audit information).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended response</strong></p>
+<ul>
+<li>Investigate the new service (binary path and signature; is it legitimate?)</li>
+<li>Remove it if malicious</li>
+<li>Treat the log clearing as a strong sign of active intrusion</li>
+<li>Preserve remaining logs and rely on the SIEM's off-host copy</li>
+<li>Hunt for the actor, persistence, and lateral movement</li>
+</ul>
+<p><strong>Preventive:</strong> off-host log forwarding (already in place, which is why the clearing hid nothing), restricting service-install rights, and alerting on both service creation and log clearing.</p>
+<details class="note">
+<summary>Alert JSON (rules 61138 and 63103)</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 61138 - new Windows service created</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"win10-desktop"</span><span class="p">,</span><span class="w"> </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.26"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"win"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"eventdata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"serviceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AtomicTestService_CMD"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"imagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\AtomicRedTeam\\atomics\\T1543.003\\bin\\AtomicService.exe"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"startType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto start"</span><span class="p">,</span><span class="w"> </span><span class="nt">"accountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocalSystem"</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="nt">"system"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"eventID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7045"</span><span class="p">,</span><span class="w"> </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"System"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61138"</span><span class="p">,</span><span class="w"> </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Windows Service Created"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"mitre"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"T1543.003"</span><span class="p">],</span><span class="w"> </span><span class="nt">"tactic"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Persistence"</span><span class="p">,</span><span class="s2">"Privilege Escalation"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 63103 - the audit log was cleared</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"win10-desktop"</span><span class="p">,</span><span class="w"> </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.26"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"win"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"system"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"eventID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1102"</span><span class="p">,</span><span class="w"> </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Security"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"logFileCleared"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"subjectUserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jenni"</span><span class="p">,</span><span class="w"> </span><span class="nt">"subjectDomainName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DESKTOP-KOIUNTC"</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"rule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63103"</span><span class="p">,</span><span class="w"> </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The audit log was cleared"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"mitre"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"T1070"</span><span class="p">],</span><span class="w"> </span><span class="nt">"tactic"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Defense Evasion"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<h4 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h4>
+<p>I created a custom dashboard that brings every detection above into a single pane across all three hosts: a metric summary (detection types, hosts, top severity), a per-host breakdown, a detail table (attack, host, severity), and a timeline of activity. Having everything in one view makes it easier to spot activity across the estate and to summarise it for stakeholders:</p>
+<p><img alt="custom dashboard for all three hosts covering illustrated alerts" src="images/041-wazuh-custom-dashboard.png" /></p>
+<hr />
+<h3 id="siem-setup-and-configuration">SIEM setup and configuration<a class="headerlink" href="#siem-setup-and-configuration" title="Permanent link">&para;</a></h3>
+<p>A short overview of what was set up. The full step-by-step (Docker deployment, certificate generation, agent enrolment, rule authoring) lives in the separate learning write-up.</p>
+<ul>
+<li><strong>Platform:</strong> Wazuh 4.14.5 single-node stack (manager, indexer and dashboard) running in Docker on a Windows 11 host (WSL2 backend).</li>
+<li><strong>Estate:</strong> three native agents enrolled across three operating systems (Windows 11, Windows 10 and macOS), giving real multi-OS coverage on physical machines rather than everything running as virtual machines on one host.</li>
+<li><strong>Detection engineering:</strong> two custom rules written in <a href="#local-rules-xml"><code>local_rules.xml</code></a> (AI-assisted): a Windows create-then-elevate backdoor correlation, and a macOS reverse-shell detector built on command monitoring. Both are mapped to MITRE ATT&amp;CK and tagged so they show up in the compliance dashboards.</li>
+<li><strong>Log sources:</strong> beyond the defaults, I added the Windows Defender event channel (Win11) and a macOS command-monitoring watch, and enabled the relevant Windows audit policies (account management, logon).</li>
+<li><strong>Compliance:</strong> the built-in NIST 800-53 and PCI DSS dashboards were captured as evidence (shown in the relevant incidents above), with ISO 27001 Annex A mapped manually (Wazuh has no native ISO 27001 dashboard). Full generated reports: <a href="reports/wazuh-module-agents-001-nist-1783849787.pdf">NIST 800-53 (PDF)</a>, <a href="reports/wazuh-module-agents-001-pci-1783849794.pdf">PCI DSS (PDF)</a>.</li>
+</ul>
+<p><a id="local-rules-xml"></a></p>
+<details class="note">
+<summary><code>local_rules.xml</code> (AI-assisted)</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">&lt;!--</span>
+<span class="cm">  Custom detection rules - Wazuh home lab</span>
+<span class="cm">  Author: Jennifer Skye</span>
+<span class="cm">  Use case (feeds Linear SHA-18): detect the "create-then-elevate" local</span>
+<span class="cm">  backdoor account pattern - a local account is created for persistence, then</span>
+<span class="cm">  added to the local Administrators group for privilege escalation, usually</span>
+<span class="cm">  within the same logon session.</span>
+
+<span class="cm">  DESIGN NOTES (all learned by testing + confirmed against the Wazuh docs):</span>
+
+<span class="cm">  1. A composite/correlation rule (if_matched_*) REPLACES the alert of the event</span>
+<span class="cm">     that triggers it - this is documented, intentional behaviour to reduce alert</span>
+<span class="cm">     fatigue (many signals collapse into one high-fidelity alert). So on a</span>
+<span class="cm">     create-then-elevate, the elevate event surfaces the correlation (100102),</span>
+<span class="cm">     not the component (100101). 100101 surfaces on its own for a standalone</span>
+<span class="cm">     admin-group add.</span>
+
+<span class="cm">  2. Atomic child rules (if_sid) otherwise fire ALONGSIDE their parent, which</span>
+<span class="cm">     produced duplicate alerts (e.g. 60109 + 100100 for one account creation).</span>
+<span class="cm">     For consistency, the two relevant built-ins are overwritten to level 0:</span>
+<span class="cm">     they still MATCH (so the custom child rules keep working via if_sid) but no</span>
+<span class="cm">     longer ALERT. Result - exactly one custom alert per event:</span>
+<span class="cm">        create              -&gt; 100100</span>
+<span class="cm">        standalone admin add -&gt; 100101</span>
+<span class="cm">        create-then-elevate  -&gt; 100100 + 100102</span>
+<span class="cm">--&gt;</span>
+<span class="nt">&lt;group</span><span class="w"> </span><span class="na">name=</span><span class="s">"local,windows,"</span><span class="nt">&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- ===== Silence the built-ins (still match, level 0 = no alert) ===== --&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 60109: "User account enabled or created" - superseded by 100100 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"60109"</span><span class="w"> </span><span class="na">level=</span><span class="s">"0"</span><span class="w"> </span><span class="na">overwrite=</span><span class="s">"yes"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_sid&gt;</span>60103<span class="nt">&lt;/if_sid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.system.eventID"</span><span class="nt">&gt;</span>^624$|^626$|^4720$|^4722$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>User<span class="w"> </span>account<span class="w"> </span>enabled<span class="w"> </span>or<span class="w"> </span>created<span class="w"> </span>(silenced:<span class="w"> </span>superseded<span class="w"> </span>by<span class="w"> </span>custom<span class="w"> </span>rule<span class="w"> </span>100100)<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;options&gt;</span>no_full_log<span class="nt">&lt;/options&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group&gt;</span>adduser,account_changed,<span class="nt">&lt;/group&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 60154: "Administrators Group Changed" - superseded by 100101 / 100102 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"60154"</span><span class="w"> </span><span class="na">level=</span><span class="s">"0"</span><span class="w"> </span><span class="na">overwrite=</span><span class="s">"yes"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_sid&gt;</span>60144,60145<span class="nt">&lt;/if_sid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.eventdata.targetSid"</span><span class="nt">&gt;</span>^S-1-5-32-544$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Administrators<span class="w"> </span>Group<span class="w"> </span>Changed<span class="w"> </span>(silenced:<span class="w"> </span>superseded<span class="w"> </span>by<span class="w"> </span>custom<span class="w"> </span>rules<span class="w"> </span>100101<span class="w"> </span>/<span class="w"> </span>100102)<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;options&gt;</span>no_full_log<span class="nt">&lt;/options&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group&gt;</span>group_changed,win_group_changed,<span class="nt">&lt;/group&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- ===== Custom detection rules ===== --&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 100100: a local user account was created (Event 4720).</span>
+<span class="cm">       Adds the precise technique the built-in omitted: T1136.001. --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"100100"</span><span class="w"> </span><span class="na">level=</span><span class="s">"8"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_sid&gt;</span>60109<span class="nt">&lt;/if_sid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.system.eventID"</span><span class="nt">&gt;</span>^4720$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Local<span class="w"> </span>user<span class="w"> </span>account<span class="w"> </span>created:<span class="w"> </span>$(win.eventdata.targetUserName)<span class="w"> </span>(by<span class="w"> </span>$(win.eventdata.subjectUserName))<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mitre&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1136.001<span class="nt">&lt;/id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/mitre&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group&gt;</span>adduser,skyejen_accountwatch,nist_800_53_AC.2,nist_800_53_IA.4,nist_800_53_AU.14,pci_dss_8.1.2,pci_dss_10.2.5,<span class="nt">&lt;/group&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 100101: a member was added to the LOCAL Administrators group (Event 4732).</span>
+<span class="cm">       Matches the language-independent group SID S-1-5-32-544. Corrects the</span>
+<span class="cm">       built-in's ATT&amp;CK mapping (60154 mis-tagged T1484) and raises severity.</span>
+<span class="cm">       Atomic child of 60154 - surfaces on its own for a standalone admin add. --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"100101"</span><span class="w"> </span><span class="na">level=</span><span class="s">"13"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_sid&gt;</span>60154<span class="nt">&lt;/if_sid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.system.eventID"</span><span class="nt">&gt;</span>^4732$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.eventdata.targetSid"</span><span class="nt">&gt;</span>^S-1-5-32-544$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Member<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>local<span class="w"> </span>Administrators<span class="w"> </span>group<span class="w"> </span>by<span class="w"> </span>$(win.eventdata.subjectUserName):<span class="w"> </span>privilege<span class="w"> </span>escalation<span class="w"> </span>/<span class="w"> </span>persistence<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mitre&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1098<span class="nt">&lt;/id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1078.003<span class="nt">&lt;/id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/mitre&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group&gt;</span>win_group_changed,privilege_escalation,skyejen_accountwatch,nist_800_53_AC.2,nist_800_53_AC.6,nist_800_53_AU.14,pci_dss_8.1.2,pci_dss_10.2.5,<span class="nt">&lt;/group&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 100102: CORRELATION - create-then-elevate. Sibling of 100101 (also if_sid</span>
+<span class="cm">       60154). Fires on the admin-group add only if a second skyejen_accountwatch</span>
+<span class="cm">       event (the earlier 100100 creation) occurred in the same logon session</span>
+<span class="cm">       within 5 minutes. As a composite rule it supersedes 100101 on the shared</span>
+<span class="cm">       event - by design. The if_sid gate on 4732 prevents it false-firing on two</span>
+<span class="cm">       account creations alone. --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"100102"</span><span class="w"> </span><span class="na">level=</span><span class="s">"14"</span><span class="w"> </span><span class="na">frequency=</span><span class="s">"2"</span><span class="w"> </span><span class="na">timeframe=</span><span class="s">"300"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_sid&gt;</span>60154<span class="nt">&lt;/if_sid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.system.eventID"</span><span class="nt">&gt;</span>^4732$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">"win.eventdata.targetSid"</span><span class="nt">&gt;</span>^S-1-5-32-544$<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_matched_group&gt;</span>skyejen_accountwatch<span class="nt">&lt;/if_matched_group&gt;</span>
+<span class="w">    </span><span class="nt">&lt;same_field&gt;</span>win.eventdata.subjectLogonId<span class="nt">&lt;/same_field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Backdoor<span class="w"> </span>pattern:<span class="w"> </span>recently-created<span class="w"> </span>account<span class="w"> </span>(SID<span class="w"> </span>$(win.eventdata.memberSid))<span class="w"> </span>promoted<span class="w"> </span>to<span class="w"> </span>local<span class="w"> </span>admin<span class="w"> </span>by<span class="w"> </span>$(win.eventdata.subjectUserName)<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mitre&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1136.001<span class="nt">&lt;/id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1098<span class="nt">&lt;/id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1078.003<span class="nt">&lt;/id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/mitre&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group&gt;</span>correlation,privilege_escalation,skyejen_correlation,nist_800_53_AC.2,nist_800_53_AC.6,nist_800_53_AC.7,nist_800_53_AU.14,nist_800_53_SI.4,pci_dss_10.2.5,pci_dss_10.6.1,<span class="nt">&lt;/group&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+
+<span class="nt">&lt;/group&gt;</span>
+
+<span class="cm">&lt;!--</span>
+<span class="cm">  macOS reverse-shell detection (command monitoring).</span>
+<span class="cm">  The agent runs, every 30s: lsof of ESTABLISHED TCP connections held by a</span>
+<span class="cm">  shell/interpreter (bash/sh/zsh/nc/python/perl/ruby/socat/php) - processes that</span>
+<span class="cm">  should never hold a network socket. Output is tagged 'reverse_shell_watch'.</span>
+<span class="cm">  Rule 530 is Wazuh's silent (level 0) base rule for all command output; this</span>
+<span class="cm">  child rule fires when that watch returns an ESTABLISHED connection - the</span>
+<span class="cm">  reverse-shell IOC. Built because macOS has no auditd and no built-in</span>
+<span class="cm">  reverse-shell rule; the built-in netstat rule 533 only flags a generic port</span>
+<span class="cm">  change.</span>
+<span class="cm">--&gt;</span>
+<span class="nt">&lt;group</span><span class="w"> </span><span class="na">name=</span><span class="s">"attack,reverse_shell,"</span><span class="nt">&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">id=</span><span class="s">"100200"</span><span class="w"> </span><span class="na">level=</span><span class="s">"13"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;if_sid&gt;</span>530<span class="nt">&lt;/if_sid&gt;</span>
+<span class="w">    </span><span class="nt">&lt;match&gt;</span>reverse_shell_watch<span class="nt">&lt;/match&gt;</span>
+<span class="w">    </span><span class="nt">&lt;regex&gt;</span>ESTABLISHED<span class="nt">&lt;/regex&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Possible<span class="w"> </span>reverse<span class="w"> </span>shell<span class="w"> </span>(macOS):<span class="w"> </span>a<span class="w"> </span>shell/interpreter<span class="w"> </span>is<span class="w"> </span>holding<span class="w"> </span>an<span class="w"> </span>established<span class="w"> </span>outbound<span class="w"> </span>TCP<span class="w"> </span>connection<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;mitre&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1059<span class="nt">&lt;/id&gt;</span>
+<span class="w">      </span><span class="nt">&lt;id&gt;</span>T1071<span class="nt">&lt;/id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/mitre&gt;</span>
+<span class="w">    </span><span class="nt">&lt;group&gt;</span>attack,reverse_shell,skyejen_correlation,nist_800_53_SI.4,nist_800_53_AU.6,pci_dss_10.6.1,<span class="nt">&lt;/group&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/rule&gt;</span>
+
+<span class="nt">&lt;/group&gt;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <span class="md-copyright__highlight">© 2026 Jennifer Skye</span><span class="sj-copy-sep">&nbsp;·&nbsp;</span><span class="sj-copy-tag">stay curious. keep breaking.</span>
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../sj-theme/extra.js"></script>
+      
+    
+  </body>
+</html>
