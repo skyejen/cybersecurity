@@ -18,4 +18,9 @@ The TryHackMe AI Security learning path - how AI works, how it gets attacked, an
 <span class="sj-card-title">AI Models & Data</span>
 </a>
 
+<a class="sj-card" href="ai-fundamentals/prompt-engineering/" markdown="span">
+<span class="sj-card-icon">:material-message-text-outline:</span>
+<span class="sj-card-title">Prompt Engineering</span>
+</a>
+
 </div>
