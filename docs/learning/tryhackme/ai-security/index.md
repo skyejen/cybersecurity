@@ -23,4 +23,9 @@ The TryHackMe AI Security learning path - how AI works, how it gets attacked, an
 <span class="sj-card-title">Prompt Engineering</span>
 </a>
 
+<a class="sj-card" href="ai-fundamentals/ai-forensics/" markdown="span">
+<span class="sj-card-icon">:material-magnify-scan:</span>
+<span class="sj-card-title">AI Forensics</span>
+</a>
+
 </div>
