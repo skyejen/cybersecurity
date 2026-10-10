@@ -29,3 +29,14 @@ The TryHackMe AI Security learning path - how AI works, how it gets attacked, an
 </a>
 
 </div>
+
+## :material-shield-lock-outline: Secure AI Systems
+
+<div class="sj-cards sj-cards--compact" markdown>
+
+<a class="sj-card" href="secure-ai-systems/securing-ai-systems/" markdown="span">
+<span class="sj-card-icon">:material-shield-lock-outline:</span>
+<span class="sj-card-title">Securing AI Systems</span>
+</a>
+
+</div>

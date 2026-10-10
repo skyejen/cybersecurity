@@ -151,6 +151,8 @@ nav:
           - AI Models & Data: learning/tryhackme/ai-security/ai-fundamentals/ai-models-and-data.md
           - Prompt Engineering: learning/tryhackme/ai-security/ai-fundamentals/prompt-engineering.md
           - AI Forensics: learning/tryhackme/ai-security/ai-fundamentals/ai-forensics.md
+        - Secure AI Systems:
+          - Securing AI Systems: learning/tryhackme/ai-security/secure-ai-systems/securing-ai-systems.md
       - DevSecOps:
         - learning/tryhackme/devsecops/index.md
         - Secure Software Development:
