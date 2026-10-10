@@ -1,0 +1,127 @@
+<!--
+  Custom detection rules - Wazuh home lab
+  Author: Jennifer Skye
+  Use case (feeds Linear SHA-18): detect the "create-then-elevate" local
+  backdoor account pattern - a local account is created for persistence, then
+  added to the local Administrators group for privilege escalation, usually
+  within the same logon session.
+
+  DESIGN NOTES (all learned by testing + confirmed against the Wazuh docs):
+
+  1. A composite/correlation rule (if_matched_*) REPLACES the alert of the event
+     that triggers it - this is documented, intentional behaviour to reduce alert
+     fatigue (many signals collapse into one high-fidelity alert). So on a
+     create-then-elevate, the elevate event surfaces the correlation (100102),
+     not the component (100101). 100101 surfaces on its own for a standalone
+     admin-group add.
+
+  2. Atomic child rules (if_sid) otherwise fire ALONGSIDE their parent, which
+     produced duplicate alerts (e.g. 60109 + 100100 for one account creation).
+     For consistency, the two relevant built-ins are overwritten to level 0:
+     they still MATCH (so the custom child rules keep working via if_sid) but no
+     longer ALERT. Result - exactly one custom alert per event:
+        create              -> 100100
+        standalone admin add -> 100101
+        create-then-elevate  -> 100100 + 100102
+-->
+<group name="local,windows,">
+
+  <!-- ===== Silence the built-ins (still match, level 0 = no alert) ===== -->
+
+  <!-- 60109: "User account enabled or created" - superseded by 100100 -->
+  <rule id="60109" level="0" overwrite="yes">
+    <if_sid>60103</if_sid>
+    <field name="win.system.eventID">^624$|^626$|^4720$|^4722$</field>
+    <description>User account enabled or created (silenced: superseded by custom rule 100100)</description>
+    <options>no_full_log</options>
+    <group>adduser,account_changed,</group>
+  </rule>
+
+  <!-- 60154: "Administrators Group Changed" - superseded by 100101 / 100102 -->
+  <rule id="60154" level="0" overwrite="yes">
+    <if_sid>60144,60145</if_sid>
+    <field name="win.eventdata.targetSid">^S-1-5-32-544$</field>
+    <description>Administrators Group Changed (silenced: superseded by custom rules 100101 / 100102)</description>
+    <options>no_full_log</options>
+    <group>group_changed,win_group_changed,</group>
+  </rule>
+
+  <!-- ===== Custom detection rules ===== -->
+
+  <!-- 100100: a local user account was created (Event 4720).
+       Adds the precise technique the built-in omitted: T1136.001. -->
+  <rule id="100100" level="8">
+    <if_sid>60109</if_sid>
+    <field name="win.system.eventID">^4720$</field>
+    <description>Local user account created: $(win.eventdata.targetUserName) (by $(win.eventdata.subjectUserName))</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>adduser,skyejen_accountwatch,nist_800_53_AC.2,nist_800_53_IA.4,nist_800_53_AU.14,pci_dss_8.1.2,pci_dss_10.2.5,</group>
+  </rule>
+
+  <!-- 100101: a member was added to the LOCAL Administrators group (Event 4732).
+       Matches the language-independent group SID S-1-5-32-544. Corrects the
+       built-in's ATT&CK mapping (60154 mis-tagged T1484) and raises severity.
+       Atomic child of 60154 - surfaces on its own for a standalone admin add. -->
+  <rule id="100101" level="13">
+    <if_sid>60154</if_sid>
+    <field name="win.system.eventID">^4732$</field>
+    <field name="win.eventdata.targetSid">^S-1-5-32-544$</field>
+    <description>Member added to the local Administrators group by $(win.eventdata.subjectUserName): privilege escalation / persistence</description>
+    <mitre>
+      <id>T1098</id>
+      <id>T1078.003</id>
+    </mitre>
+    <group>win_group_changed,privilege_escalation,skyejen_accountwatch,nist_800_53_AC.2,nist_800_53_AC.6,nist_800_53_AU.14,pci_dss_8.1.2,pci_dss_10.2.5,</group>
+  </rule>
+
+  <!-- 100102: CORRELATION - create-then-elevate. Sibling of 100101 (also if_sid
+       60154). Fires on the admin-group add only if a second skyejen_accountwatch
+       event (the earlier 100100 creation) occurred in the same logon session
+       within 5 minutes. As a composite rule it supersedes 100101 on the shared
+       event - by design. The if_sid gate on 4732 prevents it false-firing on two
+       account creations alone. -->
+  <rule id="100102" level="14" frequency="2" timeframe="300">
+    <if_sid>60154</if_sid>
+    <field name="win.system.eventID">^4732$</field>
+    <field name="win.eventdata.targetSid">^S-1-5-32-544$</field>
+    <if_matched_group>skyejen_accountwatch</if_matched_group>
+    <same_field>win.eventdata.subjectLogonId</same_field>
+    <description>Backdoor pattern: recently-created account (SID $(win.eventdata.memberSid)) promoted to local admin by $(win.eventdata.subjectUserName)</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1098</id>
+      <id>T1078.003</id>
+    </mitre>
+    <group>correlation,privilege_escalation,skyejen_correlation,nist_800_53_AC.2,nist_800_53_AC.6,nist_800_53_AC.7,nist_800_53_AU.14,nist_800_53_SI.4,pci_dss_10.2.5,pci_dss_10.6.1,</group>
+  </rule>
+
+</group>
+
+<!--
+  macOS reverse-shell detection (command monitoring).
+  The agent runs, every 30s: lsof of ESTABLISHED TCP connections held by a
+  shell/interpreter (bash/sh/zsh/nc/python/perl/ruby/socat/php) - processes that
+  should never hold a network socket. Output is tagged 'reverse_shell_watch'.
+  Rule 530 is Wazuh's silent (level 0) base rule for all command output; this
+  child rule fires when that watch returns an ESTABLISHED connection - the
+  reverse-shell IOC. Built because macOS has no auditd and no built-in
+  reverse-shell rule; the built-in netstat rule 533 only flags a generic port
+  change.
+-->
+<group name="attack,reverse_shell,">
+
+  <rule id="100200" level="13">
+    <if_sid>530</if_sid>
+    <match>reverse_shell_watch</match>
+    <regex>ESTABLISHED</regex>
+    <description>Possible reverse shell (macOS): a shell/interpreter is holding an established outbound TCP connection</description>
+    <mitre>
+      <id>T1059</id>
+      <id>T1071</id>
+    </mitre>
+    <group>attack,reverse_shell,skyejen_correlation,nist_800_53_SI.4,nist_800_53_AU.6,pci_dss_10.6.1,</group>
+  </rule>
+
+</group>
