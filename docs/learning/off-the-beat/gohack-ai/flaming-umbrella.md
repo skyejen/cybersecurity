@@ -2,7 +2,7 @@
 
 <div class="sj-meta" markdown>
 
-:material-shield-star-outline: **Path:** Off the Beat > gohack.ai > Leaky Inbox
+:material-shield-star-outline: **Path:** Off the Beat > gohack.ai > Leaking the Inbox
 
 :material-calendar-month-outline: **Date:** 01/11/2026
 

@@ -60,18 +60,29 @@ def _nav_paths(nav) -> set:
     return paths
 
 
-def _where(text: str):
+def _crumbs(text: str):
+    """The breadcrumb segments from the Path / Bucket meta line, in order."""
     for line in text.splitlines():
         for label in ("**Path:**", "**Bucket:**"):
             if label in line:
-                parts = [p.strip() for p in line.split(label, 1)[1].split(">")]
-                parts = [p for p in parts if p]
-                if not parts:
-                    return ""
-                # "Off the Beat" is a catch-all bucket; the platform sits one deeper.
-                if parts[0] == "Off the Beat" and len(parts) > 1:
-                    return parts[1]
-                return parts[0]
+                return [p.strip() for p in line.split(label, 1)[1].split(">") if p.strip()]
+    return []
+
+
+def _room(text: str):
+    """Short display title: the last breadcrumb segment (the room / challenge
+    name), which is tidier than the H1 (e.g. 'Leaking the Inbox', not
+    'Flaming Umbrella: Leaking the Inbox')."""
+    crumbs = _crumbs(text)
+    return crumbs[-1] if crumbs else None
+
+
+def _platform(rel_parts) -> str:
+    """The platform a write-up belongs to, from its path."""
+    if "gohack-ai" in rel_parts:
+        return "gohack.ai"
+    if "tryhackme" in rel_parts:
+        return "TryHackMe"
     return ""
 
 
@@ -88,15 +99,16 @@ def on_post_build(config):
         text = p.read_text(encoding="utf-8")
         if "**Date:**" not in text:
             continue
-        d, title = _date(text), _title(text)
+        d = _date(text)
+        title = _room(text) or _title(text)
         if not d or not title:
             continue
-        rel = p.relative_to(docs).with_suffix("").as_posix()
+        rel = p.relative_to(docs).with_suffix("")
         items.append({
             "title": title,
-            "url": f"{site_url}/{rel}/",
+            "url": f"{site_url}/{rel.as_posix()}/",
             "date": d.isoformat(),
-            "where": _where(text),
+            "platform": _platform(rel.parts),
         })
     items.sort(key=lambda x: x["date"], reverse=True)
     payload = {"generated": date.today().isoformat(), "items": items[:_LIMIT]}
