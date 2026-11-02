@@ -99,6 +99,7 @@ not_in_nav: |
 
 hooks:
   - hooks/writeup_counts.py
+  - hooks/latest_feed.py
 
 nav:
   - Home: index.md
