@@ -1,0 +1,65 @@
+{
+  "generated": "2026-11-02",
+  "items": [
+    {
+      "title": "Leaking the Inbox",
+      "url": "https://skyejen.github.io/cybersecurity/learning/off-the-beat/gohack-ai/flaming-umbrella/",
+      "date": "2026-11-01",
+      "platform": "gohack.ai"
+    },
+    {
+      "title": "Securing AI Systems",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/ai-security/secure-ai-systems/securing-ai-systems/",
+      "date": "2026-09-15",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "AI Forensics",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/ai-security/ai-fundamentals/ai-forensics/",
+      "date": "2026-09-03",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "Prompt Engineering",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/ai-security/ai-fundamentals/prompt-engineering/",
+      "date": "2026-08-25",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "AI Models & Data",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/ai-security/ai-fundamentals/ai-models-and-data/",
+      "date": "2026-08-18",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "The Building Blocks of AI + AI Security Threats",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/ai-security/ai-fundamentals/ai-101/",
+      "date": "2026-08-11",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "Complimentary",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/side-quests/hacker-holidays/03-complimentary/",
+      "date": "2026-07-30",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "Packed Light",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/side-quests/hacker-holidays/04-packed-light/",
+      "date": "2026-07-30",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "Introduction to DevSecOps",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/devsecops/secure-software-development/introduction-to-devsecops/",
+      "date": "2026-07-29",
+      "platform": "TryHackMe"
+    },
+    {
+      "title": "Room 404",
+      "url": "https://skyejen.github.io/cybersecurity/learning/tryhackme/side-quests/hacker-holidays/02-room-404/",
+      "date": "2026-07-28",
+      "platform": "TryHackMe"
+    }
+  ]
+}
