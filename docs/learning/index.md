@@ -68,6 +68,13 @@ _(If you are after my "professional" writing, check out the [portfolio](../portf
 <span class="sj-card-meta">SIEM <span class="sj-dot">·</span> home lab</span>
 </a>
 
+<a class="sj-card" href="off-the-beat/gohack-ai/flaming-umbrella/" markdown="span">
+<span class="sj-card-icon">:material-robot-angry-outline:</span>
+<span class="sj-card-title">gohack.ai</span>
+<span class="sj-card-desc" title="Breaking AI agents on purpose. First up: leaking a secret out of a CEO's inbox via an assistant that 'only reads email'.">Breaking AI agents on purpose, starting with an inbox leak.</span>
+<span class="sj-card-meta">prompt injection <span class="sj-dot">·</span> exfil</span>
+</a>
+
 </div>
 
 ---
