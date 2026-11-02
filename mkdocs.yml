@@ -173,6 +173,9 @@ nav:
       - Home Labs:
         - learning/off-the-beat/home-labs/index.md
         - Wazuh: learning/off-the-beat/home-labs/wazuh.md
+      - gohack.ai:
+        - learning/off-the-beat/gohack-ai/index.md
+        - Flaming Umbrella: learning/off-the-beat/gohack-ai/flaming-umbrella.md
 
 # Exclude the sj-theme submodule's own markdown (its README) from the built site.
 # The submodule lives under docs/, but only its extra.css / extra.js are real assets.
